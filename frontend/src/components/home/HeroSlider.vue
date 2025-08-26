@@ -86,22 +86,25 @@
       </button>
     </div>
 
-    <!-- Slider Dots -->
-    <div class="slider-dots" v-show="slides.length > 1">
-      <button 
-        v-for="(_slide, index) in slides" 
-        :key="index"
-        class="dot"
-        :class="{ 'active': currentSlide === index }"
-        @click="goToSlide(index)"
-      ></button>
-    </div>
-    
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1500">
-      <div class="scroll-text">Scroll Down</div>
-      <div class="scroll-arrow">
-        <i class="fas fa-chevron-down"></i>
+    <!-- Bottom Controls Container -->
+    <div class="bottom-controls" v-show="slides.length > 1">
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1500">
+        <div class="scroll-text">Scroll Down</div>
+        <div class="scroll-arrow">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      
+      <!-- Slider Dots -->
+      <div class="slider-dots">
+        <button 
+          v-for="(_slide, index) in slides" 
+          :key="index"
+          class="dot"
+          :class="{ 'active': currentSlide === index }"
+          @click="goToSlide(index)"
+        ></button>
       </div>
     </div>
   </section>
@@ -674,39 +677,46 @@ onUnmounted(() => {
 
 .slider-dots {
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 10px;
+  gap: 12px;
   z-index: 3;
+  justify-content: center;
+  align-items: center;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     background-color: var(--white);
-    transform: scale(1.2);
+    transform: scale(1.3);
+    border-color: var(--white);
   }
   
   &.active {
     background-color: var(--primary-color);
-    transform: scale(1.2);
-    box-shadow: 0 0 20px rgba(255, 95, 19, 0.5);
+    transform: scale(1.3);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 25px rgba(255, 95, 19, 0.6);
   }
 }
 
 // Scroll Indicator
 .scroll-indicator {
   position: absolute;
-  bottom: 80px;
+  bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -714,6 +724,10 @@ onUnmounted(() => {
   z-index: 3;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     transform: translateX(-50%) translateY(-5px);
@@ -725,10 +739,15 @@ onUnmounted(() => {
     letter-spacing: 2px;
     margin-bottom: 10px;
     opacity: 0.8;
+    text-align: center;
+    width: 100%;
   }
   
   .scroll-arrow {
     animation: bounce 2s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     i {
       font-size: 20px;
