@@ -1,0 +1,613 @@
+<template>
+  <footer class="footer">
+    <!-- Arrow Animation at Top -->
+    <div class="footer-arrow" @click="scrollToTop">
+      <div class="arrow-container">
+        <i class="fas fa-chevron-up"></i>
+      </div>
+    </div>
+
+    <div class="footer-content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Company Info -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="footer-widget" data-aos="fade-up">
+              <div class="footer-logo">
+                <div class="logo-container">
+                  <div class="logo-icon">
+                    <i class="fas fa-hard-hat"></i>
+                  </div>
+                  <div class="logo-text">
+                    <span class="logo-title">SKS</span>
+                    <span class="logo-subtitle">CONSTRUCTIONS</span>
+                  </div>
+                </div>
+              </div>
+              <p class="footer-description">
+                SKS Constructions is a leading construction company specializing in advanced engineering techniques and innovative building solutions. We deliver excellence in every project with over 25 years of experience.
+              </p>
+              <div class="footer-social">
+                <a href="#" class="social-link" title="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" title="Twitter">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" title="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link" title="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" title="YouTube">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="footer-widget" data-aos="fade-up" data-aos-delay="100">
+              <h4 class="footer-title">
+                <i class="fas fa-link"></i>
+                Quick Links
+              </h4>
+              <ul class="footer-links">
+                <li><router-link to="/about"><i class="fas fa-chevron-right"></i>About Us</router-link></li>
+                <li><router-link to="/services"><i class="fas fa-chevron-right"></i>Our Services</router-link></li>
+                <li><router-link to="/projects"><i class="fas fa-chevron-right"></i>Projects</router-link></li>
+                <li><router-link to="/team"><i class="fas fa-chevron-right"></i>Our Team</router-link></li>
+                <li><router-link to="/contact"><i class="fas fa-chevron-right"></i>Contact Us</router-link></li>
+                <li><router-link to="/blog"><i class="fas fa-chevron-right"></i>Latest News</router-link></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="footer-widget" data-aos="fade-up" data-aos-delay="200">
+              <h4 class="footer-title">
+                <i class="fas fa-phone"></i>
+                Contact Info
+              </h4>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h5>Address</h5>
+                    <p>123 Construction Ave, Building District, New York, NY 10001</p>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h5>Phone</h5>
+                    <p>+1 (555) 123-4567</p>
+                    <p>+1 (555) 987-6543</p>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h5>Email</h5>
+                    <p>info@sksconstructions.com</p>
+                    <p>support@sksconstructions.com</p>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h5>Working Hours</h5>
+                    <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
+                    <p>Sat: 9:00 AM - 4:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="footer-widget" data-aos="fade-up" data-aos-delay="300">
+              <h4 class="footer-title">
+                <i class="fas fa-newspaper"></i>
+                Newsletter
+              </h4>
+              <p class="newsletter-description">
+                Subscribe to our newsletter for the latest construction news, project updates, and industry insights.
+              </p>
+              <form class="newsletter-form" @submit.prevent="subscribeNewsletter">
+                <div class="form-group">
+                  <input 
+                    type="email" 
+                    class="form-control" 
+                    placeholder="Enter your email address"
+                    v-model="email"
+                    required
+                  />
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Subscribe</span>
+                  </button>
+                </div>
+              </form>
+              
+              <!-- Construction Stats -->
+              <div class="construction-stats">
+                <div class="stat-item">
+                  <div class="stat-number">500+</div>
+                  <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number">25+</div>
+                  <div class="stat-label">Years</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number">100+</div>
+                  <div class="stat-label">Team</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="copyright">
+              © {{ currentYear }} SKS Constructions. All rights reserved. Made with 
+              <i class="fas fa-heart text-primary"></i> 
+              by SKS Team
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="footer-bottom-links">
+              <router-link to="/privacy">Privacy Policy</router-link>
+              <router-link to="/terms">Terms of Service</router-link>
+              <router-link to="/sitemap">Sitemap</router-link>
+              <router-link to="/careers">Careers</router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+
+const email = ref('')
+const currentYear = computed(() => new Date().getFullYear())
+
+const subscribeNewsletter = () => {
+  // Handle newsletter subscription
+  console.log('Newsletter subscription:', email.value)
+  email.value = ''
+  // You can add actual API call here
+}
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+</script>
+
+<style lang="scss" scoped>
+.footer {
+  background: linear-gradient(135deg, #070b11 0%, #0e132a 100%);
+  color: var(--white);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ff5f13" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+  }
+}
+
+.footer-arrow {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.arrow-container {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-default);
+  animation: float 2s ease-in-out infinite;
+  box-shadow: 0 5px 20px rgba(255, 95, 19, 0.3);
+  
+  &:hover {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 95, 19, 0.5);
+  }
+  
+  i {
+    color: var(--white);
+    font-size: 16px;
+  }
+}
+
+.footer-content {
+  padding: 130px 0 100px;
+  position: relative;
+  z-index: 2;
+  
+  @media (max-width: 768px) {
+    padding: 80px 0 60px;
+  }
+}
+
+.footer-widget {
+  margin-bottom: 40px;
+  
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.footer-logo {
+  margin-bottom: 25px;
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+  }
+  
+  .logo-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    animation: pulse 2s infinite;
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 95, 19, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(255, 95, 19, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 95, 19, 0);
+      }
+    }
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    
+    .logo-title {
+      font-family: var(--font-secondary);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary-color);
+      line-height: 1;
+    }
+    
+    .logo-subtitle {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.footer-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border-radius: 50%;
+  transition: var(--transition-default);
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px) rotate(360deg);
+    box-shadow: 0 10px 20px rgba(255, 95, 19, 0.3);
+  }
+  
+  i {
+    font-size: 16px;
+  }
+}
+
+.footer-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  i {
+    color: var(--primary-color);
+    font-size: 18px;
+  }
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    margin-bottom: 12px;
+    
+    a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition-default);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      
+      i {
+        font-size: 10px;
+        color: var(--primary-color);
+        transition: var(--transition-default);
+      }
+      
+      &:hover {
+        color: var(--primary-color);
+        transform: translateX(5px);
+        
+        i {
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+}
+
+.contact-info {
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 95, 19, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      
+      i {
+        color: var(--primary-color);
+        font-size: 16px;
+      }
+    }
+    
+    .contact-details {
+      h5 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: var(--white);
+      }
+      
+      p {
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+        line-height: 1.4;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.newsletter-description {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  margin-bottom: 30px;
+  
+  .form-group {
+    position: relative;
+    
+    .form-control {
+      width: 100%;
+      padding: 15px 140px 15px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      
+      &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+    
+    .btn {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      padding: 10px 20px;
+      font-size: 12px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      
+      i {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.construction-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+  
+  .stat-item {
+    text-align: center;
+    
+    .stat-number {
+      font-family: var(--font-secondary);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-color);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 30px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  
+  .fa-heart {
+    color: var(--primary-color);
+    animation: heartbeat 1s ease-in-out infinite;
+  }
+}
+
+.footer-bottom-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition-default);
+    
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+</style>

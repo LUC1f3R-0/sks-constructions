@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "sks-constructions-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,11 +9,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.18"
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "aos": "^2.3.4",
+    "bootstrap": "^4.6.2",
+    "counterup2": "^2.0.2",
+    "jquery": "^3.7.1",
+    "magnific-popup": "^1.1.0",
+    "slick-carousel": "^1.8.1",
+    "vue": "^3.5.18",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.7.0",
+    "sass": "^1.69.5",
     "typescript": "~5.8.3",
     "vite": "^7.1.2",
     "vue-tsc": "^3.0.5"

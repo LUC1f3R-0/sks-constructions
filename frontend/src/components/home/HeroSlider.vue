@@ -1,0 +1,654 @@
+<template>
+  <section class="hero-slider">
+    <!-- Construction Particles Background -->
+    <div class="construction-particles">
+      <div class="particle" v-for="i in 20" :key="i" :style="getParticleStyle(i)"></div>
+    </div>
+    
+    <div class="hero-slides">
+      <div 
+        v-for="(slide, index) in slides" 
+        :key="index"
+        class="hero-slide"
+        :class="{ 'active': currentSlide === index }"
+        :style="{ backgroundImage: `url(${slide.background})` }"
+      >
+        <div class="slide-overlay"></div>
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-lg-8 col-md-10">
+              <div class="hero-content" data-aos="fade-up" data-aos-delay="300">
+                <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
+                  <i class="fas fa-hard-hat"></i>
+                  <span>Professional Construction Services</span>
+                </div>
+                <h1 class="hero-title">
+                  <span class="title-main">SKS</span>
+                  <div class="animated-text-container">
+                    <span class="animated-text-stroke">Construction</span>
+                    <span class="animated-text-fill">Construction</span>
+                  </div>
+                </h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="500">
+                  {{ slide.subtitle }}
+                </p>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="600">
+                  <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number" data-count="25">0</div>
+                    <div class="stat-label">Years Experience</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">Team Members</div>
+                  </div>
+                </div>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
+                  <router-link to="/services" class="btn btn-primary construction-btn">
+                    <i class="fas fa-tools"></i>
+                    Our Services
+                  </router-link>
+                  <router-link to="/contact" class="btn btn-outline construction-btn">
+                    <i class="fas fa-phone"></i>
+                    Get Quote
+                  </router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Construction Elements -->
+        <div class="construction-elements">
+          <div class="element crane" data-aos="fade-left" data-aos-delay="1000">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="element blueprint" data-aos="fade-right" data-aos-delay="1200">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+          <div class="element hammer" data-aos="fade-up" data-aos-delay="1400">
+            <i class="fas fa-hammer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Navigation -->
+    <div class="slider-nav">
+      <button class="nav-btn prev-btn" @click="prevSlide" v-show="slides.length > 1">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="nav-btn next-btn" @click="nextSlide" v-show="slides.length > 1">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- Slider Dots -->
+    <div class="slider-dots" v-show="slides.length > 1">
+      <button 
+        v-for="(slide, index) in slides" 
+        :key="index"
+        class="dot"
+        :class="{ 'active': currentSlide === index }"
+        @click="goToSlide(index)"
+      ></button>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1500">
+      <div class="scroll-text">Scroll Down</div>
+      <div class="scroll-arrow">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const currentSlide = ref(0)
+let autoplayInterval: number | null = null
+
+const slides = [
+  {
+    background: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    subtitle: 'Advanced engineering techniques & innovative building solutions for modern construction projects'
+  },
+  {
+    background: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    subtitle: 'Professional construction services with excellence in every project we undertake'
+  },
+  {
+    background: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    subtitle: 'Building the future with cutting-edge technology and unmatched expertise'
+  }
+]
+
+const getParticleStyle = (index: number) => {
+  const delay = Math.random() * 5
+  const duration = 3 + Math.random() * 4
+  const size = 2 + Math.random() * 4
+  const left = Math.random() * 100
+  
+  return {
+    left: `${left}%`,
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+    width: `${size}px`,
+    height: `${size}px`
+  }
+}
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % slides.length
+}
+
+const prevSlide = () => {
+  currentSlide.value = currentSlide.value === 0 ? slides.length - 1 : currentSlide.value - 1
+}
+
+const goToSlide = (index: number) => {
+  currentSlide.value = index
+}
+
+const startAutoplay = () => {
+  autoplayInterval = window.setInterval(() => {
+    nextSlide()
+  }, 5000)
+}
+
+const stopAutoplay = () => {
+  if (autoplayInterval) {
+    clearInterval(autoplayInterval)
+    autoplayInterval = null
+  }
+}
+
+const animateNumbers = () => {
+  const statNumbers = document.querySelectorAll('.stat-number')
+  statNumbers.forEach((element) => {
+    const target = parseInt(element.getAttribute('data-count') || '0')
+    const duration = 2000
+    const increment = target / (duration / 16)
+    let current = 0
+    
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= target) {
+        current = target
+        clearInterval(timer)
+      }
+      element.textContent = Math.floor(current).toString()
+    }, 16)
+  })
+}
+
+onMounted(() => {
+  startAutoplay()
+  
+  // Animate numbers when component mounts
+  setTimeout(() => {
+    animateNumbers()
+  }, 1000)
+  
+  // Re-animate numbers on slide change
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          animateNumbers()
+        }, 500)
+      }
+    })
+  })
+  
+  const heroContent = document.querySelector('.hero-content')
+  if (heroContent) {
+    observer.observe(heroContent)
+  }
+})
+
+onUnmounted(() => {
+  stopAutoplay()
+})
+</script>
+
+<style lang="scss" scoped>
+.hero-slider {
+  position: relative;
+  height: 100vh;
+  min-height: 900px;
+  overflow: hidden;
+  
+  @media (max-width: 768px) {
+    height: 100vh;
+    min-height: 600px;
+  }
+  
+  @media (max-width: 576px) {
+    min-height: 500px;
+  }
+}
+
+// Construction Particles
+.construction-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: floatParticle linear infinite;
+  
+  @keyframes floatParticle {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    90% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+}
+
+.hero-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  
+  &.active {
+    opacity: 1;
+  }
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(2, 26, 71, 0.85) 0%, rgba(0, 35, 91, 0.75) 50%, rgba(255, 95, 19, 0.3) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 95, 19, 0.9);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  
+  i {
+    font-size: 16px;
+  }
+}
+
+.hero-title {
+  margin-bottom: 30px;
+  
+  .title-main {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: 140px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    @media (max-width: 768px) {
+      font-size: 80px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 60px;
+    }
+  }
+}
+
+.animated-text-container {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-text-stroke,
+.animated-text-fill {
+  font-family: var(--font-secondary);
+  font-size: 140px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  
+  @media (max-width: 768px) {
+    font-size: 80px;
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 60px;
+  }
+}
+
+.animated-text-stroke {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--white);
+  animation: clipPathAnimation 4s infinite;
+}
+
+.animated-text-fill {
+  color: var(--primary-color);
+  animation: clipPathAnimation 4s infinite reverse;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes clipPathAnimation {
+  0%, 100% {
+    clip-path: inset(0 0 0 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 40px;
+  max-width: 600px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+  
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.stat-item {
+  text-align: center;
+  
+  .stat-number {
+    font-family: var(--font-secondary);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.construction-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  i {
+    font-size: 16px;
+  }
+}
+
+// Construction Elements
+.construction-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.element {
+  position: absolute;
+  color: var(--primary-color);
+  font-size: 24px;
+  opacity: 0.1;
+  animation: float 3s ease-in-out infinite;
+  
+  &.crane {
+    top: 20%;
+    right: 10%;
+    animation-delay: 0s;
+  }
+  
+  &.blueprint {
+    bottom: 30%;
+    left: 5%;
+    animation-delay: 1s;
+  }
+  
+  &.hammer {
+    top: 60%;
+    right: 20%;
+    animation-delay: 2s;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 3;
+  pointer-events: none;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 95, 19, 0.9);
+  border: none;
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition-default);
+  pointer-events: auto;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    background: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 95, 19, 0.3);
+  }
+  
+  &.prev-btn {
+    left: 30px;
+  }
+  
+  &.next-btn {
+    right: 30px;
+  }
+  
+  i {
+    font-size: 18px;
+  }
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-default);
+  
+  &:hover {
+    background-color: var(--white);
+    transform: scale(1.2);
+  }
+  
+  &.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 95, 19, 0.5);
+  }
+}
+
+// Scroll Indicator
+.scroll-indicator {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--white);
+  z-index: 3;
+  
+  .scroll-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  
+  .scroll-arrow {
+    animation: bounce 2s infinite;
+    
+    i {
+      font-size: 20px;
+      color: var(--primary-color);
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+</style>
