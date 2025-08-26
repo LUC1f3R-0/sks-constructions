@@ -2,7 +2,7 @@
   <section class="hero-slider">
     <!-- Construction Particles Background -->
     <div class="construction-particles">
-      <div class="particle" v-for="i in 20" :key="i" :style="getParticleStyle(i)"></div>
+      <div class="particle" v-for="i in 15" :key="i" :style="getParticleStyle(i)"></div>
     </div>
     
     <div class="hero-slides">
@@ -251,6 +251,7 @@ onUnmounted(() => {
   border-radius: 50%;
   opacity: 0.3;
   animation: floatParticle linear infinite;
+  will-change: transform;
   
   @keyframes floatParticle {
     0% {
@@ -308,6 +309,18 @@ onUnmounted(() => {
   position: relative;
   z-index: 2;
   color: var(--white);
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-badge {
@@ -322,6 +335,12 @@ onUnmounted(() => {
   font-weight: 600;
   margin-bottom: 30px;
   backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 95, 19, 0.3);
+  }
   
   i {
     font-size: 16px;
@@ -340,6 +359,7 @@ onUnmounted(() => {
     line-height: 1;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: slideInLeft 1.2s ease-out 0.3s both;
     
     @media (max-width: 768px) {
       font-size: 80px;
@@ -351,9 +371,41 @@ onUnmounted(() => {
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .animated-text-container {
   position: relative;
   display: inline-block;
+  margin-left: 70px;
+  animation: slideInRight 1.2s ease-out 0.6s both;
+  
+  @media (max-width: 768px) {
+    margin-left: 40px;
+  }
+  
+  @media (max-width: 576px) {
+    margin-left: 20px;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .animated-text-stroke,
@@ -404,9 +456,19 @@ onUnmounted(() => {
   max-width: 600px;
   line-height: 1.6;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-out 0.9s both;
   
   @media (max-width: 768px) {
     font-size: 16px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -414,6 +476,7 @@ onUnmounted(() => {
   display: flex;
   gap: 40px;
   margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out 1.2s both;
   
   @media (max-width: 768px) {
     gap: 20px;
@@ -427,6 +490,11 @@ onUnmounted(() => {
 
 .stat-item {
   text-align: center;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
   
   .stat-number {
     font-family: var(--font-secondary);
@@ -454,6 +522,7 @@ onUnmounted(() => {
 .hero-buttons {
   display: flex;
   gap: 20px;
+  animation: fadeInUp 1s ease-out 1.5s both;
   
   @media (max-width: 576px) {
     flex-direction: column;
@@ -467,6 +536,12 @@ onUnmounted(() => {
   gap: 10px;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
   
   &::before {
     content: '';
@@ -485,6 +560,11 @@ onUnmounted(() => {
   
   i {
     font-size: 16px;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover i {
+    transform: scale(1.1);
   }
 }
 
@@ -505,6 +585,12 @@ onUnmounted(() => {
   font-size: 24px;
   opacity: 0.1;
   animation: float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    opacity: 0.2;
+    transform: scale(1.1);
+  }
   
   &.crane {
     top: 20%;
@@ -558,7 +644,7 @@ onUnmounted(() => {
   color: var(--white);
   border-radius: 50%;
   cursor: pointer;
-  transition: var(--transition-default);
+  transition: all 0.3s ease;
   pointer-events: auto;
   backdrop-filter: blur(10px);
   
@@ -578,6 +664,11 @@ onUnmounted(() => {
   
   i {
     font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover i {
+    transform: scale(1.2);
   }
 }
 
@@ -598,7 +689,7 @@ onUnmounted(() => {
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
   cursor: pointer;
-  transition: var(--transition-default);
+  transition: all 0.3s ease;
   
   &:hover {
     background-color: var(--white);
@@ -621,6 +712,12 @@ onUnmounted(() => {
   text-align: center;
   color: var(--white);
   z-index: 3;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateX(-50%) translateY(-5px);
+  }
   
   .scroll-text {
     font-size: 12px;

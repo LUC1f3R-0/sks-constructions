@@ -438,6 +438,7 @@ const filterProjects = (category: string) => {
     font-size: 20px;
     color: var(--white);
   }
+
 }
 
 .overlay-title {
@@ -593,3 +594,4 @@ const filterProjects = (category: string) => {
   }
 }
 </style>
+
