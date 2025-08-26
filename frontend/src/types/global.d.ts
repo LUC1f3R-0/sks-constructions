@@ -1,3 +1,18 @@
+declare global {
+  interface Window {
+    AOS: {
+      init: (options?: {
+        duration?: number;
+        easing?: string;
+        once?: boolean;
+        offset?: number;
+      }) => void;
+    };
+  }
+}
+
+export {};
+
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'
   const component: DefineComponent<{}, {}, any>
