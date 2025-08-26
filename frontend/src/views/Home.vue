@@ -55,8 +55,8 @@ import ScrollToTop from '@/components/common/ScrollToTop.vue'
 
 onMounted(() => {
   // Initialize AOS (Animate On Scroll)
-  if (typeof window !== 'undefined' && window.AOS) {
-    window.AOS.init({
+  if (typeof window !== 'undefined' && (window as any).AOS) {
+    (window as any).AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
       once: true,

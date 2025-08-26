@@ -48,7 +48,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to, _from, savedPosition) {
+  scrollBehavior(_to: any, _from: any, savedPosition: any) {
     if (savedPosition) {
       return savedPosition
     } else {
@@ -58,7 +58,7 @@ const router = createRouter({
 })
 
 // Update page title
-router.beforeEach((to, from, next) => {
+router.beforeEach((to: any, _from: any, next: any) => {
   if (to.meta.title) {
     document.title = to.meta.title as string
   }

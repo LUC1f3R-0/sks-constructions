@@ -89,7 +89,7 @@
     <!-- Slider Dots -->
     <div class="slider-dots" v-show="slides.length > 1">
       <button 
-        v-for="(slide, index) in slides" 
+        v-for="(_slide, index) in slides" 
         :key="index"
         class="dot"
         :class="{ 'active': currentSlide === index }"
@@ -128,7 +128,7 @@ const slides = [
   }
 ]
 
-const getParticleStyle = (index: number) => {
+const getParticleStyle = (_index: number) => {
   const delay = Math.random() * 5
   const duration = 3 + Math.random() * 4
   const size = 2 + Math.random() * 4

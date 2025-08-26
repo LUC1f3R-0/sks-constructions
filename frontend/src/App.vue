@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <!-- Preloader -->
-    <Preloader v-if="isLoading" />
+    <!-- Loading Spinner with Lottie Animation -->
+    <LoadingSpinner :is-loading="isLoading" />
     
     <!-- Main App Content -->
     <div v-show="!isLoading">
@@ -12,15 +12,15 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import Preloader from '@/components/common/Preloader.vue'
+import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
 
 const isLoading = ref(true)
 
 onMounted(() => {
-  // Simulate preloader for 2 seconds
+  // Simulate loading for 3 seconds to show the Lottie animation
   setTimeout(() => {
     isLoading.value = false
-  }, 2000)
+  }, 3000)
 })
 </script>
 

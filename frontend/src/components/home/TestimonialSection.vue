@@ -67,7 +67,7 @@
             <!-- Slider Dots -->
             <div class="slider-dots">
               <button 
-                v-for="(testimonial, index) in testimonials" 
+                v-for="(_testimonial, index) in testimonials" 
                 :key="index"
                 class="dot"
                 :class="{ 'active': currentSlide === index }"

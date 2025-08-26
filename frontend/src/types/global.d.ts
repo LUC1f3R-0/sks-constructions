@@ -1,18 +1,3 @@
-declare global {
-  interface Window {
-    AOS: {
-      init: (options?: {
-        duration?: number;
-        easing?: string;
-        once?: boolean;
-        offset?: number;
-      }) => void;
-    };
-  }
-}
-
-export {};
-
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'
   const component: DefineComponent<{}, {}, any>
@@ -44,6 +29,29 @@ declare module 'aos' {
   }
 
   export default AOS
+}
+
+// Global AOS interface for window object
+interface AOSOptions {
+  offset?: number
+  delay?: number
+  duration?: number
+  easing?: string
+  once?: boolean
+  mirror?: boolean
+  anchorPlacement?: string
+}
+
+interface AOS {
+  init: (options?: AOSOptions) => void
+  refresh: () => void
+  refreshHard: () => void
+}
+
+declare global {
+  interface Window {
+    AOS: AOS
+  }
 }
 
 // CounterUp2
