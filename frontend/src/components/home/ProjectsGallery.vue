@@ -129,7 +129,7 @@ const projects = [
     title: 'Modern Office Complex',
     category: 'Commercial',
     value: 'commercial',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     completionDate: '2023',
     location: 'New York, NY',
     duration: '18 months',
@@ -141,7 +141,7 @@ const projects = [
     title: 'Luxury Residential Tower',
     category: 'Residential',
     value: 'residential',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     completionDate: '2023',
     location: 'Los Angeles, CA',
     duration: '24 months',
@@ -153,7 +153,7 @@ const projects = [
     title: 'Highway Bridge Construction',
     category: 'Infrastructure',
     value: 'infrastructure',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     completionDate: '2024',
     location: 'Chicago, IL',
     duration: '36 months',
@@ -177,7 +177,7 @@ const projects = [
     title: 'Corporate Headquarters',
     category: 'Commercial',
     value: 'commercial',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     completionDate: '2024',
     location: 'Seattle, WA',
     duration: '30 months',
@@ -189,7 +189,7 @@ const projects = [
     title: 'Luxury Condominiums',
     category: 'Residential',
     value: 'residential',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     completionDate: '2023',
     location: 'San Francisco, CA',
     duration: '28 months',
@@ -201,7 +201,7 @@ const projects = [
     title: 'Subway Station Extension',
     category: 'Infrastructure',
     value: 'infrastructure',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     completionDate: '2025',
     location: 'Boston, MA',
     duration: '48 months',
@@ -213,7 +213,7 @@ const projects = [
     title: 'Historic Building Restoration',
     category: 'Renovation',
     value: 'renovation',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     completionDate: '2023',
     location: 'Philadelphia, PA',
     duration: '16 months',
@@ -225,7 +225,7 @@ const projects = [
     title: 'Mixed-Use Development',
     category: 'Commercial',
     value: 'commercial',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     completionDate: '2024',
     location: 'Austin, TX',
     duration: '42 months',
@@ -524,18 +524,18 @@ const filterProjects = (category: string) => {
   text-transform: uppercase;
   
   &.completed {
-    background: #d4edda;
-    color: #155724;
+    background: rgba(132, 204, 22, 0.1);
+    color: var(--secondary-color);
   }
   
   &.in-progress {
-    background: #fff3cd;
-    color: #856404;
+    background: rgba(30, 64, 175, 0.1);
+    color: var(--primary-color);
   }
   
   &.planning {
-    background: #d1ecf1;
-    color: #0c5460;
+    background: rgba(107, 114, 128, 0.1);
+    color: var(--text-gray);
   }
 }
 

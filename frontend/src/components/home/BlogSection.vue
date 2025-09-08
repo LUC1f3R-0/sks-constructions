@@ -73,7 +73,7 @@ const blogPosts = [
       month: "Dec",
       full: "December 15, 2024"
     },
-    image: "https://via.placeholder.com/400x250/2a2a2a/ffffff?text=Construction+Blog",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
     link: "/blog/modern-construction-techniques"
   },
   {
@@ -85,7 +85,7 @@ const blogPosts = [
       month: "Dec",
       full: "December 12, 2024"
     },
-    image: "https://via.placeholder.com/400x250/2a2a2a/ffffff?text=Sustainability+Blog",
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
     link: "/blog/sustainable-building-practices"
   },
   {
@@ -97,7 +97,7 @@ const blogPosts = [
       month: "Dec",
       full: "December 10, 2024"
     },
-    image: "https://via.placeholder.com/400x250/2a2a2a/ffffff?text=Management+Blog",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
     link: "/blog/project-management-excellence"
   },
   {
@@ -109,7 +109,7 @@ const blogPosts = [
       month: "Dec",
       full: "December 8, 2024"
     },
-    image: "https://via.placeholder.com/400x250/2a2a2a/ffffff?text=Design+Blog",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
     link: "/blog/interior-design-trends"
   }
 ]

@@ -270,7 +270,7 @@ onUnmounted(() => {
     }
     
     .logo-icon {
-      background: var(--primary-color);
+      background: var(--secondary-color);
       color: var(--white);
     }
     
@@ -278,11 +278,11 @@ onUnmounted(() => {
       color: var(--text-black);
       
       &:hover {
-        color: var(--primary-color);
+        color: var(--secondary-color);
       }
       
       &.active {
-        color: var(--primary-color);
+        color: var(--secondary-color);
       }
     }
     
@@ -301,7 +301,7 @@ onUnmounted(() => {
     }
     
     .logo-icon {
-      background: var(--primary-color);
+      background: var(--secondary-color);
       color: var(--white);
     }
     
@@ -309,11 +309,11 @@ onUnmounted(() => {
       color: var(--text-black);
       
       &:hover {
-        color: var(--primary-color);
+        color: var(--secondary-color);
       }
       
       &.active {
-        color: var(--primary-color);
+        color: var(--secondary-color);
       }
     }
     
@@ -677,7 +677,7 @@ onUnmounted(() => {
       font-family: var(--font-secondary);
       font-size: 28px;
       font-weight: 700;
-      color: var(--primary-color);
+      color: var(--secondary-color);
       line-height: 1;
       transition: var(--transition-default);
       
@@ -833,19 +833,19 @@ onUnmounted(() => {
     gap: 6px;
   }
   
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s ease;
-  }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
   
   &:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     transform: translateY(-1px);
     
     &::after {
@@ -924,30 +924,30 @@ onUnmounted(() => {
 }
 
 .contact-link {
-  background: var(--primary-color);
+  background: var(--secondary-color);
   color: var(--white) !important;
   padding: 10px 20px !important;
   border-radius: 25px;
   transition: var(--transition-default);
   
   &:hover {
-    background: var(--secondary-color);
+    background: var(--accent-green);
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(255, 95, 19, 0.3);
+    box-shadow: 0 5px 15px rgba(132, 204, 22, 0.3);
   }
   
   &.active {
-    background: var(--secondary-color);
-    box-shadow: 0 5px 15px rgba(255, 95, 19, 0.3);
+    background: var(--accent-green);
+    box-shadow: 0 5px 15px rgba(132, 204, 22, 0.3);
   }
   
   @media (max-width: 992px) {
-    background: var(--primary-color);
+    background: var(--secondary-color);
     color: var(--white) !important;
     margin-top: 10px;
     
     &.active {
-      background: var(--secondary-color);
+      background: var(--accent-green);
     }
   }
 }

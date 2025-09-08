@@ -106,7 +106,7 @@
         <div class="col-lg-6 col-md-12">
           <div class="about-image-wrapper" data-aos="fade-left">
             <div class="about-image">
-              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="SKS Constructions Team" />
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="SKS Constructions Team" />
               <div class="image-overlay">
                 <div class="since-badge">
                   <div class="badge-content">
@@ -227,7 +227,7 @@ onMounted(() => {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--primary-color);
+  background: var(--secondary-color);
   color: var(--white);
   padding: 8px 20px;
   border-radius: 25px;
@@ -302,7 +302,7 @@ onMounted(() => {
   .stat-icon {
     width: 50px;
     height: 50px;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -345,7 +345,7 @@ onMounted(() => {
   .feature-icon {
     width: 40px;
     height: 40px;
-    background: rgba(255, 95, 19, 0.1);
+    background: rgba(132, 204, 22, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -353,7 +353,7 @@ onMounted(() => {
     flex-shrink: 0;
     
     i {
-      color: var(--primary-color);
+      color: var(--secondary-color);
       font-size: 16px;
     }
   }
@@ -543,10 +543,10 @@ onMounted(() => {
   position: absolute;
   top: -30px;
   left: -30px;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-green) 100%);
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 15px 40px rgba(255, 95, 19, 0.3);
+  box-shadow: 0 15px 40px rgba(132, 204, 22, 0.3);
   
   @media (max-width: 768px) {
     position: relative;
@@ -627,7 +627,7 @@ onMounted(() => {
   .badge-icon {
     width: 40px;
     height: 40px;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;

@@ -7,15 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#ff5f13',
-        secondary: '#f27420',
-        'dark-blue-1': '#021a47',
-        'dark-blue-2': '#00235b',
-        'dark-blue-3': '#0e132a',
+        primary: '#1e40af', // Royal blue from logo
+        secondary: '#84cc16', // Lime green from logo
+        'dark-blue-1': '#1e3a8a', // Darker blue variant
+        'dark-blue-2': '#1e40af', // Primary blue
+        'dark-blue-3': '#1e3a8a', // Dark blue variant
         'light-gray-1': '#f5f5f5',
         'light-gray-2': '#f7f7fd',
         'text-black': '#16161a',
-        'text-gray': '#677294',
+        'text-gray': '#6b7280', // Gray from logo
+        'accent-blue': '#3b82f6', // Lighter blue accent
+        'accent-green': '#a3e635', // Lighter green accent
       },
       fontFamily: {
         'primary': ['Barlow', 'sans-serif'],
@@ -87,8 +89,8 @@ export default {
           '100%': { transform: 'rotate(360deg)' },
         },
         'subtle-pulse': {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 95, 19, 0.4)' },
-          '50%': { boxShadow: '0 0 0 8px rgba(255, 95, 19, 0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(30, 64, 175, 0.4)' },
+          '50%': { boxShadow: '0 0 0 8px rgba(30, 64, 175, 0)' },
         },
       },
       transitionDuration: {

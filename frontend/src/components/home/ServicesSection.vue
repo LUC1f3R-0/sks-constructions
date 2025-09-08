@@ -92,7 +92,7 @@ const services = [
   {
     title: 'Engineering Techniques & Implementation',
     description: 'Advanced engineering solutions with cutting-edge technology and innovative approaches to construction challenges.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'fas fa-cogs',
     link: '/services/engineering',
     duration: '3-6 months',
@@ -102,7 +102,7 @@ const services = [
   {
     title: 'Architectural Design & Planning',
     description: 'Comprehensive architectural services from concept to completion, ensuring functional and aesthetic excellence.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'fas fa-drafting-compass',
     link: '/services/architecture',
     duration: '2-4 months',
@@ -112,7 +112,7 @@ const services = [
   {
     title: 'Construction Management',
     description: 'Professional project management ensuring timely delivery, quality control, and cost-effective solutions.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'fas fa-hard-hat',
     link: '/services/management',
     duration: '6-12 months',
@@ -122,7 +122,7 @@ const services = [
   {
     title: 'Interior & Exterior Finishing',
     description: 'Premium finishing services that transform spaces with attention to detail and quality craftsmanship.',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'fas fa-paint-roller',
     link: '/services/finishing',
     duration: '1-3 months',
@@ -132,7 +132,7 @@ const services = [
   {
     title: 'Renovation & Restoration',
     description: 'Expert renovation and restoration services preserving historical value while modernizing functionality.',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'fas fa-tools',
     link: '/services/renovation',
     duration: '2-6 months',
@@ -142,7 +142,7 @@ const services = [
   {
     title: 'Infrastructure Development',
     description: 'Large-scale infrastructure projects including roads, bridges, and public facilities with sustainable practices.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'fas fa-road',
     link: '/services/infrastructure',
     duration: '12-24 months',
@@ -359,7 +359,7 @@ const services = [
   gap: 2px;
   
   i {
-    color: #ffc107;
+    color: var(--secondary-color);
     font-size: 14px;
   }
 }

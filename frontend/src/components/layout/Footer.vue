@@ -211,7 +211,7 @@ const scrollToTop = () => {
 
 <style lang="scss" scoped>
 .footer {
-  background: linear-gradient(135deg, #070b11 0%, #0e132a 100%);
+  background: linear-gradient(135deg, var(--dark-blue-3) 0%, var(--dark-blue-1) 100%);
   color: var(--white);
   position: relative;
   

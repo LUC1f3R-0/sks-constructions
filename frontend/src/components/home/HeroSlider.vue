@@ -118,15 +118,15 @@ let autoplayInterval: number | null = null
 
 const slides = [
   {
-    background: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    background: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     subtitle: 'Advanced engineering techniques & innovative building solutions for modern construction projects'
   },
   {
-    background: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    background: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     subtitle: 'Professional construction services with excellence in every project we undertake'
   },
   {
-    background: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    background: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     subtitle: 'Building the future with cutting-edge technology and unmatched expertise'
   }
 ]
@@ -330,7 +330,7 @@ onUnmounted(() => {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 95, 19, 0.9);
+  background: rgba(132, 204, 22, 0.9);
   color: var(--white);
   padding: 8px 20px;
   border-radius: 25px;
@@ -342,7 +342,7 @@ onUnmounted(() => {
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 95, 19, 0.3);
+    box-shadow: 0 8px 25px rgba(132, 204, 22, 0.3);
   }
   
   i {
@@ -358,7 +358,7 @@ onUnmounted(() => {
     font-family: var(--font-secondary);
     font-size: 140px;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     line-height: 1;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -438,7 +438,7 @@ onUnmounted(() => {
 }
 
 .animated-text-fill {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   animation: clipPathAnimation 4s infinite reverse;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -503,7 +503,7 @@ onUnmounted(() => {
     font-family: var(--font-secondary);
     font-size: 48px;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     line-height: 1;
     margin-bottom: 5px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -642,7 +642,7 @@ onUnmounted(() => {
   transform: translateY(-50%);
   width: 60px;
   height: 60px;
-  background: rgba(255, 95, 19, 0.9);
+  background: rgba(132, 204, 22, 0.9);
   border: none;
   color: var(--white);
   border-radius: 50%;
@@ -652,9 +652,9 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   
   &:hover {
-    background: var(--primary-color);
+    background: var(--secondary-color);
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 10px 30px rgba(255, 95, 19, 0.3);
+    box-shadow: 0 10px 30px rgba(132, 204, 22, 0.3);
   }
   
   &.prev-btn {
@@ -706,10 +706,10 @@ onUnmounted(() => {
   }
   
   &.active {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     transform: scale(1.3);
-    border-color: var(--primary-color);
-    box-shadow: 0 0 25px rgba(255, 95, 19, 0.6);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 25px rgba(132, 204, 22, 0.6);
   }
 }
 
@@ -751,7 +751,7 @@ onUnmounted(() => {
     
     i {
       font-size: 20px;
-      color: var(--primary-color);
+      color: var(--secondary-color);
     }
   }
 }
