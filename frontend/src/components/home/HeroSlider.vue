@@ -14,10 +14,11 @@
         :style="{ backgroundImage: `url(${slide.background})` }"
       >
         <div class="slide-overlay"></div>
-        <div class="container-fluid">
-          <div class="row align-items-center">
-            <div class="col-lg-8 col-md-10">
-              <div class="hero-content" data-aos="fade-up" data-aos-delay="300">
+        <div class="hero-content-wrapper">
+          <div class="container-fluid">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="hero-content text-center text-md-left" data-aos="fade-up" data-aos-delay="300">
                 <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
                   <i class="fas fa-hard-hat"></i>
                   <span>Professional Construction Services</span>
@@ -32,7 +33,7 @@
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="500">
                   {{ slide.subtitle }}
                 </p>
-                <div class="hero-stats" data-aos="fade-up" data-aos-delay="600">
+                <div class="hero-stats d-flex flex-wrap justify-content-center justify-content-md-start" data-aos="fade-up" data-aos-delay="600">
                   <div class="stat-item">
                     <div class="stat-number" data-count="500">0</div>
                     <div class="stat-label">Projects Completed</div>
@@ -46,7 +47,7 @@
                     <div class="stat-label">Team Members</div>
                   </div>
                 </div>
-                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
+                <div class="hero-buttons d-flex flex-wrap justify-content-center justify-content-md-start" data-aos="fade-up" data-aos-delay="800">
                   <router-link to="/services" class="btn btn-primary construction-btn">
                     <i class="fas fa-tools"></i>
                     Our Services
@@ -75,15 +76,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Slider Navigation -->
-    <div class="slider-nav">
-      <button class="nav-btn prev-btn" @click="prevSlide" v-show="slides.length > 1">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="nav-btn next-btn" @click="nextSlide" v-show="slides.length > 1">
-        <i class="fas fa-chevron-right"></i>
-      </button>
     </div>
 
     <!-- Bottom Controls Container -->
@@ -116,18 +108,19 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const currentSlide = ref(0)
 let autoplayInterval: number | null = null
 
+// Updated slides with Sri Lankan construction images
 const slides = [
   {
-    background: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    subtitle: 'Advanced engineering techniques & innovative building solutions for modern construction projects'
+    background: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    subtitle: 'Building Sri Lanka\'s future with advanced engineering techniques & innovative construction solutions'
   },
   {
     background: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    subtitle: 'Professional construction services with excellence in every project we undertake'
+    subtitle: 'Professional construction services with excellence in every project we undertake across Sri Lanka'
   },
   {
     background: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    subtitle: 'Building the future with cutting-edge technology and unmatched expertise'
+    subtitle: 'Transforming Sri Lankan infrastructure with cutting-edge technology and unmatched expertise'
   }
 ]
 
@@ -150,9 +143,6 @@ const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % slides.length
 }
 
-const prevSlide = () => {
-  currentSlide.value = currentSlide.value === 0 ? slides.length - 1 : currentSlide.value - 1
-}
 
 const goToSlide = (index: number) => {
   currentSlide.value = index
@@ -226,6 +216,9 @@ onUnmounted(() => {
   height: 100vh;
   min-height: 900px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   @media (max-width: 768px) {
     height: 100vh;
@@ -287,12 +280,14 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   display: flex;
   align-items: center;
+  justify-content: center;
   
   &.active {
     opacity: 1;
@@ -308,11 +303,45 @@ onUnmounted(() => {
   background: linear-gradient(135deg, rgba(2, 26, 71, 0.85) 0%, rgba(0, 35, 91, 0.75) 50%, rgba(255, 95, 19, 0.3) 100%);
 }
 
+.hero-content-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+  @media (max-width: 768px) {
+    min-height: 100vh;
+  }
+}
+
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   color: var(--white);
   animation: fadeInUp 1s ease-out;
+  max-width: 100%;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+  
+  @media (max-width: 768px) {
+    text-align: center;
+    padding: 0 15px;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 0 10px;
+  }
 }
 
 @keyframes fadeInUp {
@@ -339,6 +368,10 @@ onUnmounted(() => {
   margin-bottom: 30px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  
+  @media (max-width: 768px) {
+    margin: 0 auto 30px auto;
+  }
   
   &:hover {
     transform: translateY(-2px);
@@ -480,14 +513,17 @@ onUnmounted(() => {
   gap: 40px;
   margin-bottom: 40px;
   animation: fadeInUp 1s ease-out 1.2s both;
+  align-items: center;
   
   @media (max-width: 768px) {
     gap: 20px;
+    justify-content: center;
   }
   
   @media (max-width: 576px) {
     flex-direction: column;
     gap: 15px;
+    justify-content: center;
   }
 }
 
@@ -526,10 +562,16 @@ onUnmounted(() => {
   display: flex;
   gap: 20px;
   animation: fadeInUp 1s ease-out 1.5s both;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
   
   @media (max-width: 576px) {
     flex-direction: column;
     gap: 15px;
+    justify-content: center;
   }
 }
 
@@ -623,6 +665,31 @@ onUnmounted(() => {
   }
 }
 
+// Bottom Controls Container
+.bottom-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    height: 120px;
+    padding-bottom: 15px;
+  }
+  
+  @media (max-width: 576px) {
+    height: 100px;
+    padding-bottom: 10px;
+  }
+}
+
 .slider-nav {
   position: absolute;
   top: 50%;
@@ -676,15 +743,20 @@ onUnmounted(() => {
 }
 
 .slider-dots {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   display: flex;
   gap: 12px;
   z-index: 3;
   justify-content: center;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+  
+  @media (max-width: 576px) {
+    gap: 8px;
+  }
 }
 
 .dot {
@@ -715,10 +787,7 @@ onUnmounted(() => {
 
 // Scroll Indicator
 .scroll-indicator {
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   text-align: center;
   color: var(--white);
   z-index: 3;
@@ -728,9 +797,18 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 576px) {
+    margin-bottom: 10px;
+  }
   
   &:hover {
-    transform: translateX(-50%) translateY(-5px);
+    transform: translateY(-5px);
   }
   
   .scroll-text {
@@ -740,7 +818,12 @@ onUnmounted(() => {
     margin-bottom: 10px;
     opacity: 0.8;
     text-align: center;
-    width: 100%;
+    white-space: nowrap;
+    
+    @media (max-width: 576px) {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
   }
   
   .scroll-arrow {
@@ -752,6 +835,10 @@ onUnmounted(() => {
     i {
       font-size: 20px;
       color: var(--secondary-color);
+      
+      @media (max-width: 576px) {
+        font-size: 16px;
+      }
     }
   }
 }

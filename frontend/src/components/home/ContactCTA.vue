@@ -22,9 +22,9 @@
     </div>
     
     <div class="container-fluid">
-      <div class="row align-items-center">
-        <div class="col-lg-8 col-md-10">
-          <div class="cta-content" data-aos="fade-up">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+          <div class="cta-content text-center text-md-left" data-aos="fade-up">
             <div class="cta-badge" data-aos="fade-down" data-aos-delay="200">
               <i class="fas fa-phone"></i>
               <span>Ready to Start?</span>

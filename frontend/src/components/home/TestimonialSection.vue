@@ -54,15 +54,6 @@
               </div>
             </div>
             
-            <!-- Slider Navigation -->
-            <div class="slider-nav">
-              <button class="nav-btn prev-btn" @click="prevSlide">
-                <i class="fas fa-chevron-left"></i>
-              </button>
-              <button class="nav-btn next-btn" @click="nextSlide">
-                <i class="fas fa-chevron-right"></i>
-              </button>
-            </div>
             
             <!-- Slider Dots -->
             <div class="slider-dots">

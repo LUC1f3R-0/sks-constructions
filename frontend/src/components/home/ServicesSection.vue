@@ -21,11 +21,11 @@
       </div>
 
       <!-- Services Grid -->
-      <div class="row">
+      <div class="row justify-content-center">
         <div 
           v-for="(service, index) in services" 
           :key="index"
-          class="col-lg-4 col-md-6 col-sm-12"
+          class="col-lg-4 col-md-6 col-sm-12 col-12"
           data-aos="fade-up"
           :data-aos-delay="index * 100"
         >
@@ -71,15 +71,17 @@
       </div>
       
       <!-- Call to Action -->
-      <div class="row mt-5">
+      <div class="row mt-5 justify-content-center">
         <div class="col-12">
           <div class="services-cta text-center" data-aos="fade-up">
             <h3>Need a Custom Solution?</h3>
             <p>Let us create a tailored construction plan for your specific needs</p>
-            <router-link to="/contact" class="btn btn-primary construction-btn">
-              <i class="fas fa-phone"></i>
-              Get Free Consultation
-            </router-link>
+            <div class="d-flex justify-content-center">
+              <router-link to="/contact" class="btn btn-primary construction-btn">
+                <i class="fas fa-phone"></i>
+                Get Free Consultation
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -217,6 +219,9 @@ const services = [
   transition: var(--transition-slow);
   position: relative;
   z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   
   &::before {
     content: '';
@@ -333,6 +338,9 @@ const services = [
 
 .service-content {
   padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-header {
@@ -368,6 +376,7 @@ const services = [
   color: var(--text-gray);
   line-height: 1.6;
   margin-bottom: 20px;
+  flex: 1;
 }
 
 .service-meta {

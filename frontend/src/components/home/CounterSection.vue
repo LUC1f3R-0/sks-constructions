@@ -22,7 +22,7 @@
     </div>
     
     <div class="container-fluid">
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <div class="counter-header text-center" data-aos="fade-up">
             <h3 class="counter-title">Our Achievements</h3>
@@ -31,7 +31,7 @@
         </div>
       </div>
       
-      <div class="row">
+      <div class="row justify-content-center">
         <div 
           v-for="(counter, index) in counters" 
           :key="index"

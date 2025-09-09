@@ -2,7 +2,11 @@
   <div class="preloader">
     <div class="preloader-content">
       <div class="preloader-logo">
-        <img src="https://via.placeholder.com/200x80/ff5f13/ffffff?text=SKS+Constructions" alt="SKS Constructions" />
+        <img src="/company_logo.svg" alt="SKS Constructions" class="preloader-logo-image" />
+        <div class="preloader-logo-text">
+          <span class="logo-title">SKS</span>
+          <span class="logo-subtitle">CONSTRUCTIONS</span>
+        </div>
       </div>
       <div class="preloader-spinner">
         <div class="spinner-circle"></div>
@@ -36,10 +40,39 @@
 
 .preloader-logo {
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   
-  img {
-    max-width: 200px;
+  .preloader-logo-image {
+    max-width: 120px;
     height: auto;
+  }
+  
+  .preloader-logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    
+    .logo-title {
+      font-family: var(--font-secondary, 'Arial', sans-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-color, #ff5f13);
+      line-height: 1;
+      text-align: center;
+    }
+    
+    .logo-subtitle {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-gray, #666);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+    }
   }
 }
 

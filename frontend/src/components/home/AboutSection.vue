@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <!-- Content Column -->
         <div class="col-lg-6 col-md-12">
-          <div class="about-content" data-aos="fade-right">
+          <div class="about-content text-center text-md-left" data-aos="fade-right">
             <div class="about-badge" data-aos="fade-down">
               <i class="fas fa-info-circle"></i>
               <span>About Our Company</span>
@@ -20,7 +20,7 @@
             </div>
             
             <!-- Company Stats -->
-            <div class="company-stats" data-aos="fade-up" data-aos-delay="200">
+            <div class="company-stats d-flex flex-wrap justify-content-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
               <div class="stat-item">
                 <div class="stat-icon">
                   <i class="fas fa-building"></i>
@@ -89,7 +89,7 @@
               </div>
             </div>
             
-            <div class="about-actions" data-aos="fade-up" data-aos-delay="600">
+            <div class="about-actions d-flex flex-wrap justify-content-center justify-content-md-start" data-aos="fade-up" data-aos-delay="600">
               <router-link to="/about" class="btn btn-primary construction-btn">
                 <i class="fas fa-arrow-right"></i>
                 <span>Learn More</span>
@@ -220,6 +220,7 @@ onMounted(() => {
   @media (max-width: 992px) {
     padding-right: 0;
     margin-bottom: 50px;
+    text-align: center;
   }
 }
 
@@ -234,6 +235,10 @@ onMounted(() => {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 20px;
+  
+  @media (max-width: 992px) {
+    margin: 0 auto 20px auto;
+  }
   
   i {
     font-size: 16px;
@@ -287,10 +292,16 @@ onMounted(() => {
   display: flex;
   gap: 30px;
   margin-bottom: 40px;
+  align-items: center;
+  
+  @media (max-width: 992px) {
+    justify-content: center;
+  }
   
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
+    justify-content: center;
   }
 }
 
@@ -377,10 +388,16 @@ onMounted(() => {
 .about-actions {
   display: flex;
   gap: 20px;
+  align-items: center;
+  
+  @media (max-width: 992px) {
+    justify-content: center;
+  }
   
   @media (max-width: 576px) {
     flex-direction: column;
     gap: 15px;
+    justify-content: center;
   }
 }
 

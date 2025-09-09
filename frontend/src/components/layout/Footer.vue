@@ -9,14 +9,14 @@
 
     <div class="footer-content">
       <div class="container-fluid">
-        <div class="row">
+        <div class="row justify-content-center">
           <!-- Company Info -->
           <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="footer-widget" data-aos="fade-up">
+            <div class="footer-widget text-center text-md-left" data-aos="fade-up">
               <div class="footer-logo">
-                <div class="logo-container">
+                <div class="logo-container d-flex justify-content-center justify-content-md-start">
                   <div class="logo-icon">
-                    <i class="fas fa-hard-hat"></i>
+                    <img src="/company_logo.svg" alt="SKS Constructions Logo" class="logo-image">
                   </div>
                   <div class="logo-text">
                     <span class="logo-title">SKS</span>
@@ -49,8 +49,8 @@
 
           <!-- Quick Links -->
           <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="footer-widget" data-aos="fade-up" data-aos-delay="100">
-              <h4 class="footer-title">
+            <div class="footer-widget text-center text-md-left" data-aos="fade-up" data-aos-delay="100">
+              <h4 class="footer-title d-flex justify-content-center justify-content-md-start">
                 <i class="fas fa-link"></i>
                 Quick Links
               </h4>
@@ -67,8 +67,8 @@
 
           <!-- Contact Info -->
           <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="footer-widget" data-aos="fade-up" data-aos-delay="200">
-              <h4 class="footer-title">
+            <div class="footer-widget text-center text-md-left" data-aos="fade-up" data-aos-delay="200">
+              <h4 class="footer-title d-flex justify-content-center justify-content-md-start">
                 <i class="fas fa-phone"></i>
                 Contact Info
               </h4>
@@ -118,8 +118,8 @@
 
           <!-- Newsletter -->
           <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="footer-widget" data-aos="fade-up" data-aos-delay="300">
-              <h4 class="footer-title">
+            <div class="footer-widget text-center text-md-left" data-aos="fade-up" data-aos-delay="300">
+              <h4 class="footer-title d-flex justify-content-center justify-content-md-start">
                 <i class="fas fa-newspaper"></i>
                 Newsletter
               </h4>
@@ -143,7 +143,7 @@
               </form>
               
               <!-- Construction Stats -->
-              <div class="construction-stats">
+              <div class="construction-stats d-flex justify-content-center justify-content-md-start">
                 <div class="stat-item">
                   <div class="stat-number">500+</div>
                   <div class="stat-label">Projects</div>
@@ -168,14 +168,14 @@
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <p class="copyright">
+            <p class="copyright text-center text-md-left">
               © {{ currentYear }} SKS Constructions. All rights reserved. Made with 
               <i class="fas fa-heart text-primary"></i> 
               by SKS Team
             </p>
           </div>
           <div class="col-md-6">
-            <div class="footer-bottom-links">
+            <div class="footer-bottom-links d-flex justify-content-center justify-content-md-end">
               <router-link to="/privacy">Privacy Policy</router-link>
               <router-link to="/terms">Terms of Service</router-link>
               <router-link to="/sitemap">Sitemap</router-link>
@@ -271,10 +271,6 @@ const scrollToTop = () => {
 
 .footer-widget {
   margin-bottom: 40px;
-  
-  @media (max-width: 768px) {
-    text-align: center;
-  }
 }
 
 .footer-logo {
@@ -284,33 +280,36 @@ const scrollToTop = () => {
     display: flex;
     align-items: center;
     gap: 15px;
-    
-    @media (max-width: 768px) {
-      justify-content: center;
-    }
   }
   
   .logo-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--primary-color);
-    color: var(--white);
+    width: 70px;
+    height: 70px;
+    background: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     animation: pulse 2s infinite;
+    
+    
+    .logo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
     
     @keyframes pulse {
       0% {
-        box-shadow: 0 0 0 0 rgba(255, 95, 19, 0.7);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(255, 95, 19, 0.7);
       }
       70% {
-        box-shadow: 0 0 0 10px rgba(255, 95, 19, 0);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 10px rgba(255, 95, 19, 0);
       }
       100% {
-        box-shadow: 0 0 0 0 rgba(255, 95, 19, 0);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(255, 95, 19, 0);
       }
     }
   }
@@ -346,10 +345,6 @@ const scrollToTop = () => {
 .footer-social {
   display: flex;
   gap: 15px;
-  
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
 }
 
 .social-link {
@@ -387,10 +382,6 @@ const scrollToTop = () => {
   i {
     color: var(--primary-color);
     font-size: 18px;
-  }
-  
-  @media (max-width: 768px) {
-    justify-content: center;
   }
 }
 
@@ -434,10 +425,6 @@ const scrollToTop = () => {
     align-items: flex-start;
     gap: 15px;
     margin-bottom: 20px;
-    
-    @media (max-width: 768px) {
-      justify-content: center;
-    }
     
     .contact-icon {
       width: 40px;
@@ -528,10 +515,6 @@ const scrollToTop = () => {
   justify-content: space-between;
   gap: 15px;
   
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
-  
   .stat-item {
     text-align: center;
     
@@ -577,7 +560,6 @@ const scrollToTop = () => {
   gap: 20px;
   
   @media (max-width: 768px) {
-    justify-content: center;
     margin-top: 15px;
   }
   
