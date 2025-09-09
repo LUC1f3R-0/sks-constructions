@@ -146,10 +146,6 @@ const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % testimonials.length
 }
 
-const prevSlide = () => {
-  currentSlide.value = currentSlide.value === 0 ? testimonials.length - 1 : currentSlide.value - 1
-}
-
 const goToSlide = (index: number) => {
   currentSlide.value = index
 }
