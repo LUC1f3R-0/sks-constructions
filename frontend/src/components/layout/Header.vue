@@ -53,11 +53,7 @@
               <router-link to="/" class="logo-link">
                 <div class="logo-container">
                   <div class="logo-icon">
-                    <img src="/company_logo.svg" alt="SKS Constructions Logo" class="logo-image">
-                  </div>
-                  <div class="logo-text">
-                    <span class="logo-title">SKS</span>
-                    <span class="logo-subtitle">CONSTRUCTIONS</span>
+                    <img src="/land_company_logo.svg" alt="SKS Constructions Logo" class="logo-image">
                   </div>
                 </div>
               </router-link>
@@ -623,54 +619,35 @@ onUnmounted(() => {
   }
 
   .logo-icon {
-    width: 100px;
-    height: 100px;
-    background: var(--white);
-    border-radius: 50%;
+    width: auto;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition-default);
-    animation: subtle-pulse 3s ease-in-out infinite;
-    padding: 15px;
-
-
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
     @media (max-width: 1400px) {
-      width: 95px;
-      height: 95px;
-      padding: 14px;
+      height: 55px;
     }
 
     @media (max-width: 1200px) {
-      width: 85px;
-      height: 85px;
-      padding: 12px;
+      height: 50px;
     }
 
     @media (max-width: 992px) {
-      width: 75px;
-      height: 75px;
-      padding: 11px;
+      height: 45px;
     }
 
     @media (max-width: 768px) {
-      width: 70px;
-      height: 70px;
-      padding: 10px;
+      height: 40px;
     }
 
     @media (max-width: 576px) {
-      width: 65px;
-      height: 65px;
-      padding: 9px;
+      height: 35px;
     }
 
     @media (max-width: 480px) {
-      width: 60px;
-      height: 60px;
-      padding: 8px;
+      height: 30px;
     }
 
     .logo-image {
@@ -680,95 +657,8 @@ onUnmounted(() => {
       transition: var(--transition-default);
     }
 
-    @keyframes subtle-pulse {
-
-      0%,
-      100% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(255, 95, 19, 0.4);
-      }
-
-      50% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 8px rgba(255, 95, 19, 0);
-      }
-    }
   }
 
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-
-    .logo-title {
-      font-family: var(--font-secondary);
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--secondary-color);
-      line-height: 1;
-      transition: var(--transition-default);
-
-      @media (max-width: 1400px) {
-        font-size: 26px;
-      }
-
-      @media (max-width: 1200px) {
-        font-size: 24px;
-      }
-
-      @media (max-width: 992px) {
-        font-size: 22px;
-      }
-
-      @media (max-width: 768px) {
-        font-size: 20px;
-      }
-
-      @media (max-width: 576px) {
-        font-size: 18px;
-      }
-
-      @media (max-width: 480px) {
-        font-size: 16px;
-      }
-    }
-
-    .logo-subtitle {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--text-gray);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: var(--transition-default);
-
-      @media (max-width: 1400px) {
-        font-size: 9px;
-        letter-spacing: 1.5px;
-      }
-
-      @media (max-width: 1200px) {
-        font-size: 8px;
-        letter-spacing: 1px;
-      }
-
-      @media (max-width: 992px) {
-        font-size: 7px;
-        letter-spacing: 1px;
-      }
-
-      @media (max-width: 768px) {
-        font-size: 6px;
-        letter-spacing: 0.5px;
-      }
-
-      @media (max-width: 576px) {
-        font-size: 5px;
-        letter-spacing: 0.5px;
-      }
-
-      @media (max-width: 480px) {
-        font-size: 4px;
-        letter-spacing: 0.5px;
-      }
-    }
-  }
 }
 
 .nav-wrapper {
