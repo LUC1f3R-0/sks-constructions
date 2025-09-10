@@ -322,7 +322,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(2, 26, 71, 0.85) 0%, rgba(0, 35, 91, 0.75) 50%, rgba(255, 95, 19, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(2, 26, 71, 0.85) 0%, rgba(0, 35, 91, 0.75) 50%, rgba(37, 99, 235, 0.3) 100%);
 }
 
 .hero-content-wrapper {

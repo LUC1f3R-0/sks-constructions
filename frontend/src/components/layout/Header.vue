@@ -805,7 +805,7 @@ onUnmounted(() => {
 
     &.active {
       color: var(--primary-color);
-      background-color: rgba(255, 95, 19, 0.1);
+      background-color: rgba(37, 99, 235, 0.1);
       border-radius: 5px;
       padding-left: 10px;
     }

@@ -457,7 +457,7 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255, 95, 19, 0.1) 0%, rgba(242, 116, 32, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(29, 78, 216, 0.1) 100%);
 }
 
 // Construction Elements

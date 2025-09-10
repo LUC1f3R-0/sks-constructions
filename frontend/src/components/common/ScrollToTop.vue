@@ -53,12 +53,12 @@ onUnmounted(() => {
   visibility: hidden;
   transform: translateY(20px);
   z-index: 1000;
-  box-shadow: 0 5px 20px rgba(255, 95, 19, 0.3);
+  box-shadow: 0 5px 20px rgba(37, 99, 235, 0.3);
   
   &:hover {
     background-color: var(--secondary-color);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 95, 19, 0.4);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
   }
   
   &.visible {

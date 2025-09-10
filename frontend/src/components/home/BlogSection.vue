@@ -216,7 +216,7 @@ const blogPosts = [
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--primary-color);
-  background-color: rgba(255, 95, 19, 0.1);
+  background-color: rgba(37, 99, 235, 0.1);
   padding: 5px 10px;
   border-radius: 3px;
 }

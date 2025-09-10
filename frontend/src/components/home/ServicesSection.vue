@@ -238,7 +238,7 @@ const services = [
   
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(255, 95, 19, 0.2);
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.2);
     
     &::before {
       opacity: 0.05;
@@ -284,7 +284,7 @@ const services = [
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(2, 26, 71, 0.8) 0%, rgba(255, 95, 19, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(2, 26, 71, 0.8) 0%, rgba(37, 99, 235, 0.3) 100%);
   opacity: 0;
   transition: var(--transition-default);
   display: flex;

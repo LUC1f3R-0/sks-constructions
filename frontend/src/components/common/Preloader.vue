@@ -60,7 +60,7 @@
       font-family: var(--font-secondary, 'Arial', sans-serif);
       font-size: 32px;
       font-weight: 700;
-      color: var(--primary-color, #ff5f13);
+      color: var(--primary-color, #2563eb);
       line-height: 1;
       text-align: center;
     }

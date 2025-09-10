@@ -246,11 +246,11 @@ const scrollToTop = () => {
   cursor: pointer;
   transition: var(--transition-default);
   animation: float 2s ease-in-out infinite;
-  box-shadow: 0 5px 20px rgba(255, 95, 19, 0.3);
+  box-shadow: 0 5px 20px rgba(37, 99, 235, 0.3);
   
   &:hover {
     transform: translateX(-50%) scale(1.1);
-    box-shadow: 0 10px 30px rgba(255, 95, 19, 0.5);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
   }
   
   i {
@@ -303,13 +303,13 @@ const scrollToTop = () => {
     
     @keyframes pulse {
       0% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(255, 95, 19, 0.7);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(37, 99, 235, 0.7);
       }
       70% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 10px rgba(255, 95, 19, 0);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 10px rgba(37, 99, 235, 0);
       }
       100% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(255, 95, 19, 0);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(37, 99, 235, 0);
       }
     }
   }
@@ -368,7 +368,7 @@ const scrollToTop = () => {
   &:hover {
     background: var(--primary-color);
     transform: translateY(-3px) rotate(360deg);
-    box-shadow: 0 10px 20px rgba(255, 95, 19, 0.4);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
     border-color: var(--primary-color);
   }
   
@@ -442,7 +442,7 @@ const scrollToTop = () => {
     .contact-icon {
       width: 40px;
       height: 40px;
-      background: rgba(255, 95, 19, 0.1);
+      background: rgba(37, 99, 235, 0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -524,7 +524,7 @@ const scrollToTop = () => {
         outline: none;
         border-color: var(--primary-color);
         background: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 0 0 3px rgba(255, 95, 19, 0.2);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
       }
     }
     
@@ -554,9 +554,9 @@ const scrollToTop = () => {
       }
       
       &:hover {
-        background: #e54a0a;
+        background: #1d4ed8;
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(255, 95, 19, 0.4);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
       }
       
       i {

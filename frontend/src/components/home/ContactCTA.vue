@@ -221,7 +221,7 @@ const submitForm = () => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(2, 26, 71, 0.95) 0%, rgba(255, 95, 19, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(2, 26, 71, 0.95) 0%, rgba(37, 99, 235, 0.8) 100%);
 }
 
 // Construction Elements
@@ -286,7 +286,7 @@ const submitForm = () => {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 95, 19, 0.9);
+  background: rgba(37, 99, 235, 0.9);
   color: var(--white);
   padding: 8px 20px;
   border-radius: 25px;

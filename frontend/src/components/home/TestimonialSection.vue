@@ -428,7 +428,7 @@ onUnmounted(() => {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255, 95, 19, 0.3);
+  background: rgba(37, 99, 235, 0.3);
   border: none;
   cursor: pointer;
   transition: var(--transition-default);
@@ -480,7 +480,7 @@ onUnmounted(() => {
       
       &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(255, 95, 19, 0.2);
+        box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
       }
       
       i {

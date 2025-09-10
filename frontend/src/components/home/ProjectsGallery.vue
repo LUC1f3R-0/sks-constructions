@@ -342,7 +342,7 @@ const filterProjects = (category: string) => {
     color: var(--white);
     border-color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 95, 19, 0.3);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
   }
   
   &.active {
@@ -350,7 +350,7 @@ const filterProjects = (category: string) => {
     color: var(--white);
     border-color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 95, 19, 0.3);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
   }
   
   @media (max-width: 768px) {
@@ -375,7 +375,7 @@ const filterProjects = (category: string) => {
   
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(255, 95, 19, 0.2);
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.2);
     
     .project-overlay {
       opacity: 1;
@@ -407,7 +407,7 @@ const filterProjects = (category: string) => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(2, 26, 71, 0.95) 0%, rgba(255, 95, 19, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(2, 26, 71, 0.95) 0%, rgba(37, 99, 235, 0.8) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
