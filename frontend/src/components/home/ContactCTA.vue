@@ -286,14 +286,15 @@ const submitForm = () => {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(37, 99, 235, 0.9);
-  color: var(--white);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-color);
   padding: 8px 20px;
   border-radius: 25px;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 20px;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   
   i {
     font-size: 16px;
@@ -349,15 +350,17 @@ const submitForm = () => {
   .feature-icon {
     width: 50px;
     height: 50px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     
     i {
-      color: var(--primary-color);
+      color: var(--white);
       font-size: 20px;
     }
   }
@@ -437,12 +440,13 @@ const submitForm = () => {
 }
 
 .cta-form {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   padding: 40px;
   color: var(--white);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   
   .form-title {
     font-size: 28px;
@@ -465,21 +469,22 @@ const submitForm = () => {
 .form-control {
   width: 100%;
   padding: 15px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   color: var(--white);
   font-size: 14px;
   transition: var(--transition-default);
   
   &::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.7);
   }
   
   &:focus {
     outline: none;
     border-color: var(--primary-color);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
   }
   
   option {

@@ -284,7 +284,7 @@ onMounted(() => {
 .counter-icon {
   width: 80px;
   height: 80px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -292,10 +292,12 @@ onMounted(() => {
   margin: 0 auto 20px;
   transition: var(--transition-default);
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   
   i {
     font-size: 32px;
-    color: var(--primary-color);
+    color: var(--white);
     transition: var(--transition-default);
   }
   
@@ -322,8 +324,8 @@ onMounted(() => {
   font-size: 72px;
   font-weight: 700;
   line-height: 1;
-  color: var(--primary-color);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   
   @media (max-width: 768px) {
     font-size: 56px;
@@ -338,7 +340,7 @@ onMounted(() => {
   font-family: var(--font-secondary);
   font-size: 36px;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--white);
   
   @media (max-width: 768px) {
     font-size: 28px;
@@ -373,12 +375,13 @@ onMounted(() => {
 }
 
 .achievement-badge {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   padding: 40px;
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--white);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   
   .badge-icon {
     width: 80px;

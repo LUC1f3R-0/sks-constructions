@@ -245,9 +245,15 @@ const services = [
     }
     
     .service-icon {
-      background: var(--primary-color);
-      color: var(--white);
+      background: var(--white);
+      color: var(--primary-color);
       transform: scale(1.1) rotate(360deg);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+      
+      i {
+        color: var(--primary-color);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
     }
     
     .service-link {
@@ -310,11 +316,13 @@ const services = [
   justify-content: center;
   transition: var(--transition-slow);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(37, 99, 235, 0.1);
   
   i {
     font-size: 24px;
     color: var(--primary-color);
     transition: var(--transition-default);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
   }
 }
 
