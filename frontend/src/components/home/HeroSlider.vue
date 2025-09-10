@@ -108,18 +108,23 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const currentSlide = ref(0)
 let autoplayInterval: number | null = null
 
-// Updated slides with Sri Lankan construction images
+// Import local images
+import image01 from '@/assets/images/01.png'
+import image02 from '@/assets/images/02.jpg'
+import image03 from '@/assets/images/03.png'
+
+// Updated slides with local construction images
 const slides = [
   {
-    background: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    background: image01,
     subtitle: 'Building Sri Lanka\'s future with advanced engineering techniques & innovative construction solutions'
   },
   {
-    background: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    background: image02,
     subtitle: 'Professional construction services with excellence in every project we undertake across Sri Lanka'
   },
   {
-    background: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    background: image03,
     subtitle: 'Transforming Sri Lankan infrastructure with cutting-edge technology and unmatched expertise'
   }
 ]
