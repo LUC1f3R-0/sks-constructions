@@ -33,7 +33,7 @@ onMounted(() => {
 // Global CSS Variables
 :root {
   // Colors
-  --primary-color: #1e40af; // Royal blue from logo
+  --primary-color: #ff5f13; // Orange accent for better visibility
   --secondary-color: #84cc16; // Lime green from logo
   --dark-blue-1: #1e3a8a; // Darker blue variant
   --dark-blue-2: #1e40af; // Primary blue

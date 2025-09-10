@@ -344,15 +344,7 @@ onUnmounted(() => {
   }
 
   @media (max-width: 768px) {
-    padding: 6px 0;
-  }
-
-  @media (max-width: 576px) {
-    padding: 5px 0;
-  }
-
-  @media (max-width: 480px) {
-    padding: 4px 0;
+    display: none;
   }
 }
 
@@ -589,15 +581,15 @@ onUnmounted(() => {
   }
 
   @media (max-width: 768px) {
-    padding: 12px 0;
+    padding: 8px 0;
   }
 
   @media (max-width: 576px) {
-    padding: 10px 0;
+    padding: 6px 0;
   }
 
   @media (max-width: 480px) {
-    padding: 8px 0;
+    padding: 4px 0;
   }
 }
 
@@ -639,15 +631,15 @@ onUnmounted(() => {
     }
 
     @media (max-width: 768px) {
-      height: 40px;
-    }
-
-    @media (max-width: 576px) {
       height: 35px;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 576px) {
       height: 30px;
+    }
+
+    @media (max-width: 480px) {
+      height: 25px;
     }
 
     .logo-image {
@@ -1027,6 +1019,7 @@ onUnmounted(() => {
     height: 2px;
   }
 
+  // Active state transformations for hamburger to X animation
   &.active {
     &:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
@@ -1038,6 +1031,37 @@ onUnmounted(() => {
 
     &:nth-child(3) {
       transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    // Adjust transforms for smaller screens
+    @media (max-width: 768px) {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -5px);
+      }
+    }
+
+    @media (max-width: 576px) {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(3px, 3px);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -4px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(2px, 2px);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -3px);
+      }
     }
   }
 }

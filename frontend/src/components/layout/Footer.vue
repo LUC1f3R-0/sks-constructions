@@ -337,7 +337,7 @@ const scrollToTop = () => {
 }
 
 .footer-description {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   margin-bottom: 25px;
 }
@@ -353,20 +353,23 @@ const scrollToTop = () => {
   justify-content: center;
   width: 45px;
   height: 45px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   color: var(--white);
   border-radius: 50%;
   transition: var(--transition-default);
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   
   &:hover {
     background: var(--primary-color);
     transform: translateY(-3px) rotate(360deg);
-    box-shadow: 0 10px 20px rgba(255, 95, 19, 0.3);
+    box-shadow: 0 10px 20px rgba(255, 95, 19, 0.4);
+    border-color: var(--primary-color);
   }
   
   i {
     font-size: 16px;
+    font-weight: 500;
   }
 }
 
@@ -394,7 +397,7 @@ const scrollToTop = () => {
     margin-bottom: 12px;
     
     a {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.85);
       text-decoration: none;
       transition: var(--transition-default);
       display: flex;
@@ -451,7 +454,7 @@ const scrollToTop = () => {
       }
       
       p {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(255, 255, 255, 0.85);
         margin: 0;
         line-height: 1.4;
         font-size: 14px;
@@ -461,7 +464,7 @@ const scrollToTop = () => {
 }
 
 .newsletter-description {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 20px;
   line-height: 1.6;
 }
@@ -475,20 +478,22 @@ const scrollToTop = () => {
     .form-control {
       width: 100%;
       padding: 15px 140px 15px 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
       color: var(--white);
       border-radius: 25px;
       backdrop-filter: blur(10px);
+      font-weight: 500;
       
       &::placeholder {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.7);
       }
       
       &:focus {
         outline: none;
         border-color: var(--primary-color);
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 0 3px rgba(255, 95, 19, 0.2);
       }
     }
     
@@ -502,6 +507,17 @@ const scrollToTop = () => {
       display: flex;
       align-items: center;
       gap: 5px;
+      background: var(--primary-color);
+      color: var(--white);
+      border: none;
+      font-weight: 600;
+      transition: var(--transition-default);
+      
+      &:hover {
+        background: #e54a0a;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 95, 19, 0.4);
+      }
       
       i {
         font-size: 10px;
@@ -529,7 +545,7 @@ const scrollToTop = () => {
     
     .stat-label {
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.85);
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -545,7 +561,7 @@ const scrollToTop = () => {
 }
 
 .copyright {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
   
   .fa-heart {
@@ -564,7 +580,7 @@ const scrollToTop = () => {
   }
   
   a {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     font-size: 14px;
     transition: var(--transition-default);

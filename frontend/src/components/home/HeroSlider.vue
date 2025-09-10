@@ -81,7 +81,7 @@
     <!-- Bottom Controls Container -->
     <div class="bottom-controls" v-show="slides.length > 1">
       <!-- Scroll Indicator -->
-      <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1500">
+      <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1500" @click="scrollToNextSection">
         <div class="scroll-text">Scroll Down</div>
         <div class="scroll-arrow">
           <i class="fas fa-chevron-down"></i>
@@ -146,6 +146,23 @@ const nextSlide = () => {
 
 const goToSlide = (index: number) => {
   currentSlide.value = index
+}
+
+const scrollToNextSection = () => {
+  // Find the next section after the hero slider
+  const nextSection = document.querySelector('.section-padding, .about-section, .services-section, .projects-section')
+  if (nextSection) {
+    nextSection.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    })
+  } else {
+    // Fallback: scroll down by viewport height
+    window.scrollBy({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    })
+  }
 }
 
 const startAutoplay = () => {
@@ -316,7 +333,14 @@ onUnmounted(() => {
   min-height: 100vh;
   
   @media (max-width: 768px) {
+    top: 55%; // Move content down to avoid header overlap
     min-height: 100vh;
+    padding-top: 60px; // Add top padding to ensure content is below header
+  }
+  
+  @media (max-width: 576px) {
+    top: 58%; // Move content further down on smaller screens
+    padding-top: 80px; // Increase padding for smaller screens
   }
 }
 
@@ -398,11 +422,13 @@ onUnmounted(() => {
     animation: slideInLeft 1.2s ease-out 0.3s both;
     
     @media (max-width: 768px) {
-      font-size: 80px;
+      font-size: 70px; // Slightly smaller to ensure full visibility
+      margin-bottom: 15px;
     }
     
     @media (max-width: 576px) {
-      font-size: 60px;
+      font-size: 50px; // Smaller on mobile to prevent cutoff
+      margin-bottom: 10px;
     }
   }
 }
@@ -425,11 +451,11 @@ onUnmounted(() => {
   animation: slideInRight 1.2s ease-out 0.6s both;
   
   @media (max-width: 768px) {
-    margin-left: 40px;
+    margin-left: 30px; // Reduce spacing on mobile
   }
   
   @media (max-width: 576px) {
-    margin-left: 20px;
+    margin-left: 15px; // Further reduce spacing on smaller screens
   }
 }
 
@@ -453,11 +479,11 @@ onUnmounted(() => {
   line-height: 1;
   
   @media (max-width: 768px) {
-    font-size: 80px;
+    font-size: 70px; // Match the SKS size for consistency
   }
   
   @media (max-width: 576px) {
-    font-size: 60px;
+    font-size: 50px; // Match the SKS size for consistency
   }
 }
 
@@ -672,7 +698,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 140px;
-  z-index: 3;
+  z-index: 1001; // Higher than header to prevent overlap
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -682,11 +708,18 @@ onUnmounted(() => {
   @media (max-width: 768px) {
     height: 120px;
     padding-bottom: 15px;
+    // Ensure bottom controls don't overlap with header on mobile
+    bottom: 0;
   }
   
   @media (max-width: 576px) {
     height: 100px;
     padding-bottom: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 90px;
+    padding-bottom: 8px;
   }
 }
 
@@ -746,16 +779,12 @@ onUnmounted(() => {
   position: relative;
   display: flex;
   gap: 12px;
-  z-index: 3;
+  z-index: 1002; // Higher z-index to ensure visibility
   justify-content: center;
   align-items: center;
   
   @media (max-width: 768px) {
-    gap: 10px;
-  }
-  
-  @media (max-width: 576px) {
-    gap: 8px;
+    display: none; // Hide slider dots on mobile
   }
 }
 
@@ -790,7 +819,7 @@ onUnmounted(() => {
   position: relative;
   text-align: center;
   color: var(--white);
-  z-index: 3;
+  z-index: 1003; // Highest z-index to ensure it's always visible
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -800,11 +829,7 @@ onUnmounted(() => {
   margin-bottom: 20px;
   
   @media (max-width: 768px) {
-    margin-bottom: 15px;
-  }
-  
-  @media (max-width: 576px) {
-    margin-bottom: 10px;
+    display: none; // Hide scroll indicator on mobile
   }
   
   &:hover {
@@ -824,6 +849,11 @@ onUnmounted(() => {
       font-size: 10px;
       letter-spacing: 1px;
     }
+    
+    @media (max-width: 480px) {
+      font-size: 9px;
+      letter-spacing: 0.5px;
+    }
   }
   
   .scroll-arrow {
@@ -838,6 +868,10 @@ onUnmounted(() => {
       
       @media (max-width: 576px) {
         font-size: 16px;
+      }
+      
+      @media (max-width: 480px) {
+        font-size: 14px;
       }
     }
   }
