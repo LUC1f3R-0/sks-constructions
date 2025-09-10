@@ -144,7 +144,7 @@ const services = [
   {
     title: 'Infrastructure Development',
     description: 'Large-scale infrastructure projects including roads, bridges, and public facilities with sustainable practices.',
-    image: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     icon: 'fas fa-road',
     link: '/services/infrastructure',
     duration: '12-24 months',
