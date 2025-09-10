@@ -131,7 +131,7 @@
                   <input 
                     type="email" 
                     class="form-control" 
-                    placeholder="Enter your email address"
+                    placeholder="Enter your email"
                     v-model="email"
                     required
                   />
@@ -345,6 +345,11 @@ const scrollToTop = () => {
 .footer-social {
   display: flex;
   gap: 15px;
+  justify-content: center;
+  
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
 }
 
 .social-link {
@@ -428,6 +433,11 @@ const scrollToTop = () => {
     align-items: flex-start;
     gap: 15px;
     margin-bottom: 20px;
+    justify-content: center;
+    
+    @media (min-width: 768px) {
+      justify-content: flex-start;
+    }
     
     .contact-icon {
       width: 40px;
@@ -446,6 +456,13 @@ const scrollToTop = () => {
     }
     
     .contact-details {
+      flex: 1;
+      text-align: center;
+      
+      @media (min-width: 768px) {
+        text-align: left;
+      }
+      
       h5 {
         font-size: 16px;
         font-weight: 600;
@@ -474,16 +491,30 @@ const scrollToTop = () => {
   
   .form-group {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    @media (min-width: 576px) {
+      flex-direction: row;
+      gap: 0;
+    }
     
     .form-control {
       width: 100%;
-      padding: 15px 140px 15px 20px;
+      padding: 15px 20px;
       background: rgba(255, 255, 255, 0.15);
       border: 2px solid rgba(255, 255, 255, 0.3);
       color: var(--white);
       border-radius: 25px;
       backdrop-filter: blur(10px);
       font-weight: 500;
+      flex: 1;
+      
+      @media (min-width: 576px) {
+        padding: 15px 140px 15px 20px;
+        border-radius: 25px 0 0 25px;
+      }
       
       &::placeholder {
         color: rgba(255, 255, 255, 0.7);
@@ -498,20 +529,29 @@ const scrollToTop = () => {
     }
     
     .btn {
-      position: absolute;
-      right: 5px;
-      top: 5px;
-      padding: 10px 20px;
-      font-size: 12px;
-      border-radius: 20px;
+      padding: 15px 25px;
+      font-size: 14px;
+      border-radius: 25px;
       display: flex;
       align-items: center;
-      gap: 5px;
+      justify-content: center;
+      gap: 8px;
       background: var(--primary-color);
       color: var(--white);
       border: none;
       font-weight: 600;
       transition: var(--transition-default);
+      white-space: nowrap;
+      
+      @media (min-width: 576px) {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        padding: 10px 20px;
+        font-size: 12px;
+        border-radius: 20px;
+        gap: 5px;
+      }
       
       &:hover {
         background: #e54a0a;
@@ -520,7 +560,11 @@ const scrollToTop = () => {
       }
       
       i {
-        font-size: 10px;
+        font-size: 12px;
+        
+        @media (min-width: 576px) {
+          font-size: 10px;
+        }
       }
     }
   }
@@ -528,11 +572,19 @@ const scrollToTop = () => {
 
 .construction-stats {
   display: flex;
-  justify-content: space-between;
-  gap: 15px;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+    gap: 15px;
+  }
   
   .stat-item {
     text-align: center;
+    flex: 1;
+    min-width: 80px;
     
     .stat-number {
       font-family: var(--font-secondary);
@@ -541,6 +593,7 @@ const scrollToTop = () => {
       color: var(--primary-color);
       line-height: 1;
       margin-bottom: 5px;
+      display: block;
     }
     
     .stat-label {
@@ -548,6 +601,7 @@ const scrollToTop = () => {
       color: rgba(255, 255, 255, 0.85);
       text-transform: uppercase;
       letter-spacing: 1px;
+      display: block;
     }
   }
 }
@@ -572,8 +626,15 @@ const scrollToTop = () => {
 
 .footer-bottom-links {
   display: flex;
-  justify-content: flex-end;
-  gap: 20px;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
   
   @media (max-width: 768px) {
     margin-top: 15px;
@@ -584,9 +645,12 @@ const scrollToTop = () => {
     text-decoration: none;
     font-size: 14px;
     transition: var(--transition-default);
+    white-space: nowrap;
+    padding: 5px 0;
     
     &:hover {
       color: var(--primary-color);
+      transform: translateY(-1px);
     }
   }
 }
