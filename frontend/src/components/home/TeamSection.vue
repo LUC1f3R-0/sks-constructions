@@ -21,7 +21,7 @@
       </div>
 
       <!-- Team Members -->
-      <div class="row">
+      <div class="row team-members-row">
         <div 
           v-for="(member, index) in teamMembers" 
           :key="index"
@@ -273,6 +273,22 @@ onMounted(() => {
   }
 }
 
+.team-members-row {
+  display: flex;
+  flex-wrap: wrap;
+  
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 768px) {
+    > div {
+      margin-bottom: 20px;
+    }
+  }
+}
+
 .team-card {
   background: var(--white);
   border-radius: 20px;
@@ -282,6 +298,9 @@ onMounted(() => {
   transition: var(--transition-slow);
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   
   &:hover {
     transform: translateY(-10px);
@@ -377,6 +396,9 @@ onMounted(() => {
 
 .member-info {
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .member-name {
@@ -426,6 +448,7 @@ onMounted(() => {
   color: var(--text-gray);
   line-height: 1.6;
   margin-bottom: 20px;
+  flex-grow: 1;
 }
 
 .member-skills {
