@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-12">
           <h1>Our Team</h1>
-          <p>Meet the dedicated professionals who make SKS Constructions a leader in the industry.</p>
+          <p>Meet the dedicated professionals who make SKS DEVELOPERS (PVT) LTD a leader in the industry.</p>
           
           <div class="team-grid">
             <div class="team-member">

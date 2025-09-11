@@ -32,7 +32,7 @@ const blogData = {
   'modern-construction-techniques': {
     title: 'Modern Construction Techniques: Building the Future',
     date: 'December 15, 2024',
-    author: 'SKS Construction Team',
+    author: 'SKS DEVELOPERS (PVT) LTD Team',
     description: 'Explore the latest innovations in construction technology and techniques that are revolutionizing the industry.',
     content: `
       <h2>Introduction</h2>

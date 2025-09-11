@@ -16,16 +16,16 @@
               <div class="footer-logo">
                 <div class="logo-container d-flex justify-content-center justify-content-md-start">
                   <div class="logo-icon">
-                    <img src="/company_logo.svg" alt="SKS Constructions Logo" class="logo-image">
+                    <img src="/company_logo.svg" alt="SKS DEVELOPERS (PVT) LTD Logo" class="logo-image">
                   </div>
                   <div class="logo-text">
                     <span class="logo-title">SKS</span>
-                    <span class="logo-subtitle">CONSTRUCTIONS</span>
+                    <span class="logo-subtitle">DEVELOPERS</span>
                   </div>
                 </div>
               </div>
               <p class="footer-description">
-                SKS Constructions is a leading construction company specializing in advanced engineering techniques and innovative building solutions. We deliver excellence in every project with over 25 years of experience.
+                SKS DEVELOPERS (PVT) LTD is a leading construction company specializing in advanced engineering techniques and innovative building solutions. We deliver excellence in every project with over 25 years of experience.
               </p>
               <div class="footer-social">
                 <a href="#" class="social-link" title="Facebook">
@@ -98,8 +98,8 @@
                   </div>
                   <div class="contact-details">
                     <h5>Email</h5>
-                    <p>info@sksconstructions.com</p>
-                    <p>support@sksconstructions.com</p>
+                    <p>info@sksdevelopers.com</p>
+                    <p>support@sksdevelopers.com</p>
                   </div>
                 </div>
                 <div class="contact-item">
@@ -169,7 +169,7 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <p class="copyright text-center text-md-left">
-              © {{ currentYear }} SKS Constructions. All rights reserved. Made with 
+              © {{ currentYear }} SKS DEVELOPERS (PVT) LTD. All rights reserved. Made with 
               <i class="fas fa-heart text-primary"></i> 
               by SKS Team
             </p>

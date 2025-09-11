@@ -18,130 +18,130 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: { title: 'SKS Constructions - Advanced Construction Services' }
+    meta: { title: 'SKS DEVELOPERS (PVT) LTD - Advanced Construction Services' }
   },
   {
     path: '/about',
     name: 'About',
     component: About,
-    meta: { title: 'About Us - SKS Constructions' }
+    meta: { title: 'About Us - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/services',
     name: 'Services',
     component: Services,
-    meta: { title: 'Our Services - SKS Constructions' }
+    meta: { title: 'Our Services - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/projects',
     name: 'Projects',
     component: Projects,
-    meta: { title: 'Our Projects - SKS Constructions' }
+    meta: { title: 'Our Projects - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/blog',
     name: 'Blog',
     component: Blog,
-    meta: { title: 'Latest News - SKS Constructions' }
+    meta: { title: 'Latest News - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/contact',
     name: 'Contact',
     component: Contact,
-    meta: { title: 'Contact Us - SKS Constructions' }
+    meta: { title: 'Contact Us - SKS DEVELOPERS (PVT) LTD' }
   },
   // Service detail routes
   {
     path: '/services/engineering',
     name: 'ServiceEngineering',
     component: ServiceDetail,
-    meta: { title: 'Engineering Services - SKS Constructions' }
+    meta: { title: 'Engineering Services - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/services/architecture',
     name: 'ServiceArchitecture',
     component: ServiceDetail,
-    meta: { title: 'Architecture Services - SKS Constructions' }
+    meta: { title: 'Architecture Services - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/services/management',
     name: 'ServiceManagement',
     component: ServiceDetail,
-    meta: { title: 'Project Management - SKS Constructions' }
+    meta: { title: 'Project Management - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/services/finishing',
     name: 'ServiceFinishing',
     component: ServiceDetail,
-    meta: { title: 'Finishing Services - SKS Constructions' }
+    meta: { title: 'Finishing Services - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/services/renovation',
     name: 'ServiceRenovation',
     component: ServiceDetail,
-    meta: { title: 'Renovation Services - SKS Constructions' }
+    meta: { title: 'Renovation Services - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/services/infrastructure',
     name: 'ServiceInfrastructure',
     component: ServiceDetail,
-    meta: { title: 'Infrastructure Development - SKS Constructions' }
+    meta: { title: 'Infrastructure Development - SKS DEVELOPERS (PVT) LTD' }
   },
   // Blog article routes
   {
     path: '/blog/modern-construction-techniques',
     name: 'BlogModernConstruction',
     component: BlogArticle,
-    meta: { title: 'Modern Construction Techniques - SKS Constructions' }
+    meta: { title: 'Modern Construction Techniques - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/blog/sustainable-building-practices',
     name: 'BlogSustainableBuilding',
     component: BlogArticle,
-    meta: { title: 'Sustainable Building Practices - SKS Constructions' }
+    meta: { title: 'Sustainable Building Practices - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/blog/project-management-excellence',
     name: 'BlogProjectManagement',
     component: BlogArticle,
-    meta: { title: 'Project Management Excellence - SKS Constructions' }
+    meta: { title: 'Project Management Excellence - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/blog/interior-design-trends',
     name: 'BlogInteriorDesign',
     component: BlogArticle,
-    meta: { title: 'Interior Design Trends - SKS Constructions' }
+    meta: { title: 'Interior Design Trends - SKS DEVELOPERS (PVT) LTD' }
   },
   // Other pages
   {
     path: '/careers',
     name: 'Careers',
     component: Careers,
-    meta: { title: 'Careers - SKS Constructions' }
+    meta: { title: 'Careers - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/team',
     name: 'Team',
     component: Team,
-    meta: { title: 'Our Team - SKS Constructions' }
+    meta: { title: 'Our Team - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/privacy',
     name: 'Privacy',
     component: Privacy,
-    meta: { title: 'Privacy Policy - SKS Constructions' }
+    meta: { title: 'Privacy Policy - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/terms',
     name: 'Terms',
     component: Terms,
-    meta: { title: 'Terms of Service - SKS Constructions' }
+    meta: { title: 'Terms of Service - SKS DEVELOPERS (PVT) LTD' }
   },
   {
     path: '/sitemap',
     name: 'Sitemap',
     component: Sitemap,
-    meta: { title: 'Site Map - SKS Constructions' }
+    meta: { title: 'Site Map - SKS DEVELOPERS (PVT) LTD' }
   }
 ]
 

@@ -53,7 +53,7 @@
               <router-link to="/" class="logo-link">
                 <div class="logo-container">
                   <div class="logo-icon">
-                    <img src="/land_company_logo.svg" alt="SKS Constructions Logo" class="logo-image">
+                    <img src="/land_company_logo.svg" alt="SKS DEVELOPERS (PVT) LTD Logo" class="logo-image">
                   </div>
                 </div>
               </router-link>

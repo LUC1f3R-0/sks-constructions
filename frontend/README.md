@@ -1,4 +1,4 @@
-# SKS Constructions - Vue 3 Website
+# SKS DEVELOPERS (PVT) LTD - Vue 3 Website
 
 A modern, professional construction company website built with Vue 3, TypeScript, and Bootstrap 4.
 
@@ -251,4 +251,4 @@ For support and questions, please contact the development team.
 
 ---
 
-**SKS Constructions** - Building Excellence Since 1994
+**SKS DEVELOPERS (PVT) LTD** - Building Excellence Since 1994

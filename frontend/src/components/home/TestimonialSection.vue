@@ -14,7 +14,7 @@
               What Our Clients Say
             </h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-              Hear from our satisfied clients about their experience working with SKS Constructions
+              Hear from our satisfied clients about their experience working with SKS DEVELOPERS (PVT) LTD
             </p>
           </div>
         </div>
@@ -97,35 +97,35 @@ let autoplayInterval: number | null = null
 
 const testimonials = [
   {
-    text: "SKS Constructions exceeded our expectations in every aspect. Their attention to detail, quality craftsmanship, and professional approach made our project a huge success. The team was always responsive and delivered on time.",
+    text: "SKS DEVELOPERS (PVT) LTD exceeded our expectations in every aspect. Their attention to detail, quality craftsmanship, and professional approach made our project a huge success. The team was always responsive and delivered on time.",
     name: "Sarah Johnson",
     position: "CEO",
     company: "Urban Development Corp",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
   },
   {
-    text: "Working with SKS Constructions was a pleasure from start to finish. Their expertise in commercial construction and ability to handle complex projects made them the perfect partner for our office complex development.",
+    text: "Working with SKS DEVELOPERS (PVT) LTD was a pleasure from start to finish. Their expertise in commercial construction and ability to handle complex projects made them the perfect partner for our office complex development.",
     name: "Michael Chen",
     position: "Project Manager",
     company: "Global Real Estate Group",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
   },
   {
-    text: "The renovation project was completed ahead of schedule and under budget. SKS Constructions' team showed exceptional skill in preserving the historical elements while modernizing the infrastructure. Highly recommended!",
+    text: "The renovation project was completed ahead of schedule and under budget. SKS DEVELOPERS (PVT) LTD' team showed exceptional skill in preserving the historical elements while modernizing the infrastructure. Highly recommended!",
     name: "Emily Rodriguez",
     position: "Director",
     company: "Heritage Foundation",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
   },
   {
-    text: "SKS Constructions delivered an outstanding residential project that perfectly matched our vision. Their innovative design solutions and quality construction have created a beautiful, functional space for our family.",
+    text: "SKS DEVELOPERS (PVT) LTD delivered an outstanding residential project that perfectly matched our vision. Their innovative design solutions and quality construction have created a beautiful, functional space for our family.",
     name: "David Thompson",
     position: "Homeowner",
     company: "Private Residence",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
   },
   {
-    text: "The infrastructure project was completed with minimal disruption to our operations. SKS Constructions' expertise in large-scale projects and their commitment to safety and quality made them the ideal choice.",
+    text: "The infrastructure project was completed with minimal disruption to our operations. SKS DEVELOPERS (PVT) LTD' expertise in large-scale projects and their commitment to safety and quality made them the ideal choice.",
     name: "Lisa Wang",
     position: "Operations Director",
     company: "City Infrastructure Authority",

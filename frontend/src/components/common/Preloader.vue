@@ -2,7 +2,7 @@
   <div class="preloader">
     <div class="preloader-content">
       <div class="preloader-logo">
-        <img src="/company_logo.svg" alt="SKS Constructions" class="preloader-logo-image" />
+        <img src="/company_logo.svg" alt="SKS DEVELOPERS (PVT) LTD" class="preloader-logo-image" />
         <div class="preloader-logo-text">
           <span class="logo-title">SKS</span>
           <span class="logo-subtitle">CONSTRUCTIONS</span>

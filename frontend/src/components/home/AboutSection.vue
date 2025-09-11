@@ -12,7 +12,7 @@
             <h2 class="about-title">Building Excellence Since 1994</h2>
             <div class="about-description">
               <p class="description-main">
-                SKS Constructions is a leading construction company with over 30 years of experience in delivering exceptional building solutions. We specialize in advanced engineering techniques and innovative construction methods that set industry standards.
+                SKS DEVELOPERS (PVT) LTD is a leading construction company with over 30 years of experience in delivering exceptional building solutions. We specialize in advanced engineering techniques and innovative construction methods that set industry standards.
               </p>
               <p class="description-secondary">
                 Our team of skilled professionals combines traditional craftsmanship with cutting-edge technology to create structures that are not only aesthetically pleasing but also built to last. We take pride in our commitment to quality, safety, and customer satisfaction.
@@ -106,7 +106,7 @@
         <div class="col-lg-6 col-md-12">
           <div class="about-image-wrapper" data-aos="fade-left">
             <div class="about-image">
-              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="SKS Constructions Team" />
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="SKS DEVELOPERS (PVT) LTD Team" />
               <div class="image-overlay">
                 <div class="since-badge">
                   <div class="badge-content">

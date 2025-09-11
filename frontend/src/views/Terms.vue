@@ -15,10 +15,10 @@
             <p>Permission is granted to temporarily download one copy of the materials on our website for personal, non-commercial transitory viewing only.</p>
             
             <h2>Disclaimer</h2>
-            <p>The materials on our website are provided on an 'as is' basis. SKS Constructions makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties.</p>
+            <p>The materials on our website are provided on an 'as is' basis. SKS DEVELOPERS (PVT) LTD makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties.</p>
             
             <h2>Limitations</h2>
-            <p>In no event shall SKS Constructions or its suppliers be liable for any damages arising out of the use or inability to use the materials on our website.</p>
+            <p>In no event shall SKS DEVELOPERS (PVT) LTD or its suppliers be liable for any damages arising out of the use or inability to use the materials on our website.</p>
             
             <h2>Accuracy of Materials</h2>
             <p>The materials appearing on our website could include technical, typographical, or photographic errors. We do not warrant that any of the materials are accurate, complete, or current.</p>

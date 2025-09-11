@@ -37,7 +37,7 @@ A flexible, reusable Lottie loader component for various loading scenarios.
 <LottieLoader 
   :fullscreen="true"
   :size="200"
-  title="Loading SKS Constructions"
+  title="Loading SKS DEVELOPERS (PVT) LTD"
   subtitle="Building excellence, one project at a time..."
 />
 ```
