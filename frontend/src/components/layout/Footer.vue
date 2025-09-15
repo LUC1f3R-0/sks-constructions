@@ -79,7 +79,7 @@
                   </div>
                   <div class="contact-details">
                     <h5>Address</h5>
-                    <p>123 Construction Ave, Building District, New York, NY 10001</p>
+                    <p>210/15, Green Terrace,<br>Makola Road,<br>Kiribathgoda, Sri Lanka</p>
                   </div>
                 </div>
                 <div class="contact-item">
@@ -88,8 +88,7 @@
                   </div>
                   <div class="contact-details">
                     <h5>Phone</h5>
-                    <p>+1 (555) 123-4567</p>
-                    <p>+1 (555) 987-6543</p>
+                    <p>(+94) 717-640-039</p>
                   </div>
                 </div>
                 <div class="contact-item">
@@ -98,8 +97,7 @@
                   </div>
                   <div class="contact-details">
                     <h5>Email</h5>
-                    <p>info@sksdevelopers.com</p>
-                    <p>support@sksdevelopers.com</p>
+                    <p>info@sksdevelopers.lk</p>
                   </div>
                 </div>
                 <div class="contact-item">
@@ -433,11 +431,7 @@ const scrollToTop = () => {
     align-items: flex-start;
     gap: 15px;
     margin-bottom: 20px;
-    justify-content: center;
-    
-    @media (min-width: 768px) {
-      justify-content: flex-start;
-    }
+    justify-content: flex-start;
     
     .contact-icon {
       width: 40px;
@@ -457,11 +451,7 @@ const scrollToTop = () => {
     
     .contact-details {
       flex: 1;
-      text-align: center;
-      
-      @media (min-width: 768px) {
-        text-align: left;
-      }
+      text-align: left;
       
       h5 {
         font-size: 16px;
@@ -475,6 +465,31 @@ const scrollToTop = () => {
         margin: 0;
         line-height: 1.4;
         font-size: 14px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .contact-item {
+        margin-bottom: 15px;
+      }
+      
+      .contact-icon {
+        width: 35px;
+        height: 35px;
+        
+        i {
+          font-size: 14px;
+        }
+      }
+      
+      .contact-details {
+        h5 {
+          font-size: 14px;
+        }
+        
+        p {
+          font-size: 13px;
+        }
       }
     }
   }

@@ -8,11 +8,11 @@
             <div class="top-header-info d-flex flex-wrap justify-content-center justify-content-md-start">
               <span class="info-item">
                 <i class="fas fa-phone"></i>
-                <span>+1 (555) 123-4567</span>
+                <span>(+94) 717-640-039</span>
               </span>
               <span class="info-item">
                 <i class="fas fa-envelope"></i>
-                <span>info@sksconstructions.com</span>
+                <span>info@sksdevelopers.lk</span>
               </span>
               <span class="info-item">
                 <i class="fas fa-clock"></i>
@@ -20,7 +20,7 @@
               </span>
               <span class="info-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>New York, NY 10001</span>
+                <span>Kiribathgoda, Sri Lanka</span>
               </span>
             </div>
           </div>
@@ -151,11 +151,11 @@
                 <div class="mobile-contact-info">
                   <div class="mobile-contact-item">
                     <i class="fas fa-phone"></i>
-                    <span>+1 (555) 123-4567</span>
+                    <span>(+94) 717-640-039</span>
                   </div>
                   <div class="mobile-contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>info@sksconstructions.com</span>
+                    <span>info@sksdevelopers.lk</span>
                   </div>
                   <div class="mobile-contact-item">
                     <i class="fas fa-clock"></i>
@@ -163,7 +163,7 @@
                   </div>
                   <div class="mobile-contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>New York, NY 10001</span>
+                    <span>Kiribathgoda, Sri Lanka</span>
                   </div>
                 </div>
               </ul>

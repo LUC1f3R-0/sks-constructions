@@ -81,15 +81,15 @@
             <div class="contact-info" data-aos="fade-up" data-aos-delay="800">
               <div class="info-item">
                 <i class="fas fa-phone"></i>
-                <span>+1 (555) 123-4567</span>
+                <span>(+94) 717-640-039</span>
               </div>
               <div class="info-item">
                 <i class="fas fa-envelope"></i>
-                <span>info@sksconstructions.com</span>
+                <span>info@sksdevelopers.lk</span>
               </div>
               <div class="info-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>New York, NY 10001</span>
+                <span>Kiribathgoda, Sri Lanka</span>
               </div>
             </div>
           </div>
