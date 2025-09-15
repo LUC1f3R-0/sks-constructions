@@ -23,8 +23,8 @@
     
     <div class="container-fluid">
       <div class="row align-items-center justify-content-center">
-        <div class="col-lg-8 col-md-10 col-sm-12">
-          <div class="cta-content text-center text-md-left" data-aos="fade-up">
+        <div class="col-lg-8 col-md-10 col-12">
+          <div class="cta-content text-center" data-aos="fade-up">
             <div class="cta-badge" data-aos="fade-down" data-aos-delay="200">
               <i class="fas fa-phone"></i>
               <span>Ready to Start?</span>
@@ -96,7 +96,7 @@
         </div>
         
         <!-- CTA Form -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 col-12 mt-4 mt-lg-0">
           <div class="cta-form-container" data-aos="fade-left" data-aos-delay="400">
             <div class="cta-form">
               <h3 class="form-title">Get Your Free Quote</h3>
@@ -335,10 +335,16 @@ const submitForm = () => {
   display: flex;
   gap: 30px;
   margin-bottom: 40px;
+  justify-content: center;
   
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
+    align-items: center;
+  }
+  
+  @media (max-width: 576px) {
+    gap: 15px;
   }
 }
 
@@ -346,6 +352,14 @@ const submitForm = () => {
   display: flex;
   align-items: center;
   gap: 15px;
+  text-align: left;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+  }
   
   .feature-icon {
     width: 50px;
@@ -358,10 +372,20 @@ const submitForm = () => {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    
+    @media (max-width: 576px) {
+      width: 45px;
+      height: 45px;
+    }
     
     i {
       color: var(--white);
       font-size: 20px;
+      
+      @media (max-width: 576px) {
+        font-size: 18px;
+      }
     }
   }
   
@@ -371,12 +395,20 @@ const submitForm = () => {
       font-weight: 600;
       margin-bottom: 5px;
       color: var(--white);
+      
+      @media (max-width: 576px) {
+        font-size: 15px;
+      }
     }
     
     p {
       font-size: 14px;
       color: rgba(255, 255, 255, 0.7);
       margin: 0;
+      
+      @media (max-width: 576px) {
+        font-size: 13px;
+      }
     }
   }
 }
@@ -414,10 +446,17 @@ const submitForm = () => {
 .contact-info {
   display: flex;
   gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
   
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 15px;
+    align-items: center;
+  }
+  
+  @media (max-width: 576px) {
+    gap: 12px;
   }
   
   .info-item {
@@ -426,10 +465,20 @@ const submitForm = () => {
     gap: 10px;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    
+    @media (max-width: 576px) {
+      font-size: 13px;
+      gap: 8px;
+    }
     
     i {
       color: var(--primary-color);
       font-size: 16px;
+      
+      @media (max-width: 576px) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -448,17 +497,40 @@ const submitForm = () => {
   color: var(--white);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 25px 15px;
+    border-radius: 12px;
+  }
+  
   .form-title {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 10px;
     color: var(--white);
+    
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 20px;
+    }
   }
   
   .form-subtitle {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 30px;
+    
+    @media (max-width: 576px) {
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
   }
 }
 

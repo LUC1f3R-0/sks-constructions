@@ -35,7 +35,7 @@
         <div 
           v-for="(counter, index) in counters" 
           :key="index"
-          class="col-lg-3 col-md-6 col-sm-12"
+          class="col-lg-3 col-md-6 col-12 mb-4"
           data-aos="fade-up"
           :data-aos-delay="index * 200"
         >
@@ -257,6 +257,21 @@ onMounted(() => {
   padding: 40px 20px;
   position: relative;
   z-index: 2;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-default);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
   
   &::before {
     content: '';
@@ -278,6 +293,12 @@ onMounted(() => {
   
   @media (max-width: 768px) {
     padding: 30px 15px;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 25px 15px;
+    margin-bottom: 15px;
   }
 }
 
@@ -294,11 +315,32 @@ onMounted(() => {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  
+  @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 576px) {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+  }
   
   i {
     font-size: 32px;
     color: var(--white);
     transition: var(--transition-default);
+    
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 24px;
+    }
   }
   
   &:hover {
@@ -382,6 +424,19 @@ onMounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--white);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 25px 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
   
   .badge-icon {
     width: 80px;
@@ -393,18 +448,43 @@ onMounted(() => {
     justify-content: center;
     margin: 0 auto 20px;
     
+    @media (max-width: 768px) {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 15px;
+    }
+    
+    @media (max-width: 576px) {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 12px;
+    }
+    
     i {
       font-size: 32px;
       color: var(--white);
+      
+      @media (max-width: 768px) {
+        font-size: 28px;
+      }
+      
+      @media (max-width: 576px) {
+        font-size: 24px;
+      }
     }
   }
   
   h4 {
     font-size: 24px;
     margin-bottom: 10px;
+    line-height: 1.3;
     
     @media (max-width: 768px) {
       font-size: 20px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 18px;
     }
   }
   
@@ -412,9 +492,14 @@ onMounted(() => {
     font-size: 16px;
     opacity: 0.9;
     margin: 0;
+    line-height: 1.5;
     
     @media (max-width: 768px) {
       font-size: 14px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 13px;
     }
   }
 }
