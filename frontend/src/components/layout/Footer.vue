@@ -247,7 +247,7 @@ const scrollToTop = () => {
   box-shadow: 0 5px 20px rgba(37, 99, 235, 0.3);
   
   &:hover {
-    transform: translateX(-50%) scale(1.1);
+    transform: scale(1.1);
     box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
   }
   
@@ -672,10 +672,10 @@ const scrollToTop = () => {
 
 @keyframes float {
   0%, 100% {
-    transform: translateX(-50%) translateY(0px);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateX(-50%) translateY(-5px);
+    transform: translateY(-5px);
   }
 }
 
