@@ -100,6 +100,10 @@
                         :class="{ 'active': route.query.category === 'commercial' }" @click="closeMobileMenu">
                         <i class="fas fa-building"></i>Commercial
                       </router-link></li>
+                    <li><router-link to="/projects?category=residential" class="dropdown-item"
+                        :class="{ 'active': route.query.category === 'residential' }" @click="closeMobileMenu">
+                        <i class="fas fa-home"></i>Residential
+                      </router-link></li>
                   </ul>
                 </li>
                 <li class="nav-item">
