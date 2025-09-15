@@ -9,7 +9,8 @@
       
       <!-- Simple Loading Spinner -->
       <div class="spinner">
-        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>.
+        
       </div>
       
       <!-- Loading Text -->
