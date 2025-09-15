@@ -1,22 +1,25 @@
 <template>
   <div class="preloader">
     <div class="preloader-content">
-      <div class="preloader-logo">
-        <img src="/company_logo.svg" alt="SKS DEVELOPERS (PVT) LTD" class="preloader-logo-image" />
-        <div class="preloader-logo-text">
-          <span class="logo-title">SKS</span>
-          <span class="logo-subtitle">CONSTRUCTIONS</span>
-        </div>
+      <!-- Company Logo -->
+      <div class="logo-section">
+        <img src="/company_logo.svg" alt="SKS DEVELOPERS (PVT) LTD" class="logo" />
+        <h1 class="company-name">SKS CONSTRUCTIONS</h1>
       </div>
-      <div class="preloader-spinner">
-        <div class="spinner-circle"></div>
+      
+      <!-- Simple Loading Spinner -->
+      <div class="spinner">
+        <div class="spinner-ring"></div>
       </div>
+      
+      <!-- Loading Text -->
+      <p class="loading-text">Loading...</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// No additional logic needed for preloader
+// Simple preloader - no complex logic needed
 </script>
 
 <style lang="scss" scoped>
@@ -26,78 +29,131 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--light-gray-2);
+  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 0.45s ease-out;
+  transition: opacity 0.3s ease-out;
 }
 
 .preloader-content {
   text-align: center;
-}
-
-.preloader-logo {
-  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 30px;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   
-  .preloader-logo-image {
+  .logo {
     max-width: 120px;
     height: auto;
   }
   
-  .preloader-logo-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    
-    .logo-title {
-      font-family: var(--font-secondary, 'Arial', sans-serif);
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--primary-color, #2563eb);
-      line-height: 1;
-      text-align: center;
-    }
-    
-    .logo-subtitle {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-gray, #666);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-align: center;
-    }
+  .company-name {
+    font-family: var(--font-secondary);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    letter-spacing: 2px;
   }
 }
 
-.preloader-spinner {
-  position: relative;
+.spinner {
   width: 60px;
   height: 60px;
-  margin: 0 auto;
+  position: relative;
 }
 
-.spinner-circle {
+.spinner-ring {
   width: 100%;
   height: 100%;
-  border: 3px solid var(--light-gray-1);
-  border-top: 3px solid var(--primary-color);
+  border: 4px solid var(--light-gray-1);
+  border-top: 4px solid var(--primary-color);
   border-radius: 50%;
-  animation: rotate 2s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .preloader-content {
+    gap: 25px;
   }
-  100% {
-    transform: rotate(360deg);
+  
+  .logo-section {
+    gap: 15px;
+    
+    .logo {
+      max-width: 100px;
+    }
+    
+    .company-name {
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .spinner-ring {
+    border-width: 3px;
+  }
+  
+  .loading-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .preloader-content {
+    gap: 20px;
+  }
+  
+  .logo-section {
+    gap: 12px;
+    
+    .logo {
+      max-width: 80px;
+    }
+    
+    .company-name {
+      font-size: 20px;
+    }
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .spinner-ring {
+    border-width: 2px;
+  }
+  
+  .loading-text {
+    font-size: 13px;
   }
 }
 </style>

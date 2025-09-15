@@ -1,13 +1,9 @@
 <template>
-  <LottieLoader 
-    v-if="isLoading"
-    :fullscreen="true"
-    :size="400"
-  />
+  <Preloader v-if="isLoading" />
 </template>
 
 <script setup lang="ts">
-import LottieLoader from './LottieLoader.vue'
+import Preloader from './Preloader.vue'
 
 interface Props {
   isLoading?: boolean
