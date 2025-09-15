@@ -338,14 +338,19 @@ onUnmounted(() => {
   min-height: 100vh;
   
   @media (max-width: 768px) {
-    top: 55%; // Move content down to avoid header overlap
+    top: 45%; // Move content higher up
     min-height: 100vh;
-    padding-top: 60px; // Add top padding to ensure content is below header
+    padding-top: 60px; // Reduced padding to prevent cutoff
   }
   
   @media (max-width: 576px) {
-    top: 58%; // Move content further down on smaller screens
-    padding-top: 80px; // Increase padding for smaller screens
+    top: 47%; // Move content higher up for smaller screens
+    padding-top: 70px; // Reduced padding to prevent cutoff
+  }
+  
+  @media (max-width: 480px) {
+    top: 48%; // Move content higher up for very small screens
+    padding-top: 80px; // Reduced padding to prevent cutoff
   }
 }
 
@@ -365,11 +370,15 @@ onUnmounted(() => {
   
   @media (max-width: 768px) {
     text-align: center;
-    padding: 0 15px;
+    padding: 0 15px 40px 15px; // Add bottom padding to prevent cutoff
   }
   
   @media (max-width: 576px) {
-    padding: 0 10px;
+    padding: 0 10px 50px 10px; // Add more bottom padding for smaller screens
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 10px 60px 10px; // Add even more bottom padding for very small screens
   }
 }
 
@@ -542,19 +551,21 @@ onUnmounted(() => {
 .hero-stats {
   display: flex;
   gap: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 15px; // Further reduced margin to bring buttons closer
   animation: fadeInUp 1s ease-out 1.2s both;
   align-items: center;
   
   @media (max-width: 768px) {
     gap: 20px;
     justify-content: center;
+    margin-bottom: 12px; // Further reduced margin on mobile
   }
   
   @media (max-width: 576px) {
     flex-direction: column;
     gap: 15px;
     justify-content: center;
+    margin-bottom: 10px; // Further reduced margin on smaller screens
   }
 }
 
@@ -594,15 +605,24 @@ onUnmounted(() => {
   gap: 20px;
   animation: fadeInUp 1s ease-out 1.5s both;
   align-items: center;
+  margin-top: 5px; // Minimal margin to bring buttons closer to stats
   
   @media (max-width: 768px) {
     justify-content: center;
+    margin-top: 8px; // Minimal margin on mobile
+    gap: 15px; // Reduce gap for mobile
   }
   
   @media (max-width: 576px) {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row; // Keep buttons side by side on mobile
+    gap: 12px; // Smaller gap for smaller screens
     justify-content: center;
+    margin-top: 10px; // Minimal margin on smaller screens
+  }
+  
+  @media (max-width: 480px) {
+    gap: 10px; // Even smaller gap for very small screens
+    margin-top: 12px; // Minimal margin for very small screens
   }
 }
 
@@ -613,6 +633,23 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  min-height: 50px; // Ensure minimum height for touch targets
+  padding: 15px 30px; // Ensure adequate padding
+  
+  @media (max-width: 768px) {
+    min-height: 55px; // Increase touch target on mobile
+    padding: 18px 35px; // Increase padding for better mobile experience
+    font-size: 15px; // Slightly larger text on mobile
+  }
+  
+  @media (max-width: 576px) {
+    min-height: 50px; // Adjusted height for side-by-side layout
+    padding: 15px 20px; // Reduced padding to fit side by side
+    font-size: 14px; // Slightly smaller text to fit better
+    flex: 1; // Equal width buttons
+    justify-content: center; // Center content
+    max-width: 48%; // Ensure buttons don't get too wide
+  }
   
   &:hover {
     transform: translateY(-3px);
@@ -637,6 +674,14 @@ onUnmounted(() => {
   i {
     font-size: 16px;
     transition: transform 0.3s ease;
+    
+    @media (max-width: 768px) {
+      font-size: 18px; // Larger icons on mobile
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 16px; // Adjusted icon size for side-by-side layout
+    }
   }
   
   &:hover i {
