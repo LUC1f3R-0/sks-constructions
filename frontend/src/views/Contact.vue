@@ -189,6 +189,38 @@
       </div>
     </section>
 
+    <!-- Clients Section -->
+    <section class="clients-preview section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-header text-center">
+              <h3 class="section-title">Trusted by Industry Leaders</h3>
+              <p class="section-subtitle">Join our growing list of satisfied clients</p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div 
+            v-for="(client, index) in clients" 
+            :key="index"
+            class="col-lg-2 col-md-3 col-sm-4 col-6"
+            data-aos="fade-up"
+            :data-aos-delay="index * 100"
+          >
+            <div class="client-logo-simple">
+              <img 
+                :src="client.logo" 
+                :alt="client.name" 
+                class="client-logo-img"
+                @error="handleImageError"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Map Section -->
     <section class="map-section">
       <div class="container-fluid">
@@ -230,6 +262,40 @@ const form = reactive({
 })
 
 const isSubmitting = ref(false)
+
+// Client data for the preview section
+const clients = ref([
+  {
+    name: 'TechCorp Solutions',
+    logo: '/clients/1-1.png'
+  },
+  {
+    name: 'Global Industries',
+    logo: '/clients/4-1.png'
+  },
+  {
+    name: 'Prime Enterprises',
+    logo: '/clients/5.png'
+  },
+  {
+    name: 'Innovation Hub',
+    logo: '/clients/6.jpg'
+  },
+  {
+    name: 'Future Builders',
+    logo: '/clients/download (1).png'
+  },
+  {
+    name: 'Elite Partners',
+    logo: '/clients/download.png'
+  }
+])
+
+// Handle image loading errors
+const handleImageError = (event: Event) => {
+  const img = event.target as HTMLImageElement
+  img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik04NSA0MEgxMTVWNTBIODVWNDBaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik04NSA1NUgxMTVWNjVIODVWNTVaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik04NSA3MEgxMTVWODBIODVWNzBaIiBmaWxsPSIjOUNBM0FGIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iOTUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzlDQTNBRiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2xpZW50IExvZ288L3RleHQ+Cjwvc3ZnPgo='
+}
 
 // Form submission
 const submitForm = async () => {
@@ -452,6 +518,54 @@ const submitForm = async () => {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* Clients Preview Section */
+.clients-preview {
+  background: linear-gradient(135deg, var(--white) 0%, var(--light-gray-2) 100%);
+  padding: 60px 0;
+}
+
+.clients-preview .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-black);
+  margin-bottom: 1rem;
+}
+
+.clients-preview .section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  margin-bottom: 2rem;
+}
+
+.client-logo-simple {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+  }
+}
+
+.client-logo-img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 /* Responsive Design */

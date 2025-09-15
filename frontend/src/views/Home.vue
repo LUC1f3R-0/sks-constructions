@@ -27,6 +27,9 @@
     <!-- Testimonial Section -->
     <TestimonialSection />
     
+    <!-- Clients Section -->
+    <ClientsSection />
+    
     <!-- Blog Section -->
     <BlogSection />
     
@@ -50,6 +53,7 @@ import ContactCTA from '@/components/home/ContactCTA.vue'
 import CounterSection from '@/components/home/CounterSection.vue'
 import TeamSection from '@/components/home/TeamSection.vue'
 import TestimonialSection from '@/components/home/TestimonialSection.vue'
+import ClientsSection from '@/components/home/ClientsSection.vue'
 import BlogSection from '@/components/home/BlogSection.vue'
 import ScrollToTop from '@/components/common/ScrollToTop.vue'
 
