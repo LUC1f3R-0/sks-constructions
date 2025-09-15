@@ -4,7 +4,7 @@
       <!-- Company Logo -->
       <div class="logo-section">
         <img src="/company_logo.svg" alt="SKS DEVELOPERS (PVT) LTD" class="logo" />
-        <h1 class="company-name">SKS CONSTRUCTIONS</h1>
+        <h1 class="company-name">SKS DEVELOPERS</h1>
       </div>
       
       <!-- Simple Loading Spinner -->
