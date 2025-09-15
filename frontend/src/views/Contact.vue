@@ -326,9 +326,10 @@ const submitForm = async () => {
 
 .page-header {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  padding: 120px 0 80px;
+  padding: 180px 0 80px;
   color: white;
   text-align: center;
+  margin-top: 0;
 }
 
 .page-title {
@@ -609,6 +610,30 @@ const submitForm = async () => {
   
   .social-icons {
     justify-content: center;
+  }
+}
+
+@media (max-width: 1400px) {
+  .page-header {
+    padding: 160px 0 80px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .page-header {
+    padding: 150px 0 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .page-header {
+    padding: 140px 0 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 120px 0 60px;
   }
 }
 

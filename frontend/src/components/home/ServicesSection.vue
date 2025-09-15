@@ -14,7 +14,7 @@
               Our Services
             </h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-              We provide comprehensive construction services with advanced engineering techniques and innovative solutions
+              We specialize in complete service packages, from research, design, and development.
             </p>
           </div>
         </div>
@@ -27,7 +27,7 @@
           :key="index"
           class="col-lg-4 col-md-6 col-sm-12 col-12"
           data-aos="fade-up"
-          :data-aos-delay="index * 100"
+          :data-aos-delay="index * 200"
         >
           <div class="service-card hover-lift">
             <div class="service-image">
@@ -36,51 +36,19 @@
                 <div class="service-icon">
                   <i :class="service.icon"></i>
                 </div>
-                <div class="service-features">
-                  <span v-for="feature in service.features" :key="feature" class="feature-tag">
-                    {{ feature }}
-                  </span>
-                </div>
               </div>
             </div>
             <div class="service-content">
               <div class="service-header">
                 <h3 class="service-title">{{ service.title }}</h3>
-                <div class="service-rating">
-                  <i class="fas fa-star" v-for="i in 5" :key="i"></i>
-                </div>
               </div>
               <p class="service-description">{{ service.description }}</p>
-              <div class="service-meta">
-                <div class="meta-item">
-                  <i class="fas fa-clock"></i>
-                  <span>{{ service.duration }}</span>
-                </div>
-                <div class="meta-item">
-                  <i class="fas fa-users"></i>
-                  <span>{{ service.team }}</span>
-                </div>
+              <div class="service-cta">
+                <router-link to="/contact" class="btn btn-primary construction-btn">
+                  <i class="fas fa-phone"></i>
+                  Contact Us
+                </router-link>
               </div>
-              <router-link :to="service.link" class="service-link">
-                <span>Learn More</span>
-                <i class="fas fa-arrow-right"></i>
-              </router-link>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Call to Action -->
-      <div class="row mt-5 justify-content-center">
-        <div class="col-12">
-          <div class="services-cta text-center" data-aos="fade-up">
-            <h3>Need a Custom Solution?</h3>
-            <p>Let us create a tailored construction plan for your specific needs</p>
-            <div class="d-flex justify-content-center">
-              <router-link to="/contact" class="btn btn-primary construction-btn">
-                <i class="fas fa-phone"></i>
-                Get Free Consultation
-              </router-link>
             </div>
           </div>
         </div>
@@ -92,64 +60,22 @@
 <script setup lang="ts">
 const services = [
   {
-    title: 'Engineering Techniques & Implementation',
-    description: 'Advanced engineering solutions with cutting-edge technology and innovative approaches to construction challenges.',
-    image: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    icon: 'fas fa-cogs',
-    link: '/services/engineering',
-    duration: '3-6 months',
-    team: '5-10 experts',
-    features: ['Structural Analysis', '3D Modeling', 'Quality Control']
+    title: 'DESIGN',
+    description: 'Our award-winning team of architects tackle each project with passionate and creativity.',
+    image: '/src/assets/images/01.png',
+    icon: 'fas fa-drafting-compass'
   },
   {
-    title: 'Architectural Design & Planning',
-    description: 'Comprehensive architectural services from concept to completion, ensuring functional and aesthetic excellence.',
-    image: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    icon: 'fas fa-drafting-compass',
-    link: '/services/architecture',
-    duration: '2-4 months',
-    team: '3-5 designers',
-    features: ['Concept Design', 'Blueprints', '3D Visualization']
+    title: 'CONSTRUCTION',
+    description: 'Our contractors and construction team deliver results with precision and accuracy.',
+    image: '/src/assets/images/02.jpg',
+    icon: 'fas fa-hard-hat'
   },
   {
-    title: 'Construction Management',
-    description: 'Professional project management ensuring timely delivery, quality control, and cost-effective solutions.',
-    image: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    icon: 'fas fa-hard-hat',
-    link: '/services/management',
-    duration: '6-12 months',
-    team: '10-20 workers',
-    features: ['Project Planning', 'Timeline Management', 'Budget Control']
-  },
-  {
-    title: 'Interior & Exterior Finishing',
-    description: 'Premium finishing services that transform spaces with attention to detail and quality craftsmanship.',
-    image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    icon: 'fas fa-paint-roller',
-    link: '/services/finishing',
-    duration: '1-3 months',
-    team: '3-8 craftsmen',
-    features: ['Custom Finishes', 'Quality Materials', 'Attention to Detail']
-  },
-  {
-    title: 'Renovation & Restoration',
-    description: 'Expert renovation and restoration services preserving historical value while modernizing functionality.',
-    image: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    icon: 'fas fa-tools',
-    link: '/services/renovation',
-    duration: '2-6 months',
-    team: '5-15 specialists',
-    features: ['Historical Preservation', 'Modern Upgrades', 'Structural Repair']
-  },
-  {
-    title: 'Infrastructure Development',
-    description: 'Large-scale infrastructure projects including roads, bridges, and public facilities with sustainable practices.',
-    image: 'https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    icon: 'fas fa-road',
-    link: '/services/infrastructure',
-    duration: '12-24 months',
-    team: '20-50 engineers',
-    features: ['Large Scale Projects', 'Sustainable Design', 'Public Safety']
+    title: 'PROJECT MANAGEMENT',
+    description: 'Trust our project managers to work with you 1-on-1, each step of the way.',
+    image: '/src/assets/images/03.png',
+    icon: 'fas fa-tasks'
   }
 ]
 </script>
@@ -237,18 +163,18 @@ const services = [
   }
   
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.2);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 70px rgba(37, 99, 235, 0.25);
     
     &::before {
-      opacity: 0.05;
+      opacity: 0.08;
     }
     
     .service-icon {
       background: var(--white);
       color: var(--primary-color);
-      transform: scale(1.1) rotate(360deg);
-      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+      transform: scale(1.2) rotate(360deg);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
       
       i {
         color: var(--primary-color);
@@ -256,17 +182,13 @@ const services = [
       }
     }
     
-    .service-link {
+    .service-title {
       color: var(--primary-color);
-      
-      i {
-        transform: translateX(8px);
-      }
+      transform: scale(1.05);
     }
     
-    .service-features {
-      opacity: 1;
-      transform: translateY(0);
+    .service-description {
+      color: var(--text-black);
     }
   }
 }
@@ -349,122 +271,38 @@ const services = [
   flex: 1;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .service-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .service-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--text-black);
   line-height: 1.3;
-  flex: 1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
   
   @media (max-width: 768px) {
     font-size: 20px;
   }
 }
 
-.service-rating {
-  display: flex;
-  gap: 2px;
-  
-  i {
-    color: var(--secondary-color);
-    font-size: 14px;
-  }
-}
-
 .service-description {
   color: var(--text-gray);
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   flex: 1;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-.service-meta {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  
-  .meta-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: var(--text-gray);
-    
-    i {
-      color: var(--primary-color);
-      font-size: 12px;
-    }
-  }
-}
-
-.service-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-black);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: var(--transition-default);
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s ease;
-  }
-  
-  &:hover::after {
-    width: 100%;
-  }
-  
-  i {
-    font-size: 12px;
-    transition: var(--transition-default);
-  }
-  
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-.services-cta {
-  background: linear-gradient(135deg, var(--dark-blue-1) 0%, var(--dark-blue-2) 100%);
-  color: var(--white);
-  padding: 60px 40px;
-  border-radius: 20px;
-  margin-top: 60px;
-  
-  h3 {
-    font-size: 36px;
-    margin-bottom: 15px;
-    
-    @media (max-width: 768px) {
-      font-size: 28px;
-    }
-  }
-  
-  p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    opacity: 0.9;
-  }
+.service-cta {
+  margin-top: auto;
   
   .construction-btn {
     display: inline-flex;
@@ -472,21 +310,27 @@ const services = [
     gap: 10px;
     background: var(--primary-color);
     color: var(--white);
-    padding: 15px 30px;
-    border-radius: 30px;
+    padding: 12px 25px;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    transition: var(--transition-default);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
     
     &:hover {
-      background: var(--secondary-color);
-      transform: scale(1.05);
-      color: var(--white);
+      background: transparent;
+      color: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
     }
     
     i {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 }
+
 </style>
