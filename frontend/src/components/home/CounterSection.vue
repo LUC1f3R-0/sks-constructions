@@ -31,11 +31,12 @@
         </div>
       </div>
       
-      <div class="row justify-content-center">
+      <!-- Desktop/Tablet Layout -->
+      <div class="row justify-content-center g-4 d-none d-md-flex">
         <div 
           v-for="(counter, index) in counters" 
           :key="index"
-          class="col-lg-3 col-md-6 col-12 mb-4"
+          class="col-xl-3 col-lg-4 col-md-6"
           data-aos="fade-up"
           :data-aos-delay="index * 200"
         >
@@ -49,6 +50,28 @@
             </div>
             <div class="counter-label">{{ counter.label }}</div>
             <div class="counter-description">{{ counter.description }}</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile Layout -->
+      <div class="mobile-counters d-md-none">
+        <div 
+          v-for="(counter, index) in counters" 
+          :key="index"
+          class="mobile-counter-item"
+          data-aos="fade-up"
+          :data-aos-delay="index * 200"
+        >
+          <div class="mobile-counter-icon">
+            <i :class="counter.icon"></i>
+          </div>
+          <div class="mobile-counter-content">
+            <div class="mobile-counter-number-row">
+              <div class="mobile-counter-number" :data-count="counter.number">0</div>
+              <div class="mobile-counter-symbol">{{ counter.symbol }}</div>
+            </div>
+            <div class="mobile-counter-label">{{ counter.label }}</div>
           </div>
         </div>
       </div>
@@ -105,7 +128,7 @@ const counters = [
 
 onMounted(() => {
   // Initialize counter animation
-  const counterElements = document.querySelectorAll('.counter-number')
+  const counterElements = document.querySelectorAll('.counter-number, .mobile-counter-number')
   
   const animateCounter = (element: Element) => {
     const target = parseInt(element.getAttribute('data-count') || '0')
@@ -143,9 +166,24 @@ onMounted(() => {
   margin-top: -50px;
   z-index: 2;
   
+  @media (max-width: 992px) {
+    padding: 110px 0;
+    margin-top: -40px;
+  }
+  
   @media (max-width: 768px) {
     padding: 100px 0;
     margin-top: -30px;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 80px 0;
+    margin-top: -20px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 70px 0;
+    margin-top: -15px;
   }
 }
 
@@ -229,13 +267,44 @@ onMounted(() => {
   margin-bottom: 80px;
   color: var(--white);
   
+  @media (max-width: 992px) {
+    margin-bottom: 70px;
+  }
+  
+  @media (max-width: 768px) {
+    margin-bottom: 60px;
+  }
+  
+  @media (max-width: 576px) {
+    margin-bottom: 50px;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 40px;
+  }
+  
   .counter-title {
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 20px;
     
+    @media (max-width: 992px) {
+      font-size: 42px;
+    }
+    
     @media (max-width: 768px) {
       font-size: 36px;
+      margin-bottom: 15px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 28px;
+      margin-bottom: 10px;
     }
   }
   
@@ -245,8 +314,24 @@ onMounted(() => {
     max-width: 600px;
     margin: 0 auto;
     
+    @media (max-width: 992px) {
+      font-size: 17px;
+      max-width: 550px;
+    }
+    
     @media (max-width: 768px) {
       font-size: 16px;
+      max-width: 500px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 15px;
+      max-width: 450px;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 14px;
+      max-width: 400px;
     }
   }
 }
@@ -266,6 +351,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: 280px;
   
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -291,14 +377,42 @@ onMounted(() => {
     width: 120px;
   }
   
+  @media (max-width: 992px) {
+    min-height: 260px;
+    padding: 35px 18px;
+  }
+  
   @media (max-width: 768px) {
+    min-height: 240px;
     padding: 30px 15px;
-    margin-bottom: 20px;
   }
   
   @media (max-width: 576px) {
-    padding: 25px 15px;
-    margin-bottom: 15px;
+    min-height: auto;
+    padding: 20px 15px;
+    text-align: left;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    border-radius: 0;
+    
+    &:hover {
+      background: transparent;
+      transform: none;
+      box-shadow: none;
+    }
+    
+    &::before {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 15px 12px;
+    gap: 12px;
   }
 }
 
@@ -317,6 +431,12 @@ onMounted(() => {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
   
+  @media (max-width: 992px) {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 18px;
+  }
+  
   @media (max-width: 768px) {
     width: 70px;
     height: 70px;
@@ -324,9 +444,18 @@ onMounted(() => {
   }
   
   @media (max-width: 576px) {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 12px;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    background: var(--primary-color);
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  
+  @media (max-width: 480px) {
+    width: 45px;
+    height: 45px;
   }
   
   i {
@@ -334,12 +463,20 @@ onMounted(() => {
     color: var(--white);
     transition: var(--transition-default);
     
+    @media (max-width: 992px) {
+      font-size: 30px;
+    }
+    
     @media (max-width: 768px) {
       font-size: 28px;
     }
     
     @media (max-width: 576px) {
-      font-size: 24px;
+      font-size: 20px;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 18px;
     }
   }
   
@@ -350,6 +487,10 @@ onMounted(() => {
     i {
       color: var(--white);
     }
+    
+    @media (max-width: 576px) {
+      transform: none;
+    }
   }
 }
 
@@ -359,6 +500,11 @@ onMounted(() => {
   justify-content: center;
   gap: 5px;
   margin-bottom: 15px;
+  
+  @media (max-width: 576px) {
+    justify-content: flex-start;
+    margin-bottom: 5px;
+  }
 }
 
 .counter-number {
@@ -369,12 +515,20 @@ onMounted(() => {
   color: var(--white);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   
+  @media (max-width: 992px) {
+    font-size: 64px;
+  }
+  
   @media (max-width: 768px) {
     font-size: 56px;
   }
   
   @media (max-width: 576px) {
     font-size: 48px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 42px;
   }
 }
 
@@ -384,12 +538,20 @@ onMounted(() => {
   font-weight: 700;
   color: var(--white);
   
+  @media (max-width: 992px) {
+    font-size: 32px;
+  }
+  
   @media (max-width: 768px) {
     font-size: 28px;
   }
   
   @media (max-width: 576px) {
     font-size: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 20px;
   }
 }
 
@@ -401,8 +563,25 @@ onMounted(() => {
   color: var(--white);
   margin-bottom: 10px;
   
+  @media (max-width: 992px) {
+    font-size: 17px;
+  }
+  
   @media (max-width: 768px) {
     font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    color: var(--text-gray);
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 11px;
+    letter-spacing: 0.3px;
   }
 }
 
@@ -411,8 +590,25 @@ onMounted(() => {
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
   
+  @media (max-width: 992px) {
+    font-size: 13.5px;
+  }
+  
   @media (max-width: 768px) {
     font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--text-gray);
+    display: none;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 11px;
+    line-height: 1.3;
   }
 }
 
@@ -501,6 +697,104 @@ onMounted(() => {
     @media (max-width: 576px) {
       font-size: 13px;
     }
+  }
+}
+
+// Mobile Counter Layout
+.mobile-counters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 15px;
+  
+  @media (max-width: 480px) {
+    gap: 15px;
+    padding: 0 12px;
+  }
+}
+
+.mobile-counter-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  
+  @media (max-width: 480px) {
+    gap: 12px;
+    padding: 12px 0;
+  }
+}
+
+.mobile-counter-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  @media (max-width: 480px) {
+    width: 45px;
+    height: 45px;
+  }
+  
+  i {
+    color: var(--white);
+    font-size: 20px;
+    
+    @media (max-width: 480px) {
+      font-size: 18px;
+    }
+  }
+}
+
+.mobile-counter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobile-counter-number-row {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.mobile-counter-number {
+  font-family: var(--font-secondary);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-black);
+  
+  @media (max-width: 480px) {
+    font-size: 32px;
+  }
+}
+
+.mobile-counter-symbol {
+  font-family: var(--font-secondary);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-black);
+  
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
+}
+
+.mobile-counter-label {
+  font-size: 12px;
+  color: var(--text-gray);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  @media (max-width: 480px) {
+    font-size: 11px;
+    letter-spacing: 0.3px;
   }
 }
 </style>

@@ -19,33 +19,46 @@
               </p>
             </div>
             
-            <!-- Company Stats -->
-            <div class="company-stats d-flex flex-wrap justify-content-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
+            <!-- Company Stats - Desktop/Tablet -->
+            <div class="company-stats d-none d-md-flex" data-aos="fade-up" data-aos-delay="200">
               <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="fas fa-building"></i>
-                </div>
                 <div class="stat-content">
                   <div class="stat-number" data-count="500">0</div>
                   <div class="stat-label">Projects Completed</div>
                 </div>
               </div>
               <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="fas fa-users"></i>
-                </div>
                 <div class="stat-content">
                   <div class="stat-number" data-count="100">0</div>
                   <div class="stat-label">Team Members</div>
                 </div>
               </div>
               <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="fas fa-award"></i>
-                </div>
                 <div class="stat-content">
                   <div class="stat-number" data-count="50">0</div>
                   <div class="stat-label">Awards Won</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Company Stats - Mobile -->
+            <div class="mobile-company-stats d-md-none" data-aos="fade-up" data-aos-delay="200">
+              <div class="mobile-stat-item">
+                <div class="mobile-stat-content">
+                  <div class="mobile-stat-number" data-count="500">0</div>
+                  <div class="mobile-stat-label">Projects Completed</div>
+                </div>
+              </div>
+              <div class="mobile-stat-item">
+                <div class="mobile-stat-content">
+                  <div class="mobile-stat-number" data-count="100">0</div>
+                  <div class="mobile-stat-label">Team Members</div>
+                </div>
+              </div>
+              <div class="mobile-stat-item">
+                <div class="mobile-stat-content">
+                  <div class="mobile-stat-number" data-count="50">0</div>
+                  <div class="mobile-stat-label">Awards Won</div>
                 </div>
               </div>
             </div>
@@ -164,7 +177,7 @@ import { onMounted } from 'vue'
 
 onMounted(() => {
   // Initialize counter animation
-  const counters = document.querySelectorAll('.counter-number, .stat-number')
+  const counters = document.querySelectorAll('.counter-number, .stat-number, .mobile-stat-number')
   
   const animateCounter = (counter: Element) => {
     const target = parseInt(counter.getAttribute('data-count') || '0')
@@ -293,45 +306,49 @@ onMounted(() => {
   gap: 30px;
   margin-bottom: 40px;
   align-items: center;
+  justify-content: center;
   
   @media (max-width: 992px) {
-    justify-content: center;
+    gap: 25px;
   }
   
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
-    justify-content: center;
+  }
+  
+  @media (max-width: 576px) {
+    gap: 15px;
+    margin-bottom: 30px;
   }
 }
 
 .stat-item {
   display: flex;
   align-items: center;
-  gap: 15px;
-  
-  .stat-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--secondary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    i {
-      color: var(--white);
-      font-size: 20px;
-    }
-  }
+  justify-content: center;
+  text-align: center;
   
   .stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    
     .stat-number {
       font-family: var(--font-secondary);
       font-size: 32px;
       font-weight: 700;
       color: var(--text-black);
       line-height: 1;
+      
+      @media (max-width: 768px) {
+        font-size: 28px;
+      }
+      
+      @media (max-width: 576px) {
+        font-size: 24px;
+      }
     }
     
     .stat-label {
@@ -339,6 +356,17 @@ onMounted(() => {
       color: var(--text-gray);
       text-transform: uppercase;
       letter-spacing: 1px;
+      text-align: center;
+      
+      @media (max-width: 768px) {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+      }
+      
+      @media (max-width: 576px) {
+        font-size: 10px;
+        letter-spacing: 0.3px;
+      }
     }
   }
 }
@@ -669,6 +697,59 @@ onMounted(() => {
       color: var(--text-gray);
       margin: 0;
     }
+  }
+}
+
+// Mobile Company Stats Layout
+.mobile-company-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+  align-items: center;
+  
+  @media (max-width: 576px) {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+}
+
+.mobile-stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mobile-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.mobile-stat-number {
+  font-family: var(--font-secondary);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-black);
+  line-height: 1;
+  
+  @media (max-width: 576px) {
+    font-size: 28px;
+  }
+}
+
+.mobile-stat-label {
+  font-size: 12px;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  
+  @media (max-width: 576px) {
+    font-size: 11px;
+    letter-spacing: 0.5px;
   }
 }
 </style>
