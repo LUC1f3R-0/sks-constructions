@@ -29,7 +29,7 @@
               <a href="#" class="social-icon" title="Twitter">
                 <i class="fab fa-twitter"></i>
               </a>
-              <a href="#" class="social-icon" title="Facebook">
+              <a href="https://facebook.com/sksdevelopers" target="_blank" class="social-icon" title="Facebook">
                 <i class="fab fa-facebook-f"></i>
               </a>
               <a href="#" class="social-icon" title="LinkedIn">
@@ -65,85 +65,75 @@
               <ul class="nav-menu" :class="{ 'nav-menu-active': isMobileMenuOpen }">
                 <li class="nav-item">
                   <router-link to="/" class="nav-link" :class="{ 'active': isActive('/') }" @click="closeMobileMenu">
-                    <i class="fas fa-home"></i>
                     <span>Home</span>
                   </router-link>
                 </li>
                 <li class="nav-item">
                   <router-link to="/about" class="nav-link" :class="{ 'active': isActive('/about') }"
                     @click="closeMobileMenu">
-                    <i class="fas fa-info-circle"></i>
                     <span>About</span>
                   </router-link>
                 </li>
                 <li class="nav-item dropdown">
                   <a href="#" class="nav-link dropdown-toggle" :class="{ 'active': isDropdownActive('/projects') }"
                     @click="toggleDropdown('projects')">
-                    <i class="fas fa-building"></i>
                     <span>Projects</span>
                     <i class="fas fa-chevron-down dropdown-arrow"></i>
                   </a>
                   <ul class="dropdown-menu" :class="{ 'show': activeDropdown === 'projects' }">
                     <li><router-link to="/projects" class="dropdown-item" :class="{ 'active': isActive('/projects') }"
                         @click="closeMobileMenu">
-                        <i class="fas fa-th-large"></i>All Projects
+                        All Projects
                       </router-link></li>
-                    <li><router-link to="/projects?category=interior" class="dropdown-item"
-                        :class="{ 'active': route.query.category === 'interior' }" @click="closeMobileMenu">
-                        <i class="fas fa-couch"></i>Interior
+                    <li><router-link to="/project-updates" class="dropdown-item" :class="{ 'active': isActive('/project-updates') }"
+                        @click="closeMobileMenu">
+                        Project Updates
                       </router-link></li>
-                    <li><router-link to="/projects?category=exterior" class="dropdown-item"
-                        :class="{ 'active': route.query.category === 'exterior' }" @click="closeMobileMenu">
-                        <i class="fas fa-home"></i>Exterior
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" :class="{ 'active': isDropdownActive('/services') }"
+                    @click="toggleDropdown('services')">
+                    <span>Services</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                  </a>
+                  <ul class="dropdown-menu" :class="{ 'show': activeDropdown === 'services' }">
+                    <li><router-link to="/services" class="dropdown-item" :class="{ 'active': isActive('/services') }"
+                        @click="closeMobileMenu">
+                        Our Services
                       </router-link></li>
-                    <li><router-link to="/projects?category=commercial" class="dropdown-item"
-                        :class="{ 'active': route.query.category === 'commercial' }" @click="closeMobileMenu">
-                        <i class="fas fa-building"></i>Commercial
-                      </router-link></li>
-                    <li><router-link to="/projects?category=residential" class="dropdown-item"
-                        :class="{ 'active': route.query.category === 'residential' }" @click="closeMobileMenu">
-                        <i class="fas fa-home"></i>Residential
+                    <li><router-link to="/service-portfolio" class="dropdown-item" :class="{ 'active': isActive('/service-portfolio') }"
+                        @click="closeMobileMenu">
+                        Service Portfolio
                       </router-link></li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <router-link to="/services" class="nav-link" :class="{ 'active': isActive('/services') }"
+                  <router-link to="/testimonials" class="nav-link" :class="{ 'active': isActive('/testimonials') }"
                     @click="closeMobileMenu">
-                    <i class="fas fa-tools"></i>
-                    <span>Services</span>
+                    <span>Testimonials</span>
                   </router-link>
-                </li>
-                <li class="nav-item dropdown">
-                  <a href="#" class="nav-link dropdown-toggle" :class="{ 'active': isDropdownActive('/blog') }"
-                    @click="toggleDropdown('blog')">
-                    <i class="fas fa-newspaper"></i>
-                    <span>Blog</span>
-                    <i class="fas fa-chevron-down dropdown-arrow"></i>
-                  </a>
-                  <ul class="dropdown-menu" :class="{ 'show': activeDropdown === 'blog' }">
-                    <li><router-link to="/blog" class="dropdown-item" :class="{ 'active': isActive('/blog') }"
-                        @click="closeMobileMenu">
-                        <i class="fas fa-list"></i>All Posts
-                      </router-link></li>
-                    <li><router-link to="/blog?category=construction" class="dropdown-item"
-                        :class="{ 'active': route.query.category === 'construction' }" @click="closeMobileMenu">
-                        <i class="fas fa-hard-hat"></i>Construction
-                      </router-link></li>
-                    <li><router-link to="/blog?category=design" class="dropdown-item"
-                        :class="{ 'active': route.query.category === 'design' }" @click="closeMobileMenu">
-                        <i class="fas fa-drafting-compass"></i>Design
-                      </router-link></li>
-                    <li><router-link to="/blog?category=news" class="dropdown-item"
-                        :class="{ 'active': route.query.category === 'news' }" @click="closeMobileMenu">
-                        <i class="fas fa-newspaper"></i>News
-                      </router-link></li>
-                  </ul>
                 </li>
                 <li class="nav-item">
                   <router-link to="/contact" class="nav-link contact-link" :class="{ 'active': isActive('/contact') }"
                     @click="closeMobileMenu">
-                    <i class="fas fa-phone"></i>
                     <span>Contact</span>
+                  </router-link>
+                </li>
+
+                <!-- Additional Mobile Menu Items -->
+                <li class="nav-item mobile-only">
+                  <router-link to="/why-choose-us" class="nav-link" :class="{ 'active': isActive('/why-choose-us') }"
+                    @click="closeMobileMenu">
+                    <i class="fas fa-star"></i>
+                    <span>Why Choose Us</span>
+                  </router-link>
+                </li>
+                <li class="nav-item mobile-only">
+                  <router-link to="/blog" class="nav-link" :class="{ 'active': isActive('/blog') }"
+                    @click="closeMobileMenu">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Blog</span>
                   </router-link>
                 </li>
 
@@ -671,7 +661,7 @@ onUnmounted(() => {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 30px;
+  gap: 25px;
 
   @media (max-width: 1400px) {
     gap: 25px;
@@ -1079,6 +1069,14 @@ onUnmounted(() => {
 
   @media (max-width: 992px) {
     display: flex;
+  }
+}
+
+.mobile-only {
+  display: none;
+  
+  @media (max-width: 992px) {
+    display: block;
   }
 }
 

@@ -28,7 +28,7 @@
                 SKS DEVELOPERS (PVT) LTD is a leading construction company specializing in advanced engineering techniques and innovative building solutions. We deliver excellence in every project with over 25 years of experience.
               </p>
               <div class="footer-social">
-                <a href="#" class="social-link" title="Facebook">
+                <a href="https://facebook.com/sksdevelopers" target="_blank" class="social-link" title="Facebook">
                   <i class="fab fa-facebook-f"></i>
                 </a>
                 <a href="#" class="social-link" title="Twitter">
@@ -57,10 +57,12 @@
               <ul class="footer-links">
                 <li><router-link to="/about"><i class="fas fa-chevron-right"></i>About Us</router-link></li>
                 <li><router-link to="/services"><i class="fas fa-chevron-right"></i>Our Services</router-link></li>
+                <li><router-link to="/service-portfolio"><i class="fas fa-chevron-right"></i>Service Portfolio</router-link></li>
                 <li><router-link to="/projects"><i class="fas fa-chevron-right"></i>Projects</router-link></li>
-                <li><router-link to="/team"><i class="fas fa-chevron-right"></i>Our Team</router-link></li>
+                <li><router-link to="/testimonials"><i class="fas fa-chevron-right"></i>Testimonials</router-link></li>
+                <li><router-link to="/project-updates"><i class="fas fa-chevron-right"></i>Project Updates</router-link></li>
+                <li><router-link to="/why-choose-us"><i class="fas fa-chevron-right"></i>Why Choose Us</router-link></li>
                 <li><router-link to="/contact"><i class="fas fa-chevron-right"></i>Contact Us</router-link></li>
-                <li><router-link to="/blog"><i class="fas fa-chevron-right"></i>Latest News</router-link></li>
               </ul>
             </div>
           </div>

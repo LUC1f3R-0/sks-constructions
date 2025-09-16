@@ -12,6 +12,9 @@
     <!-- About Section -->
     <AboutSection />
     
+    <!-- Why Choose Us Section -->
+    <WhyChooseUsSection />
+    
     <!-- Projects Gallery -->
     <ProjectsGallery />
     
@@ -48,6 +51,7 @@ import Footer from '@/components/layout/Footer.vue'
 import HeroSlider from '@/components/home/HeroSlider.vue'
 import ServicesSection from '@/components/home/ServicesSection.vue'
 import AboutSection from '@/components/home/AboutSection.vue'
+import WhyChooseUsSection from '@/components/home/WhyChooseUsSection.vue'
 import ProjectsGallery from '@/components/home/ProjectsGallery.vue'
 import ContactCTA from '@/components/home/ContactCTA.vue'
 import CounterSection from '@/components/home/CounterSection.vue'

@@ -72,6 +72,19 @@ html {
   scroll-behavior: smooth;
 }
 
+// Enhanced scroll behavior
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: var(--font-primary);
   font-size: var(--body-font-size);
@@ -81,6 +94,9 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 // Typography
@@ -227,7 +243,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-// Animations
+// Enhanced Animations
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -261,6 +277,50 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -285,6 +345,29 @@ h1, h2, h3, h4, h5, h6 {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
   }
 }
 
@@ -321,7 +404,43 @@ h1, h2, h3, h4, h5, h6 {
   animation: rotate 30s linear infinite;
 }
 
-// Hover Effects
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.8s ease-out;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-zoomIn {
+  animation: zoomIn 0.8s ease-out;
+}
+
+// Enhanced Hover Effects
 .hover-scale {
   transition: var(--transition-slow);
   
@@ -336,6 +455,94 @@ h1, h2, h3, h4, h5, h6 {
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.hover-glow {
+  transition: var(--transition-default);
+  
+  &:hover {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  }
+}
+
+.hover-slide {
+  transition: var(--transition-default);
+  
+  &:hover {
+    transform: translateX(5px);
+  }
+}
+
+.hover-rotate {
+  transition: var(--transition-default);
+  
+  &:hover {
+    transform: rotate(5deg);
+  }
+}
+
+.hover-bounce {
+  transition: var(--transition-default);
+  
+  &:hover {
+    animation: bounce 0.6s ease-in-out;
+  }
+}
+
+// Smooth transitions for all interactive elements
+a, button, .btn, .card, .feature-card, .testimonial-card, .update-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Enhanced focus states for accessibility
+a:focus, button:focus, .btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+// Smooth scrolling for anchor links
+a[href^="#"] {
+  scroll-behavior: smooth;
+}
+
+// Image optimization
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+// Lazy loading for images
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+// Performance optimizations
+* {
+  will-change: auto;
+}
+
+.hover-lift, .hover-scale, .hover-glow, .hover-slide, .hover-rotate, .hover-bounce {
+  will-change: transform, box-shadow;
+}
+
+// Reduce motion for users who prefer it
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

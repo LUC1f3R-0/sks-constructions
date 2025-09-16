@@ -9,13 +9,13 @@
               <i class="fas fa-info-circle"></i>
               <span>About Our Company</span>
             </div>
-            <h2 class="about-title">Building Excellence Since 1994</h2>
+            <h2 class="about-title">Building Excellence Since 2007</h2>
             <div class="about-description">
               <p class="description-main">
-                SKS DEVELOPERS (PVT) LTD is a leading construction company with over 30 years of experience in delivering exceptional building solutions. We specialize in advanced engineering techniques and innovative construction methods that set industry standards.
+                SKS DEVELOPERS (PVT) LTD stands apart from competitors through our unique combination of advanced engineering expertise, innovative construction techniques, and unwavering commitment to client satisfaction. We don't just build structures – we create lasting legacies.
               </p>
               <p class="description-secondary">
-                Our team of skilled professionals combines traditional craftsmanship with cutting-edge technology to create structures that are not only aesthetically pleasing but also built to last. We take pride in our commitment to quality, safety, and customer satisfaction.
+                What sets us apart is our integrated approach: from initial design consultation to final project delivery, we provide comprehensive solutions that exceed expectations. Our experienced team combines traditional craftsmanship with cutting-edge technology, ensuring every project reflects our commitment to excellence and innovation.
               </p>
             </div>
             
@@ -110,7 +110,7 @@
               <div class="image-overlay">
                 <div class="since-badge">
                   <div class="badge-content">
-                    <span class="badge-year">1994</span>
+                    <span class="badge-year">2007</span>
                     <span class="badge-text">Since</span>
                   </div>
                 </div>
@@ -136,7 +136,7 @@
                   <i class="fas fa-star"></i>
                 </div>
                 <div class="counter-content">
-                  <div class="counter-number" data-count="30">0</div>
+                  <div class="counter-number" data-count="17">0</div>
                   <div class="counter-label">Years of Excellence</div>
                 </div>
               </div>

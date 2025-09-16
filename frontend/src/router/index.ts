@@ -12,6 +12,10 @@ import Team from '@/views/Team.vue'
 import Privacy from '@/views/Privacy.vue'
 import Terms from '@/views/Terms.vue'
 import Sitemap from '@/views/Sitemap.vue'
+import WhyChooseUs from '@/views/WhyChooseUs.vue'
+import ServicePortfolio from '@/views/ServicePortfolio.vue'
+import Testimonials from '@/views/Testimonials.vue'
+import ProjectUpdates from '@/views/ProjectUpdates.vue'
 
 const routes = [
   {
@@ -142,6 +146,31 @@ const routes = [
     name: 'Sitemap',
     component: Sitemap,
     meta: { title: 'Site Map - SKS DEVELOPERS (PVT) LTD' }
+  },
+  // New pages for redesigned website
+  {
+    path: '/why-choose-us',
+    name: 'WhyChooseUs',
+    component: WhyChooseUs,
+    meta: { title: 'Why Choose Us - SKS DEVELOPERS (PVT) LTD' }
+  },
+  {
+    path: '/service-portfolio',
+    name: 'ServicePortfolio',
+    component: ServicePortfolio,
+    meta: { title: 'Service Portfolio - SKS DEVELOPERS (PVT) LTD' }
+  },
+  {
+    path: '/testimonials',
+    name: 'Testimonials',
+    component: Testimonials,
+    meta: { title: 'Client Testimonials - SKS DEVELOPERS (PVT) LTD' }
+  },
+  {
+    path: '/project-updates',
+    name: 'ProjectUpdates',
+    component: ProjectUpdates,
+    meta: { title: 'Project Updates - SKS DEVELOPERS (PVT) LTD' }
   }
 ]
 
