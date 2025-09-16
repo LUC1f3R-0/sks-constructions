@@ -108,10 +108,10 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const currentSlide = ref(0)
 let autoplayInterval: number | null = null
 
-// Import local images
-import image01 from '@/assets/images/01.png'
-import image02 from '@/assets/images/02.jpg'
-import image03 from '@/assets/images/03.png'
+// Local images are available but using external URLs for slides
+// import image01 from '@/assets/images/01.png'
+// import image02 from '@/assets/images/02.jpg'
+// import image03 from '@/assets/images/03.png'
 
 // Updated slides with high-quality completed project images
 const slides = [
