@@ -472,14 +472,28 @@ onMounted(() => {
   padding: 60px 40px;
   color: var(--white);
   
+  @media (max-width: 768px) {
+    padding: 40px 30px;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+  
   .stats-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
+    }
+    
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
   }
 }
@@ -490,6 +504,12 @@ onMounted(() => {
   gap: 20px;
   text-align: center;
   
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
   .stat-icon {
     width: 60px;
     height: 60px;
@@ -499,10 +519,20 @@ onMounted(() => {
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(10px);
+    flex-shrink: 0;
+    
+    @media (max-width: 576px) {
+      width: 50px;
+      height: 50px;
+    }
     
     i {
       color: var(--primary-color);
       font-size: 24px;
+      
+      @media (max-width: 576px) {
+        font-size: 20px;
+      }
     }
   }
   
@@ -515,6 +545,14 @@ onMounted(() => {
       font-weight: 700;
       line-height: 1;
       margin-bottom: 5px;
+      
+      @media (max-width: 768px) {
+        font-size: 32px;
+      }
+      
+      @media (max-width: 576px) {
+        font-size: 28px;
+      }
     }
     
     .stat-label {
@@ -522,6 +560,10 @@ onMounted(() => {
       opacity: 0.9;
       text-transform: uppercase;
       letter-spacing: 1px;
+      
+      @media (max-width: 576px) {
+        font-size: 12px;
+      }
     }
   }
 }
