@@ -26,8 +26,8 @@
                 <h1 class="hero-title">
                   <span class="title-main">HEY</span>
                   <div class="animated-text-container">
-                    <span class="animated-text-stroke">DULMINI</span>
-                    <span class="animated-text-fill">DULMINI</span>
+                    <span class="animated-text-stroke">DEVELOPERS</span>
+                    <span class="animated-text-fill">DEVELOPERS</span>
                   </div>
                 </h1>
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="500">
