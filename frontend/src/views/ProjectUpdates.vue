@@ -392,10 +392,13 @@ onMounted(() => {
 }
 
 .page-title {
+  font-family: 'Teko', sans-serif !important;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: white;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
 }
 
 .page-subtitle {
@@ -1026,6 +1029,7 @@ onMounted(() => {
   
   .page-title {
     font-size: 2.5rem;
+    letter-spacing: 2px !important;
   }
 }
 
@@ -1036,6 +1040,7 @@ onMounted(() => {
   
   .page-title {
     font-size: 2rem;
+    letter-spacing: 1.5px !important;
   }
 }
 </style>

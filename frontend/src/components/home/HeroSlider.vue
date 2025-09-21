@@ -24,7 +24,7 @@
                   <span>Professional Construction Services</span>
                 </div>
                 <h1 class="hero-title">
-                  <span class="title-main">HEY</span>
+                  <span class="title-main">SKS</span>
                   <div class="animated-text-container">
                     <span class="animated-text-stroke">DEVELOPERS</span>
                     <span class="animated-text-fill">DEVELOPERS</span>
