@@ -52,7 +52,7 @@
           </div>
           <div class="col-lg-6">
             <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
-              <img src="@/assets/images/Construction.jpg" alt="SKS Developers Construction Site" />
+              <img src="/images/Construction.jpg" alt="SKS Developers Construction Site" />
               <div class="image-overlay">
                 <div class="since-badge">
                   <div class="badge-content">
@@ -116,7 +116,7 @@
           </div>
           <div class="col-lg-6">
             <div class="company-image" data-aos="fade-left">
-              <img src="@/assets/images/shutterstock_57862405-building-scaled.jpg" alt="SKS Developers Office" />
+              <img src="/images/shutterstock_57862405-building-scaled.jpg" alt="SKS Developers Office" />
               <div class="image-badge">
                 <div class="badge-icon">
                   <i class="fas fa-award"></i>

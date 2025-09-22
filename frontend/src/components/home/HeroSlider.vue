@@ -108,23 +108,18 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const currentSlide = ref(0)
 let autoplayInterval: number | null = null
 
-// Import local construction images
-import constructionSite1 from '@/assets/images/Construction-site-iStock-1267010934.jpg'
-import buildingConstruction from '@/assets/images/building-construction-site.jpg'
-import workersConstruction from '@/assets/images/WorkersConstructionSite_1440x810.avif'
-
-// Updated slides with local construction images
+// Updated slides with public image paths
 const slides = [
   {
-    background: constructionSite1,
+    background: '/images/Construction-site-iStock-1267010934.jpg',
     subtitle: 'Building Sri Lanka\'s future with advanced engineering techniques & innovative construction solutions'
   },
   {
-    background: buildingConstruction,
+    background: '/images/building-construction-site.jpg',
     subtitle: 'Professional construction services with excellence in every project we undertake across Sri Lanka'
   },
   {
-    background: workersConstruction,
+    background: '/images/WorkersConstructionSite_1440x810.avif',
     subtitle: 'Transforming Sri Lankan infrastructure with cutting-edge technology and unmatched expertise'
   }
 ]
@@ -408,7 +403,7 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   
   @media (max-width: 768px) {
-    margin: 0 auto 30px auto;
+    display: none;
   }
   
   &:hover {

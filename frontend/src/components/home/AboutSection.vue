@@ -119,7 +119,7 @@
         <div class="col-lg-6 col-md-12">
           <div class="about-image-wrapper" data-aos="fade-left">
             <div class="about-image">
-              <img src="@/assets/images/The-Benefits-of-Hiring-a-Professional-Construction-Company-in-Sri-Lanka.png" alt="SKS DEVELOPERS (PVT) LTD Team" />
+              <img src="/images/The-Benefits-of-Hiring-a-Professional-Construction-Company-in-Sri-Lanka.png" alt="SKS DEVELOPERS (PVT) LTD Team" />
               <div class="image-overlay">
                 <div class="since-badge">
                   <div class="badge-content">

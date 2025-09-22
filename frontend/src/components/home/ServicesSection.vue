@@ -58,28 +58,23 @@
 </template>
 
 <script setup lang="ts">
-// Import images properly
-import image01 from '@/assets/images/01.png'
-import image02 from '@/assets/images/02.jpg'
-import image03 from '@/assets/images/03.png'
-
 const services = [
   {
     title: 'DESIGN',
     description: 'Our award-winning team of architects tackle each project with passionate and creativity.',
-    image: image01,
+    image: '/images/01.png',
     icon: 'fas fa-drafting-compass'
   },
   {
     title: 'CONSTRUCTION',
     description: 'Our contractors and construction team deliver results with precision and accuracy.',
-    image: image02,
+    image: '/images/02.jpg',
     icon: 'fas fa-hard-hat'
   },
   {
     title: 'PROJECT MANAGEMENT',
     description: 'Trust our project managers to work with you 1-on-1, each step of the way.',
-    image: image03,
+    image: '/images/03.png',
     icon: 'fas fa-tasks'
   }
 ]
