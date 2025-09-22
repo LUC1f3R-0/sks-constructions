@@ -17,7 +17,7 @@
         <div class="hero-content-wrapper">
           <div class="container-fluid">
             <div class="row align-items-center justify-content-center">
-              <div class="col-lg-8 col-md-10 col-sm-12">
+              <div class="col-lg-10 col-md-12 col-sm-12">
                 <div class="hero-content text-center text-md-left" data-aos="fade-up" data-aos-delay="300">
                 <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
                   <i class="fas fa-hard-hat"></i>
@@ -232,7 +232,7 @@ onUnmounted(() => {
   position: relative;
   height: 100vh;
   min-height: 900px;
-  overflow: hidden;
+  overflow: visible; // Changed from hidden to visible to prevent text clipping
   display: flex;
   align-items: center;
   justify-content: center;
@@ -331,6 +331,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  overflow: visible; // Ensure content is not clipped
   
   @media (max-width: 768px) {
     top: 45%; // Move content higher up
@@ -358,6 +359,7 @@ onUnmounted(() => {
   width: 100%;
   padding: 0 20px;
   text-align: center;
+  overflow: visible; // Ensure content is not clipped
   
   @media (min-width: 768px) {
     text-align: left;
@@ -418,6 +420,7 @@ onUnmounted(() => {
 
 .hero-title {
   margin-bottom: 30px;
+  overflow: visible; // Ensure title content is not clipped
   
   .title-main {
     display: block;
@@ -429,6 +432,7 @@ onUnmounted(() => {
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     animation: slideInLeft 1.2s ease-out 0.3s both;
+    white-space: nowrap;
     
     @media (max-width: 768px) {
       font-size: 70px; // Slightly smaller to ensure full visibility
@@ -458,13 +462,27 @@ onUnmounted(() => {
   display: inline-block;
   margin-left: 70px;
   animation: slideInRight 1.2s ease-out 0.6s both;
+  height: 140px; // Set explicit height to match text size
+  width: 800px; // Further increased width to accommodate full "DEVELOPERS" text
   
   @media (max-width: 768px) {
     margin-left: 30px; // Reduce spacing on mobile
+    height: 70px; // Match mobile text size
+    width: 400px; // Further increased width for mobile
   }
   
   @media (max-width: 576px) {
     margin-left: 15px; // Further reduce spacing on smaller screens
+    height: 50px; // Match smaller mobile text size
+    width: 300px; // Further increased width for smaller screens
+  }
+  
+  @media (max-width: 480px) {
+    width: 280px; // Further adjustment for very small screens
+  }
+  
+  @media (max-width: 400px) {
+    width: 260px; // Additional adjustment for very small screens
   }
 }
 
@@ -486,6 +504,16 @@ onUnmounted(() => {
   font-weight: 700;
   text-transform: uppercase;
   line-height: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: visible;
   
   @media (max-width: 768px) {
     font-size: 70px; // Match the SKS size for consistency
@@ -497,18 +525,17 @@ onUnmounted(() => {
 }
 
 .animated-text-stroke {
-  position: absolute;
-  top: 0;
-  left: 0;
   color: transparent;
   -webkit-text-stroke: 2px var(--white);
   animation: clipPathAnimation 4s infinite;
+  z-index: 1;
 }
 
 .animated-text-fill {
   color: var(--secondary-color);
   animation: clipPathAnimation 4s infinite reverse;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
 }
 
 @keyframes clipPathAnimation {
