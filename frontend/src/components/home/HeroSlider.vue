@@ -108,6 +108,7 @@ import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 const currentSlide = ref(0)
 const isVisible = ref(false)
 let autoplayInterval: number | null = null
+let resizeHandler: (() => void) | null = null
 
 // Updated slides with public image paths
 const slides = [
@@ -210,6 +211,11 @@ const restartAnimations = async () => {
   // Wait for next tick to ensure classes are removed
   await nextTick()
   
+  // Force a reflow to ensure the removal is processed
+  animatedElements.forEach(element => {
+    (element as HTMLElement).offsetHeight
+  })
+  
   // Re-add animation classes with a small delay
   setTimeout(() => {
     animatedElements.forEach(element => {
@@ -217,10 +223,11 @@ const restartAnimations = async () => {
     })
   }, 50)
   
-  // Restart number animations
+  // Restart number animations with longer delay for mobile
+  const isMobile = window.innerWidth <= 768
   setTimeout(() => {
     animateNumbers()
-  }, 1000)
+  }, isMobile ? 1200 : 1000)
 }
 
 onMounted(() => {
@@ -243,7 +250,8 @@ onMounted(() => {
       }
     })
   }, {
-    threshold: 0.1 // Trigger when 10% of the component is visible
+    threshold: 0.1, // Trigger when 10% of the component is visible
+    rootMargin: '0px 0px -10% 0px' // Add margin to ensure proper triggering on mobile
   })
   
   const heroSlider = document.querySelector('.hero-slider')
@@ -256,10 +264,25 @@ onMounted(() => {
   if (heroContent) {
     observer.observe(heroContent)
   }
+  
+  // Handle window resize for mobile responsiveness
+  resizeHandler = () => {
+    if (isVisible.value) {
+      // Restart animations on resize to ensure proper mobile behavior
+      setTimeout(() => {
+        restartAnimations()
+      }, 100)
+    }
+  }
+  
+  window.addEventListener('resize', resizeHandler)
 })
 
 onUnmounted(() => {
   stopAutoplay()
+  if (resizeHandler) {
+    window.removeEventListener('resize', resizeHandler)
+  }
 })
 </script>
 
@@ -411,14 +434,20 @@ onUnmounted(() => {
   @media (max-width: 768px) {
     text-align: center;
     padding: 0 15px 40px 15px; // Add bottom padding to prevent cutoff
+    // Ensure animations work properly on mobile
+    will-change: opacity, transform;
   }
   
   @media (max-width: 576px) {
     padding: 0 10px 50px 10px; // Add more bottom padding for smaller screens
+    // Ensure animations work properly on smaller mobile
+    will-change: opacity, transform;
   }
   
   @media (max-width: 480px) {
     padding: 0 10px 60px 10px; // Add even more bottom padding for very small screens
+    // Ensure animations work properly on very small screens
+    will-change: opacity, transform;
   }
 }
 
@@ -636,6 +665,7 @@ onUnmounted(() => {
   
   @media (max-width: 768px) {
     font-size: 16px;
+    will-change: opacity;
   }
 }
 
@@ -667,6 +697,7 @@ onUnmounted(() => {
     gap: 20px;
     justify-content: center;
     margin-bottom: 12px; // Further reduced margin on mobile
+    will-change: opacity, transform;
   }
   
   @media (max-width: 576px) {
@@ -674,6 +705,7 @@ onUnmounted(() => {
     gap: 15px;
     justify-content: center;
     margin-bottom: 10px; // Further reduced margin on smaller screens
+    will-change: opacity, transform;
   }
 }
 
@@ -727,6 +759,7 @@ onUnmounted(() => {
     justify-content: center;
     margin-top: 8px; // Minimal margin on mobile
     gap: 15px; // Reduce gap for mobile
+    will-change: opacity, transform;
   }
   
   @media (max-width: 576px) {
@@ -734,11 +767,13 @@ onUnmounted(() => {
     gap: 12px; // Smaller gap for smaller screens
     justify-content: center;
     margin-top: 10px; // Minimal margin on smaller screens
+    will-change: opacity, transform;
   }
   
   @media (max-width: 480px) {
     gap: 10px; // Even smaller gap for very small screens
     margin-top: 12px; // Minimal margin for very small screens
+    will-change: opacity, transform;
   }
 }
 
