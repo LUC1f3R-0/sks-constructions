@@ -12,13 +12,18 @@
             <h2 class="about-title">Building Excellence Since 2007</h2>
             <div class="about-description">
               <p class="description-main">
-                SKS DEVELOPERS (PVT) LTD stands apart from competitors through our unique combination of advanced engineering expertise, innovative construction techniques, and unwavering commitment to client satisfaction. We don't just build structures – we create lasting legacies.
+                SKS DEVELOPERS (PVT) LTD stands apart from competitors through our unique combination of advanced
+                engineering expertise, innovative construction techniques, and unwavering commitment to client
+                satisfaction. We don't just build structures – we create lasting legacies.
               </p>
               <p class="description-secondary">
-                What sets us apart is our integrated approach: from initial design consultation to final project delivery, we provide comprehensive solutions that exceed expectations. Our experienced team combines traditional craftsmanship with cutting-edge technology, ensuring every project reflects our commitment to excellence and innovation.
+                What sets us apart is our integrated approach: from initial design consultation to final project
+                delivery, we provide comprehensive solutions that exceed expectations. Our experienced team combines
+                traditional craftsmanship with cutting-edge technology, ensuring every project reflects our commitment
+                to excellence and innovation.
               </p>
             </div>
-            
+
             <!-- Company Stats - Desktop/Tablet -->
             <div class="company-stats d-none d-md-flex" data-aos="fade-up" data-aos-delay="200">
               <div class="stat-item">
@@ -40,7 +45,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Company Stats - Mobile -->
             <div class="mobile-company-stats d-md-none" data-aos="fade-up" data-aos-delay="200">
               <div class="mobile-stat-item">
@@ -62,7 +67,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="about-features" data-aos="fade-up" data-aos-delay="400">
               <div class="feature-item">
                 <div class="feature-icon">
@@ -101,8 +106,9 @@
                 </div>
               </div>
             </div>
-            
-            <div class="about-actions d-flex flex-wrap justify-content-center justify-content-md-start" data-aos="fade-up" data-aos-delay="600">
+
+            <div class="about-actions d-flex flex-wrap justify-content-center justify-content-md-start"
+              data-aos="fade-up" data-aos-delay="600">
               <router-link to="/about" class="btn btn-primary construction-btn">
                 <i class="fas fa-arrow-right"></i>
                 <span>Learn More</span>
@@ -119,7 +125,8 @@
         <div class="col-lg-6 col-md-12">
           <div class="about-image-wrapper" data-aos="fade-left">
             <div class="about-image">
-              <img src="/images/The-Benefits-of-Hiring-a-Professional-Construction-Company-in-Sri-Lanka.png" alt="SKS DEVELOPERS (PVT) LTD Team" />
+              <img src="/images/The-Benefits-of-Hiring-a-Professional-Construction-Company-in-Sri-Lanka.png"
+                alt="SKS DEVELOPERS (PVT) LTD Team" />
               <div class="image-overlay">
                 <div class="since-badge">
                   <div class="badge-content">
@@ -128,7 +135,7 @@
                   </div>
                 </div>
               </div>
-              
+
               <!-- Construction Elements -->
               <div class="construction-elements">
                 <div class="element crane" data-aos="fade-left" data-aos-delay="800">
@@ -142,7 +149,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="experience-counter">
               <div class="counter-item">
                 <div class="counter-icon">
@@ -154,7 +161,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Quality Badge -->
             <div class="quality-badge" data-aos="fade-up" data-aos-delay="1400">
               <div class="badge-icon">
@@ -178,13 +185,13 @@ import { onMounted } from 'vue'
 onMounted(() => {
   // Initialize counter animation
   const counters = document.querySelectorAll('.counter-number, .stat-number, .mobile-stat-number')
-  
+
   const animateCounter = (counter: Element) => {
     const target = parseInt(counter.getAttribute('data-count') || '0')
     const duration = 2000
     const step = target / (duration / 16)
     let current = 0
-    
+
     const timer = setInterval(() => {
       current += step
       if (current >= target) {
@@ -194,7 +201,7 @@ onMounted(() => {
       counter.textContent = Math.floor(current).toString()
     }, 16)
   }
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -203,7 +210,7 @@ onMounted(() => {
       }
     })
   })
-  
+
   counters.forEach(counter => observer.observe(counter))
 })
 </script>
@@ -212,7 +219,7 @@ onMounted(() => {
 .about-section {
   background: linear-gradient(135deg, var(--white) 0%, var(--light-gray-2) 100%);
   position: relative;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -229,7 +236,7 @@ onMounted(() => {
   padding-right: 50px;
   position: relative;
   z-index: 2;
-  
+
   @media (max-width: 992px) {
     padding-right: 0;
     margin-bottom: 50px;
@@ -248,11 +255,11 @@ onMounted(() => {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 20px;
-  
+
   @media (max-width: 992px) {
     margin: 0 auto 20px auto;
   }
-  
+
   i {
     font-size: 16px;
   }
@@ -265,11 +272,11 @@ onMounted(() => {
   color: var(--text-black);
   margin-bottom: 30px;
   line-height: 1.1;
-  
+
   @media (max-width: 768px) {
     font-size: 50px;
   }
-  
+
   @media (max-width: 576px) {
     font-size: 40px;
   }
@@ -285,7 +292,7 @@ onMounted(() => {
   line-height: 1.8;
   margin-bottom: 20px;
   font-weight: 500;
-  
+
   @media (max-width: 768px) {
     font-size: 16px;
   }
@@ -295,7 +302,7 @@ onMounted(() => {
   font-size: 16px;
   color: var(--text-gray);
   line-height: 1.7;
-  
+
   @media (max-width: 768px) {
     font-size: 15px;
   }
@@ -307,16 +314,16 @@ onMounted(() => {
   margin-bottom: 40px;
   align-items: center;
   justify-content: center;
-  
+
   @media (max-width: 992px) {
     gap: 25px;
   }
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
   }
-  
+
   @media (max-width: 576px) {
     gap: 15px;
     margin-bottom: 30px;
@@ -328,41 +335,41 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   text-align: center;
-  
+
   .stat-content {
     display: flex;
     flex-direction: column;
     gap: 2px;
     align-items: center;
-    
+
     .stat-number {
       font-family: var(--font-secondary);
       font-size: 32px;
       font-weight: 700;
       color: var(--text-black);
       line-height: 1;
-      
+
       @media (max-width: 768px) {
         font-size: 28px;
       }
-      
+
       @media (max-width: 576px) {
         font-size: 24px;
       }
     }
-    
+
     .stat-label {
       font-size: 12px;
       color: var(--text-gray);
       text-transform: uppercase;
       letter-spacing: 1px;
       text-align: center;
-      
+
       @media (max-width: 768px) {
         font-size: 11px;
         letter-spacing: 0.5px;
       }
-      
+
       @media (max-width: 576px) {
         font-size: 10px;
         letter-spacing: 0.3px;
@@ -380,7 +387,7 @@ onMounted(() => {
   align-items: flex-start;
   gap: 15px;
   margin-bottom: 20px;
-  
+
   .feature-icon {
     width: 40px;
     height: 40px;
@@ -390,13 +397,13 @@ onMounted(() => {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    
+
     i {
       color: var(--secondary-color);
       font-size: 16px;
     }
   }
-  
+
   .feature-text {
     h5 {
       font-size: 16px;
@@ -404,7 +411,7 @@ onMounted(() => {
       color: var(--text-black);
       margin-bottom: 5px;
     }
-    
+
     p {
       font-size: 14px;
       color: var(--text-gray);
@@ -417,11 +424,11 @@ onMounted(() => {
   display: flex;
   gap: 20px;
   align-items: center;
-  
+
   @media (max-width: 992px) {
     justify-content: center;
   }
-  
+
   @media (max-width: 576px) {
     flex-direction: column;
     gap: 15px;
@@ -438,11 +445,11 @@ onMounted(() => {
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition-default);
-  
+
   i {
     font-size: 16px;
   }
-  
+
   &:hover {
     transform: scale(1.05);
   }
@@ -451,7 +458,7 @@ onMounted(() => {
 .about-image-wrapper {
   position: relative;
   z-index: 2;
-  
+
   @media (max-width: 992px) {
     text-align: center;
   }
@@ -462,18 +469,18 @@ onMounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  
+
   img {
     width: 100%;
     height: 500px;
     object-fit: cover;
     transition: var(--transition-slow);
-    
+
     @media (max-width: 768px) {
       height: 400px;
     }
   }
-  
+
   &:hover img {
     transform: scale(1.05);
   }
@@ -504,19 +511,19 @@ onMounted(() => {
   font-size: 24px;
   opacity: 0.1;
   animation: float 4s ease-in-out infinite;
-  
+
   &.crane {
     top: 20%;
     right: 10%;
     animation-delay: 0s;
   }
-  
+
   &.blueprint {
     bottom: 30%;
     left: 5%;
     animation-delay: 1s;
   }
-  
+
   &.hammer {
     top: 60%;
     right: 20%;
@@ -525,9 +532,12 @@ onMounted(() => {
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-20px) rotate(10deg);
   }
@@ -545,7 +555,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  
+
   @media (max-width: 768px) {
     width: 100px;
     height: 100px;
@@ -557,19 +567,19 @@ onMounted(() => {
 .badge-content {
   text-align: center;
   color: var(--white);
-  
+
   .badge-year {
     display: block;
     font-family: var(--font-secondary);
     font-size: 28px;
     font-weight: 700;
     line-height: 1;
-    
+
     @media (max-width: 768px) {
       font-size: 24px;
     }
   }
-  
+
   .badge-text {
     display: block;
     font-size: 12px;
@@ -577,7 +587,7 @@ onMounted(() => {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 5px;
-    
+
     @media (max-width: 768px) {
       font-size: 10px;
     }
@@ -592,7 +602,7 @@ onMounted(() => {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 15px 40px rgba(132, 204, 22, 0.3);
-  
+
   @media (max-width: 768px) {
     position: relative;
     top: 0;
@@ -607,7 +617,7 @@ onMounted(() => {
   align-items: center;
   gap: 15px;
   color: var(--white);
-  
+
   .counter-icon {
     width: 50px;
     height: 50px;
@@ -616,12 +626,12 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     i {
       font-size: 20px;
     }
   }
-  
+
   .counter-content {
     .counter-number {
       font-family: var(--font-secondary);
@@ -629,19 +639,19 @@ onMounted(() => {
       font-weight: 700;
       line-height: 1;
       margin-bottom: 5px;
-      
+
       @media (max-width: 768px) {
         font-size: 28px;
       }
     }
-    
+
     .counter-label {
       font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 1px;
       opacity: 0.9;
-      
+
       @media (max-width: 768px) {
         font-size: 10px;
       }
@@ -660,7 +670,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 15px;
-  
+
   @media (max-width: 768px) {
     position: relative;
     bottom: 0;
@@ -668,7 +678,7 @@ onMounted(() => {
     margin-top: 20px;
     justify-content: center;
   }
-  
+
   .badge-icon {
     width: 40px;
     height: 40px;
@@ -677,13 +687,13 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     i {
       color: var(--white);
       font-size: 16px;
     }
   }
-  
+
   .badge-text {
     h5 {
       font-size: 14px;
@@ -691,7 +701,7 @@ onMounted(() => {
       color: var(--text-black);
       margin-bottom: 2px;
     }
-    
+
     p {
       font-size: 12px;
       color: var(--text-gray);
@@ -707,7 +717,7 @@ onMounted(() => {
   gap: 20px;
   margin-bottom: 40px;
   align-items: center;
-  
+
   @media (max-width: 576px) {
     gap: 15px;
     margin-bottom: 30px;
@@ -734,7 +744,7 @@ onMounted(() => {
   font-weight: 700;
   color: var(--text-black);
   line-height: 1;
-  
+
   @media (max-width: 576px) {
     font-size: 28px;
   }
@@ -746,7 +756,7 @@ onMounted(() => {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
-  
+
   @media (max-width: 576px) {
     font-size: 11px;
     letter-spacing: 0.5px;
