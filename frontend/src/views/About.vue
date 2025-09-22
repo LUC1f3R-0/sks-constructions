@@ -864,6 +864,7 @@ onMounted(() => {
   .marker-icon {
     width: 60px;
     height: 60px;
+    margin-top: -20px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-blue-1) 100%);
     border-radius: 50%;
     display: flex;
