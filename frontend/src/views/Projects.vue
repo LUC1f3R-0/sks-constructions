@@ -250,8 +250,9 @@ onMounted(() => {
 .hero-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 100px 0 80px;
+  padding: 160px 0 80px;
   text-align: center;
+  margin-top: 0;
 }
 
 .hero-title {
@@ -535,6 +536,10 @@ onMounted(() => {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 150px 0 70px;
+  }
+  
   .hero-title {
     font-size: 2.5rem;
   }
@@ -573,7 +578,7 @@ onMounted(() => {
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 80px 0 60px;
+    padding: 140px 0 60px;
   }
   
   .hero-title {

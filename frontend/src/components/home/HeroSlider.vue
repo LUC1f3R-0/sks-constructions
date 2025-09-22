@@ -108,23 +108,23 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const currentSlide = ref(0)
 let autoplayInterval: number | null = null
 
-// Local images are available but using external URLs for slides
-// import image01 from '@/assets/images/01.png'
-// import image02 from '@/assets/images/02.jpg'
-// import image03 from '@/assets/images/03.png'
+// Import local construction images
+import constructionSite1 from '@/assets/images/Construction-site-iStock-1267010934.jpg'
+import buildingConstruction from '@/assets/images/building-construction-site.jpg'
+import workersConstruction from '@/assets/images/WorkersConstructionSite_1440x810.avif'
 
-// Updated slides with high-quality completed project images
+// Updated slides with local construction images
 const slides = [
   {
-    background: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    background: constructionSite1,
     subtitle: 'Building Sri Lanka\'s future with advanced engineering techniques & innovative construction solutions'
   },
   {
-    background: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    background: buildingConstruction,
     subtitle: 'Professional construction services with excellence in every project we undertake across Sri Lanka'
   },
   {
-    background: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    background: workersConstruction,
     subtitle: 'Transforming Sri Lankan infrastructure with cutting-edge technology and unmatched expertise'
   }
 ]
