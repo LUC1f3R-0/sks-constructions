@@ -18,22 +18,22 @@
           <div class="container-fluid">
             <div class="row align-items-center justify-content-center">
               <div class="col-lg-10 col-md-12 col-sm-12">
-                <div class="hero-content text-center text-md-left" data-aos="fade-up" data-aos-delay="300">
-                <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
+                <div class="hero-content text-center text-md-left animate-in" data-aos="fade-up" data-aos-delay="300">
+                <div class="hero-badge animate-in" data-aos="fade-down" data-aos-delay="200">
                   <i class="fas fa-hard-hat"></i>
                   <span>Professional Construction Services</span>
                 </div>
-                <h1 class="hero-title">
-                  <span class="title-main">SKS</span>
-                  <div class="animated-text-container">
+                <h1 class="hero-title animate-in">
+                  <span class="title-main animate-in">SKS</span>
+                  <div class="animated-text-container animate-in">
                     <span class="animated-text-stroke">DEVELOPERS</span>
                     <span class="animated-text-fill">DEVELOPERS</span>
                   </div>
                 </h1>
-                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="500">
+                <p class="hero-subtitle animate-in" data-aos="fade-up" data-aos-delay="500">
                   {{ slide.subtitle }}
                 </p>
-                <div class="hero-stats d-flex flex-wrap justify-content-center justify-content-md-start" data-aos="fade-up" data-aos-delay="600">
+                <div class="hero-stats d-flex flex-wrap justify-content-center justify-content-md-start animate-in" data-aos="fade-up" data-aos-delay="600">
                   <div class="stat-item">
                     <div class="stat-number" data-count="500">0</div>
                     <div class="stat-label">Projects Completed</div>
@@ -47,7 +47,7 @@
                     <div class="stat-label">Team Members</div>
                   </div>
                 </div>
-                <div class="hero-buttons d-flex flex-wrap justify-content-center justify-content-md-start" data-aos="fade-up" data-aos-delay="800">
+                <div class="hero-buttons d-flex flex-wrap justify-content-center justify-content-md-start animate-in" data-aos="fade-up" data-aos-delay="800">
                   <router-link to="/services" class="btn btn-primary construction-btn">
                     <i class="fas fa-tools"></i>
                     Our Services
@@ -103,9 +103,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 
 const currentSlide = ref(0)
+const isVisible = ref(false)
 let autoplayInterval: number | null = null
 
 // Updated slides with public image paths
@@ -197,25 +198,60 @@ const animateNumbers = () => {
   })
 }
 
-onMounted(() => {
-  startAutoplay()
+const restartAnimations = async () => {
+  // Force restart animations by removing and re-adding animation classes
+  const animatedElements = document.querySelectorAll('.hero-content, .hero-badge, .hero-title, .hero-subtitle, .hero-stats, .hero-buttons, .title-main, .animated-text-container')
   
-  // Animate numbers when component mounts
+  // Remove animation classes
+  animatedElements.forEach(element => {
+    element.classList.remove('animate-in')
+  })
+  
+  // Wait for next tick to ensure classes are removed
+  await nextTick()
+  
+  // Re-add animation classes with a small delay
+  setTimeout(() => {
+    animatedElements.forEach(element => {
+      element.classList.add('animate-in')
+    })
+  }, 50)
+  
+  // Restart number animations
   setTimeout(() => {
     animateNumbers()
   }, 1000)
+}
+
+onMounted(() => {
+  startAutoplay()
   
-  // Re-animate numbers on slide change
+  // Initial animation setup - trigger animations immediately
+  setTimeout(() => {
+    restartAnimations()
+  }, 100)
+  
+  // Set up intersection observer to detect when component becomes visible
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          animateNumbers()
-        }, 500)
+      if (entry.isIntersecting && !isVisible.value) {
+        isVisible.value = true
+        // Restart animations when component becomes visible
+        restartAnimations()
+      } else if (!entry.isIntersecting) {
+        isVisible.value = false
       }
     })
+  }, {
+    threshold: 0.1 // Trigger when 10% of the component is visible
   })
   
+  const heroSlider = document.querySelector('.hero-slider')
+  if (heroSlider) {
+    observer.observe(heroSlider)
+  }
+  
+  // Also observe hero content for number animations
   const heroContent = document.querySelector('.hero-content')
   if (heroContent) {
     observer.observe(heroContent)
@@ -354,12 +390,19 @@ onUnmounted(() => {
   position: relative;
   z-index: 3;
   color: var(--white);
-  animation: fadeInUp 1s ease-out;
   max-width: 100%;
   width: 100%;
   padding: 0 20px;
   text-align: center;
   overflow: visible; // Ensure content is not clipped
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
   
   @media (min-width: 768px) {
     text-align: left;
@@ -403,6 +446,14 @@ onUnmounted(() => {
   margin-bottom: 30px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(-20px);
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+  }
   
   @media (max-width: 768px) {
     display: none;
@@ -421,6 +472,11 @@ onUnmounted(() => {
 .hero-title {
   margin-bottom: 30px;
   overflow: visible; // Ensure title content is not clipped
+  opacity: 0;
+  
+  &.animate-in {
+    opacity: 1;
+  }
   
   .title-main {
     display: block;
@@ -431,8 +487,16 @@ onUnmounted(() => {
     line-height: 1;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: slideInLeft 1.2s ease-out 0.3s both;
     white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1.2s ease-out;
+    
+    &.animate-in {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 0.3s;
+    }
     
     @media (max-width: 768px) {
       font-size: 70px; // Slightly smaller to ensure full visibility
@@ -461,9 +525,17 @@ onUnmounted(() => {
   position: relative;
   display: inline-block;
   margin-left: 70px;
-  animation: slideInRight 1.2s ease-out 0.6s both;
   height: 140px; // Set explicit height to match text size
   width: 800px; // Further increased width to accommodate full "DEVELOPERS" text
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1.2s ease-out;
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.6s;
+  }
   
   @media (max-width: 768px) {
     margin-left: 30px; // Reduce spacing on mobile
@@ -554,7 +626,13 @@ onUnmounted(() => {
   max-width: 600px;
   line-height: 1.6;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  animation: fadeIn 1s ease-out 0.9s both;
+  opacity: 0;
+  transition: all 1s ease-out;
+  
+  &.animate-in {
+    opacity: 1;
+    transition-delay: 0.9s;
+  }
   
   @media (max-width: 768px) {
     font-size: 16px;
@@ -574,8 +652,16 @@ onUnmounted(() => {
   display: flex;
   gap: 40px;
   margin-bottom: 15px; // Further reduced margin to bring buttons closer
-  animation: fadeInUp 1s ease-out 1.2s both;
   align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.2s;
+  }
   
   @media (max-width: 768px) {
     gap: 20px;
@@ -625,9 +711,17 @@ onUnmounted(() => {
 .hero-buttons {
   display: flex;
   gap: 20px;
-  animation: fadeInUp 1s ease-out 1.5s both;
   align-items: center;
   margin-top: 5px; // Minimal margin to bring buttons closer to stats
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.5s;
+  }
   
   @media (max-width: 768px) {
     justify-content: center;
