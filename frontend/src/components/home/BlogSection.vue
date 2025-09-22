@@ -215,8 +215,8 @@ const blogPosts = [
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--primary-color);
-  background-color: rgba(37, 99, 235, 0.1);
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   padding: 5px 10px;
   border-radius: 3px;
 }
@@ -259,7 +259,7 @@ const blogPosts = [
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--primary-color);
+  color: rgb(0, 225, 255);
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;

@@ -382,6 +382,14 @@ onMounted(() => {
   margin-bottom: 40px;
 }
 
+@media (max-width: 768px) {
+  .about-features {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+  }
+}
+
 .feature-item {
   display: flex;
   align-items: flex-start;
