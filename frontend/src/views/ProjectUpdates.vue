@@ -49,9 +49,9 @@
 
         <!-- Project Updates Grid -->
         <div class="row">
-          <div v-for="(update, index) in filteredUpdates" :key="index" class="col-lg-4 col-md-6 col-sm-12"
+          <div v-for="(update, index) in filteredUpdates" :key="index" class="col-lg-4 col-md-6 col-sm-12 mb-4"
             data-aos="fade-up" :data-aos-delay="index * 100">
-            <div class="update-card">
+            <div class="update-card h-100">
               <div class="update-image">
                 <img :src="update.image" :alt="update.title" />
                 <div class="update-status" :class="update.status">
@@ -444,7 +444,9 @@ onMounted(() => {
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
   transition: var(--transition-default);
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &:hover {
     transform: translateY(-10px);
@@ -543,6 +545,9 @@ onMounted(() => {
 
 .update-content {
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .update-header {
@@ -578,12 +583,13 @@ onMounted(() => {
   color: var(--text-gray);
   line-height: 1.6;
   margin-bottom: 20px;
+  flex: 1;
 }
 
 .update-meta {
   display: flex;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
   .meta-item {
     display: flex;
@@ -600,7 +606,7 @@ onMounted(() => {
 }
 
 .progress-section {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 
   .progress-header {
     display: flex;
@@ -640,6 +646,7 @@ onMounted(() => {
 .update-actions {
   display: flex;
   gap: 10px;
+  margin-top: auto;
 
   .btn {
     flex: 1;
@@ -968,6 +975,16 @@ onMounted(() => {
   }
 }
 
+@media (max-width: 992px) {
+  .update-card {
+    margin-bottom: 20px;
+  }
+  
+  .update-content {
+    padding: 25px;
+  }
+}
+
 @media (max-width: 1200px) {
   .page-header {
     padding: 150px 0 80px;
@@ -988,6 +1005,20 @@ onMounted(() => {
   .page-title {
     font-size: 2.5rem;
     letter-spacing: 2px !important;
+  }
+  
+  .update-content {
+    padding: 20px;
+  }
+  
+  .update-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .update-meta {
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
