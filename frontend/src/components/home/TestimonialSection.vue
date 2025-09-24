@@ -139,7 +139,8 @@ const clientLogos = [
   { name: "Heritage Foundation", icon: "fas fa-landmark" },
   { name: "City Infrastructure", icon: "fas fa-road" },
   { name: "Commercial Properties", icon: "fas fa-store" },
-  { name: "Residential Group", icon: "fas fa-home" }
+  { name: "Residential Group", icon: "fas fa-home" },
+  { name: "Industrial Solutions", icon: "fas fa-industry" }
 ]
 
 const nextSlide = () => {
@@ -455,18 +456,40 @@ onUnmounted(() => {
   }
   
   .logos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (max-width: 992px) {
+      gap: 25px;
+    }
     
     @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+    }
+    
+    @media (max-width: 480px) {
+      gap: 15px;
     }
   }
   
   .logo-item {
+    flex: 0 0 auto;
+    width: 200px;
+    
+    @media (max-width: 768px) {
+      width: 150px;
+    }
+    
+    @media (max-width: 480px) {
+      width: 100%;
+      max-width: 250px;
+    }
+    
     .logo-placeholder {
       display: flex;
       flex-direction: column;
@@ -477,6 +500,8 @@ onUnmounted(() => {
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       transition: var(--transition-default);
+      height: 120px;
+      justify-content: center;
       
       &:hover {
         transform: translateY(-5px);
@@ -493,6 +518,7 @@ onUnmounted(() => {
         font-weight: 600;
         color: var(--text-black);
         text-align: center;
+        line-height: 1.3;
       }
     }
   }
