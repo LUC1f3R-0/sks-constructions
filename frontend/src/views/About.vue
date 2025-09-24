@@ -18,10 +18,10 @@
           </div>
         </div>
       </div>
-      <div class="container">
+      <div class="container-fluid">
         <div class="row align-items-center min-vh-100">
           <div class="col-lg-6">
-            <div class="hero-content" data-aos="fade-right">
+            <div class="hero-content text-center text-md-left" data-aos="fade-right">
               <div class="hero-badge" data-aos="fade-down">
                 <i class="fas fa-building"></i>
                 <span>About Our Company</span>
@@ -36,16 +36,22 @@
               </div>
               <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
                 <div class="stat-item">
-                  <div class="stat-number" data-count="17">0</div>
-                  <div class="stat-label">Years of Excellence</div>
+                  <div class="stat-content">
+                    <div class="stat-number" data-count="17">0</div>
+                    <div class="stat-label">Years of Excellence</div>
+                  </div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-number" data-count="500">0</div>
-                  <div class="stat-label">Projects Completed</div>
+                  <div class="stat-content">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                  </div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-number" data-count="100">0</div>
-                  <div class="stat-label">Team Members</div>
+                  <div class="stat-content">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">Team Members</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -69,9 +75,9 @@
 
     <!-- Company Information Section -->
     <section class="company-info-section section-padding">
-      <div class="container">
-      <div class="row">
-        <div class="col-12">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
             <div class="section-header text-center" data-aos="fade-up">
               <h2 class="section-title">Our Company</h2>
               <p class="section-subtitle">Committed to Excellence in Construction</p>
@@ -134,7 +140,7 @@
 
     <!-- Company Timeline -->
     <section class="timeline-section section-padding bg-light">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="section-header text-center" data-aos="fade-up">
@@ -202,7 +208,7 @@
 
     <!-- Values Section -->
     <section class="values-section section-padding">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="section-header text-center" data-aos="fade-up">
@@ -254,7 +260,7 @@
 
     <!-- CTA Section -->
     <section class="cta-section section-padding">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="cta-content text-center" data-aos="fade-up">
@@ -321,6 +327,21 @@ onMounted(() => {
 <style lang="scss" scoped>
 .about-page {
   overflow-x: hidden;
+  
+  // Ensure proper mobile display
+  @media (max-width: 768px) {
+    .container-fluid {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .container-fluid {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
 }
 
 // Hero Section
@@ -331,6 +352,16 @@ onMounted(() => {
   align-items: center;
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-blue-1) 100%);
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 80px 0 60px 0;
+    display: block;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 60px 0 40px 0;
+  }
 }
 
 .hero-background {
@@ -398,23 +429,116 @@ onMounted(() => {
   position: relative;
   z-index: 2;
   color: var(--white);
+  padding-right: 50px;
+  width: 100%;
+  display: block;
+  
+  @media (max-width: 992px) {
+    padding-right: 0;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0 15px;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 0 10px;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--secondary-color);
   color: var(--white);
-  padding: 10px 25px;
-  border-radius: 30px;
+  padding: 8px 20px;
+  border-radius: 25px;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 30px;
-  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  
+  @media (max-width: 992px) {
+    margin: 0 auto 20px auto;
+    display: flex;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 6px 16px;
+    font-size: 13px;
+    margin: 0 auto 15px auto;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 5px 14px;
+    font-size: 12px;
+    margin: 0 auto 15px auto;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 4px 12px;
+    font-size: 11px;
+    margin: 0 auto 15px auto;
+  }
   
   i {
     font-size: 16px;
+    flex-shrink: 0;
+    
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 13px;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+  }
+  
+  span {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  // Ensure badge is always visible on mobile
+  @media (max-width: 768px) {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: flex !important;
+    position: relative;
+    z-index: 10;
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
+}
+
+// Additional mobile-specific styling to ensure badge visibility
+@media (max-width: 768px) {
+  .hero-badge {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: flex !important;
+    position: relative !important;
+    z-index: 10 !important;
+    background: var(--secondary-color) !important;
+    color: var(--white) !important;
+    margin: 0 auto 15px auto !important;
   }
 }
 
@@ -428,12 +552,32 @@ onMounted(() => {
   .company-name {
     display: block;
     color: var(--white);
+    word-break: keep-all;
+    white-space: nowrap;
   }
   
   .company-type {
     display: block;
     color: var(--secondary-color);
     font-size: 60px;
+    word-break: keep-all;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 1200px) {
+    font-size: 70px;
+    
+    .company-type {
+      font-size: 50px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    font-size: 60px;
+    
+    .company-type {
+      font-size: 45px;
+    }
   }
   
   @media (max-width: 768px) {
@@ -441,6 +585,30 @@ onMounted(() => {
     
     .company-type {
       font-size: 40px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 40px;
+    
+    .company-type {
+      font-size: 32px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 35px;
+    
+    .company-type {
+      font-size: 28px;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 30px;
+    
+    .company-type {
+      font-size: 24px;
     }
   }
 }
@@ -458,55 +626,107 @@ onMounted(() => {
 
 .hero-description {
   margin-bottom: 40px;
+  width: 100%;
   
   p {
     font-size: 18px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.9);
+    word-break: break-word;
+    margin: 0;
+    
+    @media (max-width: 992px) {
+      font-size: 17px;
+    }
     
     @media (max-width: 768px) {
       font-size: 16px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 14px;
     }
   }
 }
 
 .hero-stats {
   display: flex;
-  gap: 40px;
+  gap: 30px;
+  margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: 992px) {
+    gap: 25px;
+  }
   
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
   }
+  
+  @media (max-width: 576px) {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
 }
 
 .stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   
-  .stat-number {
-    font-family: var(--font-secondary);
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--secondary-color);
-    line-height: 1;
-    margin-bottom: 10px;
+  .stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
     
-    @media (max-width: 768px) {
-      font-size: 36px;
+    .stat-number {
+      font-family: var(--font-secondary);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--secondary-color);
+      line-height: 1;
+      
+      @media (max-width: 768px) {
+        font-size: 28px;
+      }
+      
+      @media (max-width: 576px) {
+        font-size: 24px;
+      }
     }
-  }
-  
-  .stat-label {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+      
+      @media (max-width: 768px) {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+      }
+      
+      @media (max-width: 576px) {
+        font-size: 10px;
+        letter-spacing: 0.3px;
+      }
+    }
   }
 }
 
 .hero-image {
   position: relative;
   z-index: 2;
+  width: 100%;
   
   img {
     width: 100%;
@@ -514,9 +734,22 @@ onMounted(() => {
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: block;
+    
+    @media (max-width: 992px) {
+      height: 450px;
+    }
     
     @media (max-width: 768px) {
       height: 400px;
+    }
+    
+    @media (max-width: 576px) {
+      height: 350px;
+    }
+    
+    @media (max-width: 480px) {
+      height: 300px;
     }
   }
 }
@@ -597,9 +830,33 @@ onMounted(() => {
   font-weight: 700;
   color: var(--text-black);
   margin-bottom: 20px;
+  word-break: keep-all;
+  white-space: nowrap;
+  
+  @media (max-width: 1200px) {
+    font-size: 55px;
+  }
+  
+  @media (max-width: 992px) {
+    font-size: 50px;
+  }
   
   @media (max-width: 768px) {
     font-size: 40px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 35px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 30px;
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 26px;
   }
 }
 
@@ -617,14 +874,29 @@ onMounted(() => {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(37, 99, 235, 0.1);
   transition: var(--transition-default);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
   }
   
+  @media (max-width: 992px) {
+    padding: 35px;
+  }
+  
   @media (max-width: 768px) {
     padding: 30px;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 25px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 20px;
   }
 }
 
@@ -635,6 +907,8 @@ onMounted(() => {
   margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 2px solid rgba(37, 99, 235, 0.1);
+  width: 100%;
+  flex-wrap: wrap;
   
   .info-icon {
     width: 60px;
@@ -644,10 +918,20 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     
     i {
       color: var(--white);
       font-size: 24px;
+    }
+    
+    @media (max-width: 576px) {
+      width: 50px;
+      height: 50px;
+      
+      i {
+        font-size: 20px;
+      }
     }
   }
   
@@ -656,10 +940,31 @@ onMounted(() => {
     font-weight: 700;
     color: var(--text-black);
     margin: 0;
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+    
+    @media (max-width: 992px) {
+      font-size: 26px;
+    }
     
     @media (max-width: 768px) {
       font-size: 24px;
     }
+    
+    @media (max-width: 576px) {
+      font-size: 22px;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
   }
 }
 
@@ -673,6 +978,7 @@ onMounted(() => {
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  width: 100%;
   
   .info-label {
     display: flex;
@@ -684,6 +990,7 @@ onMounted(() => {
     i {
       color: var(--primary-color);
       font-size: 18px;
+      flex-shrink: 0;
     }
     
     span {
@@ -692,6 +999,19 @@ onMounted(() => {
       color: var(--text-black);
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 576px) {
+      min-width: 120px;
+      
+      i {
+        font-size: 16px;
+      }
+      
+      span {
+        font-size: 14px;
+      }
     }
   }
   
@@ -700,6 +1020,11 @@ onMounted(() => {
     color: var(--text-gray);
     line-height: 1.6;
     flex: 1;
+    word-break: break-word;
+    
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
   }
   
   @media (max-width: 768px) {
@@ -708,7 +1033,15 @@ onMounted(() => {
     
     .info-label {
       min-width: auto;
+      
+      span {
+        white-space: normal;
+      }
     }
+  }
+  
+  @media (max-width: 576px) {
+    gap: 8px;
   }
 }
 
