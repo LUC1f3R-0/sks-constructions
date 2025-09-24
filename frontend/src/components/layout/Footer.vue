@@ -133,12 +133,16 @@
                     class="form-control" 
                     placeholder="Enter your email"
                     v-model="email"
-                    required
+                    :class="{ 'error': emailError }"
+                    @input="clearError"
                   />
                   <button type="submit" class="btn btn-primary">
                     <i class="fas fa-paper-plane"></i>
                     <span>Subscribe</span>
                   </button>
+                </div>
+                <div v-if="emailError" class="error-message">
+                  {{ emailError }}
                 </div>
               </form>
               
@@ -192,13 +196,37 @@
 import { ref, computed } from 'vue'
 
 const email = ref('')
+const emailError = ref('')
 const currentYear = computed(() => new Date().getFullYear())
 
 const subscribeNewsletter = () => {
+  // Clear previous errors
+  emailError.value = ''
+  
+  // Validate email
+  if (!email.value) {
+    emailError.value = 'Please enter your email address'
+    return
+  }
+  
+  if (!isValidEmail(email.value)) {
+    emailError.value = 'Please enter a valid email address'
+    return
+  }
+  
   // Handle newsletter subscription
   console.log('Newsletter subscription:', email.value)
   email.value = ''
   // You can add actual API call here
+}
+
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
+}
+
+const clearError = () => {
+  emailError.value = ''
 }
 
 const scrollToTop = () => {
@@ -507,34 +535,56 @@ const scrollToTop = () => {
   margin-bottom: 30px;
   
   .form-group {
-    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     
     @media (min-width: 576px) {
       flex-direction: row;
       gap: 0;
+      border-radius: 30px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
     }
     
     .form-control {
-      width: 100%;
-      padding: 15px 20px;
+      flex: 1;
+      padding: 18px 20px;
       background: rgba(255, 255, 255, 0.15);
       border: 2px solid rgba(255, 255, 255, 0.3);
       color: var(--white);
       border-radius: 25px;
-      backdrop-filter: blur(10px);
       font-weight: 500;
-      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+      height: 50px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
       
       @media (min-width: 576px) {
-        padding: 15px 140px 15px 20px;
-        border-radius: 25px 0 0 25px;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        padding: 18px 20px;
+        height: 50px;
       }
       
       &::placeholder {
         color: rgba(255, 255, 255, 0.7);
+        line-height: 1.5;
+        position: relative;
+        top: 1px;
+      }
+      
+      &.error {
+        border-color: #ef4444;
+        background: rgba(239, 68, 68, 0.1);
+        
+        @media (min-width: 576px) {
+          background: rgba(239, 68, 68, 0.05);
+        }
       }
       
       &:focus {
@@ -542,6 +592,12 @@ const scrollToTop = () => {
         border-color: var(--primary-color);
         background: rgba(255, 255, 255, 0.2);
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        
+        @media (min-width: 576px) {
+          border: none;
+          box-shadow: none;
+          background: transparent;
+        }
       }
     }
     
@@ -555,35 +611,45 @@ const scrollToTop = () => {
       gap: 8px;
       background: var(--primary-color);
       color: var(--white);
-      border: none;
+      border: 2px solid var(--primary-color);
       font-weight: 600;
-      transition: var(--transition-default);
+      transition: all 0.3s ease;
       white-space: nowrap;
+      min-width: 140px;
       
       @media (min-width: 576px) {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-        padding: 10px 20px;
-        font-size: 12px;
-        border-radius: 20px;
-        gap: 5px;
+        border: none;
+        border-radius: 0;
+        padding: 15px 25px;
+        min-width: 140px;
       }
       
       &:hover {
         background: #1d4ed8;
+        border-color: #1d4ed8;
         transform: translateY(-1px);
         box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        
+        @media (min-width: 576px) {
+          border: none;
+        }
       }
       
       i {
         font-size: 12px;
-        
-        @media (min-width: 576px) {
-          font-size: 10px;
-        }
       }
     }
+  }
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 8px;
+  text-align: center;
+  
+  @media (min-width: 576px) {
+    text-align: left;
   }
 }
 

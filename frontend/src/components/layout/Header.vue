@@ -858,6 +858,10 @@ onUnmounted(() => {
 .dropdown-toggle {
   cursor: pointer;
 
+  &::after {
+    display: none;
+  }
+
   .dropdown-arrow {
     font-size: 10px;
     transition: var(--transition-default);
