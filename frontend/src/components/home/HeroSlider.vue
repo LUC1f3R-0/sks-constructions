@@ -517,6 +517,7 @@ onUnmounted(() => {
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     white-space: nowrap;
+    letter-spacing: 0.1em;
     opacity: 0;
     transform: translateX(-50px);
     transition: all 1.2s ease-out;
@@ -615,6 +616,7 @@ onUnmounted(() => {
   justify-content: flex-start;
   white-space: nowrap;
   overflow: visible;
+  letter-spacing: 0.1em;
   
   @media (max-width: 768px) {
     font-size: 70px; // Match the SKS size for consistency
@@ -651,12 +653,13 @@ onUnmounted(() => {
 .hero-subtitle {
   font-size: 18px;
   color: var(--white);
-  margin-bottom: 40px;
+  margin: 0 auto 40px;  
   max-width: 600px;
   line-height: 1.6;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: all 1s ease-out;
+  text-align: center; /* centers the text */
   
   &.animate-in {
     opacity: 1;
