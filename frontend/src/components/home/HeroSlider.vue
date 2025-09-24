@@ -19,10 +19,6 @@
             <div class="row align-items-center justify-content-center">
               <div class="col-lg-10 col-md-12 col-sm-12">
                 <div class="hero-content text-center text-md-left animate-in" data-aos="fade-up" data-aos-delay="300">
-                <div class="hero-badge animate-in" data-aos="fade-down" data-aos-delay="200">
-                  <i class="fas fa-hard-hat"></i>
-                  <span>Professional Construction Services</span>
-                </div>
                 <h1 class="hero-title animate-in">
                   <span class="title-main animate-in">SKS</span>
                   <div class="animated-text-container animate-in">

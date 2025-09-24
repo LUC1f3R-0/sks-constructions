@@ -1,7 +1,7 @@
 <template>
   <div class="project-updates-page">
     <Header />
-    
+
     <!-- Page Header -->
     <section class="page-header">
       <div class="container">
@@ -22,13 +22,8 @@
         <div class="row">
           <div class="col-12">
             <div class="filter-tabs" data-aos="fade-up">
-              <button 
-                v-for="(status, index) in projectStatuses" 
-                :key="index"
-                class="filter-btn"
-                :class="{ 'active': activeStatus === status.value }"
-                @click="filterProjects(status.value)"
-              >
+              <button v-for="(status, index) in projectStatuses" :key="index" class="filter-btn"
+                :class="{ 'active': activeStatus === status.value }" @click="filterProjects(status.value)">
                 <i :class="status.icon"></i>
                 <span>{{ status.label }}</span>
               </button>
@@ -54,13 +49,8 @@
 
         <!-- Project Updates Grid -->
         <div class="row">
-          <div 
-            v-for="(update, index) in filteredUpdates" 
-            :key="index"
-            class="col-lg-4 col-md-6 col-sm-12"
-            data-aos="fade-up"
-            :data-aos-delay="index * 100"
-          >
+          <div v-for="(update, index) in filteredUpdates" :key="index" class="col-lg-4 col-md-6 col-sm-12"
+            data-aos="fade-up" :data-aos-delay="index * 100">
             <div class="update-card">
               <div class="update-image">
                 <img :src="update.image" :alt="update.title" />
@@ -144,18 +134,13 @@
             </div>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-12">
             <div class="timeline" data-aos="fade-up" data-aos-delay="200">
-              <div 
-                v-for="(milestone, index) in projectMilestones" 
-                :key="index"
-                class="timeline-item"
-                :class="{ 'completed': milestone.completed, 'current': milestone.current }"
-                data-aos="fade-up"
-                :data-aos-delay="300 + (index * 100)"
-              >
+              <div v-for="(milestone, index) in projectMilestones" :key="index" class="timeline-item"
+                :class="{ 'completed': milestone.completed, 'current': milestone.current }" data-aos="fade-up"
+                :data-aos-delay="300 + (index * 100)">
                 <div class="timeline-marker">
                   <div class="marker-icon">
                     <i :class="milestone.icon"></i>
@@ -176,36 +161,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Newsletter Signup -->
-    <section class="newsletter-section section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="newsletter-content text-center" data-aos="fade-up">
-              <h2>Stay Updated</h2>
-              <p>Subscribe to receive regular updates on our construction projects and company news.</p>
-              <form class="newsletter-form" @submit.prevent="subscribeNewsletter">
-                <div class="form-group">
-                  <input 
-                    type="email" 
-                    class="form-control" 
-                    placeholder="Enter your email address"
-                    v-model="email"
-                    required
-                  />
-                  <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i>
-                    Subscribe
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <Footer />
   </div>
 </template>
@@ -435,18 +390,18 @@ onMounted(() => {
   cursor: pointer;
   transition: var(--transition-default);
   border-radius: 25px;
-  
+
   i {
     font-size: 16px;
   }
-  
+
   &:hover {
     background-color: var(--primary-color);
     color: var(--white);
     border-color: var(--primary-color);
     transform: translateY(-2px);
   }
-  
+
   &.active {
     background-color: var(--primary-color);
     color: var(--white);
@@ -469,7 +424,7 @@ onMounted(() => {
   font-weight: 700;
   color: var(--text-black);
   margin-bottom: 20px;
-  
+
   @media (max-width: 768px) {
     font-size: 40px;
   }
@@ -490,7 +445,7 @@ onMounted(() => {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
   transition: var(--transition-default);
   margin-bottom: 30px;
-  
+
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
@@ -501,14 +456,14 @@ onMounted(() => {
   position: relative;
   height: 250px;
   overflow: hidden;
-  
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: var(--transition-slow);
   }
-  
+
   .update-status {
     position: absolute;
     top: 15px;
@@ -518,23 +473,23 @@ onMounted(() => {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    
+
     &.in-progress {
       background: rgba(30, 64, 175, 0.9);
       color: var(--white);
     }
-    
+
     &.planning {
       background: rgba(107, 114, 128, 0.9);
       color: var(--white);
     }
-    
+
     &.completed {
       background: rgba(132, 204, 22, 0.9);
       color: var(--white);
     }
   }
-  
+
   .update-overlay {
     position: absolute;
     top: 0;
@@ -547,11 +502,11 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     .overlay-content {
       text-align: center;
       color: var(--white);
-      
+
       .overlay-icon {
         width: 50px;
         height: 50px;
@@ -561,25 +516,25 @@ onMounted(() => {
         align-items: center;
         justify-content: center;
         margin: 0 auto 10px;
-        
+
         i {
           font-size: 20px;
           color: var(--primary-color);
         }
       }
-      
+
       .overlay-text {
         font-size: 14px;
         font-weight: 600;
       }
     }
   }
-  
+
   &:hover {
     .update-overlay {
       opacity: 1;
     }
-    
+
     img {
       transform: scale(1.1);
     }
@@ -595,7 +550,7 @@ onMounted(() => {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 15px;
-  
+
   .update-title {
     font-size: 20px;
     font-weight: 700;
@@ -604,7 +559,7 @@ onMounted(() => {
     flex: 1;
     margin-right: 15px;
   }
-  
+
   .update-date {
     display: flex;
     align-items: center;
@@ -612,7 +567,7 @@ onMounted(() => {
     font-size: 12px;
     color: var(--text-gray);
     white-space: nowrap;
-    
+
     i {
       font-size: 10px;
     }
@@ -629,14 +584,14 @@ onMounted(() => {
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
-  
+
   .meta-item {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 14px;
     color: var(--text-gray);
-    
+
     i {
       color: var(--primary-color);
       font-size: 12px;
@@ -646,33 +601,33 @@ onMounted(() => {
 
 .progress-section {
   margin-bottom: 25px;
-  
+
   .progress-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
-    
+
     .progress-label {
       font-size: 14px;
       font-weight: 600;
       color: var(--text-black);
     }
-    
+
     .progress-percentage {
       font-size: 14px;
       font-weight: 700;
       color: var(--primary-color);
     }
   }
-  
+
   .progress-bar {
     width: 100%;
     height: 8px;
     background: var(--light-gray-1);
     border-radius: 4px;
     overflow: hidden;
-    
+
     .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
@@ -685,7 +640,7 @@ onMounted(() => {
 .update-actions {
   display: flex;
   gap: 10px;
-  
+
   .btn {
     flex: 1;
     display: flex;
@@ -700,27 +655,27 @@ onMounted(() => {
     transition: var(--transition-default);
     border: none;
     cursor: pointer;
-    
+
     i {
       font-size: 12px;
     }
   }
-  
+
   .btn-primary {
     background: var(--primary-color);
     color: var(--white);
-    
+
     &:hover {
       background: var(--dark-blue-1);
       transform: translateY(-2px);
     }
   }
-  
+
   .btn-outline {
     background: transparent;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
-    
+
     &:hover {
       background: var(--primary-color);
       color: var(--white);
@@ -741,12 +696,12 @@ onMounted(() => {
   font-weight: 600;
   transition: var(--transition-default);
   margin-top: 50px;
-  
+
   &:hover {
     background: var(--dark-blue-1);
     transform: translateY(-2px);
   }
-  
+
   i {
     font-size: 16px;
   }
@@ -760,7 +715,7 @@ onMounted(() => {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -770,7 +725,7 @@ onMounted(() => {
     width: 4px;
     background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     transform: translateX(-50%);
-    
+
     @media (max-width: 768px) {
       left: 30px;
     }
@@ -782,38 +737,38 @@ onMounted(() => {
   margin-bottom: 60px;
   display: flex;
   align-items: center;
-  
+
   &:nth-child(odd) {
     flex-direction: row;
-    
+
     .timeline-content {
       margin-left: 60px;
       text-align: left;
     }
-    
+
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: flex-start;
-      
+
       .timeline-content {
         margin-left: 0;
         margin-top: 20px;
       }
     }
   }
-  
+
   &:nth-child(even) {
     flex-direction: row-reverse;
-    
+
     .timeline-content {
       margin-right: 60px;
       text-align: right;
     }
-    
+
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: flex-start;
-      
+
       .timeline-content {
         margin-right: 0;
         margin-top: 20px;
@@ -821,11 +776,11 @@ onMounted(() => {
       }
     }
   }
-  
+
   &.completed .timeline-marker {
     background: var(--secondary-color);
   }
-  
+
   &.current .timeline-marker {
     background: var(--primary-color);
     animation: pulse 2s infinite;
@@ -837,11 +792,11 @@ onMounted(() => {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  
+
   @media (max-width: 768px) {
     left: 30px;
   }
-  
+
   .marker-icon {
     width: 60px;
     height: 60px;
@@ -851,7 +806,7 @@ onMounted(() => {
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    
+
     i {
       color: var(--white);
       font-size: 24px;
@@ -866,7 +821,7 @@ onMounted(() => {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   flex: 1;
   max-width: 300px;
-  
+
   .timeline-date {
     font-size: 14px;
     font-weight: 600;
@@ -875,28 +830,28 @@ onMounted(() => {
     letter-spacing: 1px;
     margin-bottom: 10px;
   }
-  
+
   .timeline-title {
     font-size: 20px;
     font-weight: 700;
     color: var(--text-black);
     margin-bottom: 15px;
   }
-  
+
   .timeline-description {
     font-size: 15px;
     color: var(--text-gray);
     line-height: 1.6;
     margin-bottom: 15px;
   }
-  
+
   .timeline-project {
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 14px;
     color: var(--text-gray);
-    
+
     i {
       color: var(--primary-color);
       font-size: 12px;
@@ -915,12 +870,12 @@ onMounted(() => {
     font-size: 50px;
     font-weight: 700;
     margin-bottom: 20px;
-    
+
     @media (max-width: 768px) {
       font-size: 35px;
     }
   }
-  
+
   p {
     font-size: 18px;
     margin-bottom: 40px;
@@ -931,12 +886,12 @@ onMounted(() => {
 .newsletter-form {
   max-width: 500px;
   margin: 0 auto;
-  
+
   .form-group {
     position: relative;
     display: flex;
     gap: 0;
-    
+
     .form-control {
       flex: 1;
       padding: 15px 20px;
@@ -946,18 +901,18 @@ onMounted(() => {
       border-radius: 25px 0 0 25px;
       backdrop-filter: blur(10px);
       font-weight: 500;
-      
+
       &::placeholder {
         color: rgba(255, 255, 255, 0.7);
       }
-      
+
       &:focus {
         outline: none;
         border-color: var(--secondary-color);
         background: rgba(255, 255, 255, 0.2);
       }
     }
-    
+
     .btn {
       padding: 15px 25px;
       background: var(--secondary-color);
@@ -969,12 +924,12 @@ onMounted(() => {
       display: flex;
       align-items: center;
       gap: 8px;
-      
+
       &:hover {
         background: var(--accent-green);
         transform: translateY(-1px);
       }
-      
+
       i {
         font-size: 14px;
       }
@@ -988,16 +943,19 @@ onMounted(() => {
 
 .section-padding {
   padding: 100px 0;
-  
+
   @media (max-width: 768px) {
     padding: 60px 0;
   }
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(-50%) scale(1);
   }
+
   50% {
     transform: translateX(-50%) scale(1.1);
   }
@@ -1026,7 +984,7 @@ onMounted(() => {
   .page-header {
     padding: 120px 0 60px;
   }
-  
+
   .page-title {
     font-size: 2.5rem;
     letter-spacing: 2px !important;
@@ -1037,7 +995,7 @@ onMounted(() => {
   .page-header {
     padding: 100px 0 60px;
   }
-  
+
   .page-title {
     font-size: 2rem;
     letter-spacing: 1.5px !important;
