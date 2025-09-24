@@ -220,7 +220,7 @@ const subscribeNewsletter = () => {
   // You can add actual API call here
 }
 
-const isValidEmail = (email) => {
+const isValidEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   return emailRegex.test(email)
 }

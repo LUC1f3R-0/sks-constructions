@@ -171,7 +171,6 @@ import Header from '@/components/layout/Header.vue'
 import Footer from '@/components/layout/Footer.vue'
 
 const activeStatus = ref('all')
-const email = ref('')
 
 const projectStatuses = [
   { label: 'All Projects', value: 'all', icon: 'fas fa-th-large' },
@@ -314,11 +313,6 @@ const loadMoreUpdates = () => {
   console.log('Loading more updates...')
 }
 
-const subscribeNewsletter = () => {
-  // Implement newsletter subscription
-  console.log('Newsletter subscription:', email.value)
-  email.value = ''
-}
 
 onMounted(() => {
   // Initialize AOS (Animate On Scroll)
