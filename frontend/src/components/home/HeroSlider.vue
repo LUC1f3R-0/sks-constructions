@@ -387,21 +387,22 @@ onUnmounted(() => {
   justify-content: center;
   min-height: 100vh;
   overflow: visible; // Ensure content is not clipped
+  padding: 0 20px; // Add horizontal padding to prevent edge clipping
   
   @media (max-width: 768px) {
     top: 45%; // Move content higher up
     min-height: 100vh;
-    padding-top: 60px; // Reduced padding to prevent cutoff
+    padding: 60px 15px 0 15px; // Reduced padding to prevent cutoff
   }
   
   @media (max-width: 576px) {
     top: 47%; // Move content higher up for smaller screens
-    padding-top: 70px; // Reduced padding to prevent cutoff
+    padding: 70px 10px 0 10px; // Reduced padding to prevent cutoff
   }
   
   @media (max-width: 480px) {
     top: 48%; // Move content higher up for very small screens
-    padding-top: 80px; // Reduced padding to prevent cutoff
+    padding: 80px 10px 0 10px; // Reduced padding to prevent cutoff
   }
 }
 
@@ -498,6 +499,14 @@ onUnmounted(() => {
   margin-bottom: 30px;
   overflow: visible; // Ensure title content is not clipped
   opacity: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  @media (max-width: 768px) {
+    align-items: center; // Center on mobile for better layout
+  }
   
   &.animate-in {
     opacity: 1;
@@ -552,10 +561,11 @@ onUnmounted(() => {
   display: inline-block;
   margin-left: 70px;
   height: 140px; // Set explicit height to match text size
-  width: 800px; // Further increased width to accommodate full "DEVELOPERS" text
+  width: 900px; // Increased width to fully accommodate "DEVELOPERS" text
   opacity: 0;
   transform: translateX(50px);
   transition: all 1.2s ease-out;
+  overflow: visible; // Ensure text is not clipped
   
   &.animate-in {
     opacity: 1;
@@ -564,23 +574,29 @@ onUnmounted(() => {
   }
   
   @media (max-width: 768px) {
-    margin-left: 30px; // Reduce spacing on mobile
+    margin-left: 0; // Remove left margin on mobile for better centering
     height: 70px; // Match mobile text size
-    width: 400px; // Further increased width for mobile
+    width: 450px; // Increased width for mobile to accommodate full text
+    display: block; // Change to block for better mobile layout
   }
   
   @media (max-width: 576px) {
-    margin-left: 15px; // Further reduce spacing on smaller screens
+    margin-left: 0; // Remove left margin on smaller screens
     height: 50px; // Match smaller mobile text size
-    width: 300px; // Further increased width for smaller screens
+    width: 350px; // Increased width for smaller screens
+    display: block; // Change to block for better mobile layout
   }
   
   @media (max-width: 480px) {
-    width: 280px; // Further adjustment for very small screens
+    width: 320px; // Increased width for very small screens
   }
   
   @media (max-width: 400px) {
-    width: 260px; // Additional adjustment for very small screens
+    width: 300px; // Increased width for very small screens
+  }
+  
+  @media (max-width: 360px) {
+    width: 280px; // Additional adjustment for very small screens
   }
 }
 
@@ -613,13 +629,23 @@ onUnmounted(() => {
   white-space: nowrap;
   overflow: visible;
   letter-spacing: 0.1em;
+  min-width: max-content; // Ensure text doesn't get compressed
+  will-change: clip-path, transform, opacity; // Optimize for animations
+  backface-visibility: hidden; // Prevent flickering
+  transform: translateZ(0); // Force hardware acceleration
   
   @media (max-width: 768px) {
     font-size: 70px; // Match the SKS size for consistency
+    letter-spacing: 0.05em; // Reduce letter spacing on mobile for better fit
   }
   
   @media (max-width: 576px) {
     font-size: 50px; // Match the SKS size for consistency
+    letter-spacing: 0.03em; // Further reduce letter spacing on smaller screens
+  }
+  
+  @media (max-width: 480px) {
+    letter-spacing: 0.02em; // Minimal letter spacing for very small screens
   }
 }
 
@@ -645,6 +671,7 @@ onUnmounted(() => {
     clip-path: inset(0 0 0 100%);
   }
 }
+
 
 .hero-subtitle {
   font-size: 18px;
