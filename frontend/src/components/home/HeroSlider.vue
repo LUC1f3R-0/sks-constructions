@@ -26,7 +26,7 @@
                     <span class="animated-text-fill">DEVELOPERS</span>
                   </div>
                 </h1>
-                <p class="hero-subtitle animate-in" data-aos="fade-up" data-aos-delay="500">
+                <p class="hero-subtitle">
                   {{ slide.subtitle }}
                 </p>
                 <div class="hero-stats d-flex flex-wrap justify-content-center justify-content-md-start animate-in" data-aos="fade-up" data-aos-delay="600">
