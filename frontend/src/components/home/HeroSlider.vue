@@ -1,0 +1,1118 @@
+<template>
+  <section class="hero-slider">
+    <!-- Construction Particles Background -->
+    <div class="construction-particles">
+      <div class="particle" v-for="i in 15" :key="i" :style="getParticleStyle(i)"></div>
+    </div>
+    
+    <div class="hero-slides">
+      <div 
+        v-for="(slide, index) in slides" 
+        :key="index"
+        class="hero-slide"
+        :class="{ 'active': currentSlide === index }"
+        :style="{ backgroundImage: `url(${slide.background})` }"
+      >
+        <div class="slide-overlay"></div>
+        <div class="hero-content-wrapper">
+          <div class="container-fluid">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-lg-10 col-md-12 col-sm-12">
+                <div class="hero-content text-center text-md-left animate-in" data-aos="fade-up" data-aos-delay="300">
+                <h1 class="hero-title animate-in">
+                  <span class="title-main animate-in">SKS</span>
+                  <div class="animated-text-container animate-in">
+                    <span class="animated-text-stroke">DEVELOPERS</span>
+                    <span class="animated-text-fill">DEVELOPERS</span>
+                  </div>
+                </h1>
+                <p class="hero-subtitle">
+                  {{ slide.subtitle }}
+                </p>
+                <div class="hero-stats d-flex flex-wrap justify-content-center justify-content-md-start animate-in" data-aos="fade-up" data-aos-delay="600">
+                  <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number" data-count="25">0</div>
+                    <div class="stat-label">Years Experience</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">Team Members</div>
+                  </div>
+                </div>
+                <div class="hero-buttons d-flex flex-wrap justify-content-center justify-content-md-start animate-in" data-aos="fade-up" data-aos-delay="800">
+                  <router-link to="/services" class="btn btn-primary construction-btn">
+                    <i class="fas fa-tools"></i>
+                    Our Services
+                  </router-link>
+                  <router-link to="/contact" class="btn btn-outline construction-btn">
+                    <i class="fas fa-phone"></i>
+                    Get Quote
+                  </router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Construction Elements -->
+        <div class="construction-elements">
+          <div class="element crane" data-aos="fade-left" data-aos-delay="1000">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="element blueprint" data-aos="fade-right" data-aos-delay="1200">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+          <div class="element hammer" data-aos="fade-up" data-aos-delay="1400">
+            <i class="fas fa-hammer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Bottom Controls Container -->
+    <div class="bottom-controls" v-show="slides.length > 1">
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1500" @click="scrollToNextSection">
+        <div class="scroll-text">Scroll Down</div>
+        <div class="scroll-arrow">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      
+      <!-- Slider Dots -->
+      <div class="slider-dots">
+        <button 
+          v-for="(_slide, index) in slides" 
+          :key="index"
+          class="dot"
+          :class="{ 'active': currentSlide === index }"
+          @click="goToSlide(index)"
+        ></button>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+
+const currentSlide = ref(0)
+const isVisible = ref(false)
+let autoplayInterval: number | null = null
+let resizeHandler: (() => void) | null = null
+
+// Updated slides with public image paths
+const slides = [
+  {
+    background: '/images/Construction-site-iStock-1267010934.jpg',
+    subtitle: 'Building Sri Lanka\'s future with advanced engineering techniques & innovative construction solutions'
+  },
+  {
+    background: '/images/building-construction-site.jpg',
+    subtitle: 'Professional construction services with excellence in every project we undertake across Sri Lanka'
+  },
+  {
+    background: '/images/WorkersConstructionSite_1440x810.avif',
+    subtitle: 'Transforming Sri Lankan infrastructure with cutting-edge technology and unmatched expertise'
+  }
+]
+
+const getParticleStyle = (_index: number) => {
+  const delay = Math.random() * 5
+  const duration = 3 + Math.random() * 4
+  const size = 2 + Math.random() * 4
+  const left = Math.random() * 100
+  
+  return {
+    left: `${left}%`,
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+    width: `${size}px`,
+    height: `${size}px`
+  }
+}
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % slides.length
+}
+
+
+const goToSlide = (index: number) => {
+  currentSlide.value = index
+}
+
+const scrollToNextSection = () => {
+  // Find the next section after the hero slider
+  const nextSection = document.querySelector('.section-padding, .about-section, .services-section, .projects-section')
+  if (nextSection) {
+    nextSection.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    })
+  } else {
+    // Fallback: scroll down by viewport height
+    window.scrollBy({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    })
+  }
+}
+
+const startAutoplay = () => {
+  autoplayInterval = window.setInterval(() => {
+    nextSlide()
+  }, 5000)
+}
+
+const stopAutoplay = () => {
+  if (autoplayInterval) {
+    clearInterval(autoplayInterval)
+    autoplayInterval = null
+  }
+}
+
+const animateNumbers = () => {
+  const statNumbers = document.querySelectorAll('.stat-number')
+  statNumbers.forEach((element) => {
+    const target = parseInt(element.getAttribute('data-count') || '0')
+    const duration = 2000
+    const increment = target / (duration / 16)
+    let current = 0
+    
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= target) {
+        current = target
+        clearInterval(timer)
+      }
+      element.textContent = Math.floor(current).toString()
+    }, 16)
+  })
+}
+
+const restartAnimations = async () => {
+  // Force restart animations by removing and re-adding animation classes
+  const animatedElements = document.querySelectorAll('.hero-content, .hero-badge, .hero-title, .hero-subtitle, .hero-stats, .hero-buttons, .title-main, .animated-text-container')
+  
+  // Remove animation classes
+  animatedElements.forEach(element => {
+    element.classList.remove('animate-in')
+  })
+  
+  // Wait for next tick to ensure classes are removed
+  await nextTick()
+  
+  // Force a reflow to ensure the removal is processed
+  animatedElements.forEach(element => {
+    (element as HTMLElement).offsetHeight
+  })
+  
+  // Re-add animation classes with a small delay
+  setTimeout(() => {
+    animatedElements.forEach(element => {
+      element.classList.add('animate-in')
+    })
+  }, 50)
+  
+  // Restart number animations with longer delay for mobile
+  const isMobile = window.innerWidth <= 768
+  setTimeout(() => {
+    animateNumbers()
+  }, isMobile ? 1200 : 1000)
+}
+
+onMounted(() => {
+  startAutoplay()
+  
+  // Initial animation setup - trigger animations immediately
+  setTimeout(() => {
+    restartAnimations()
+  }, 100)
+  
+  // Set up intersection observer to detect when component becomes visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !isVisible.value) {
+        isVisible.value = true
+        // Restart animations when component becomes visible
+        restartAnimations()
+      } else if (!entry.isIntersecting) {
+        isVisible.value = false
+      }
+    })
+  }, {
+    threshold: 0.1, // Trigger when 10% of the component is visible
+    rootMargin: '0px 0px -10% 0px' // Add margin to ensure proper triggering on mobile
+  })
+  
+  const heroSlider = document.querySelector('.hero-slider')
+  if (heroSlider) {
+    observer.observe(heroSlider)
+  }
+  
+  // Also observe hero content for number animations
+  const heroContent = document.querySelector('.hero-content')
+  if (heroContent) {
+    observer.observe(heroContent)
+  }
+  
+  // Handle window resize for mobile responsiveness
+  resizeHandler = () => {
+    if (isVisible.value) {
+      // Restart animations on resize to ensure proper mobile behavior
+      setTimeout(() => {
+        restartAnimations()
+      }, 100)
+    }
+  }
+  
+  window.addEventListener('resize', resizeHandler)
+})
+
+onUnmounted(() => {
+  stopAutoplay()
+  if (resizeHandler) {
+    window.removeEventListener('resize', resizeHandler)
+  }
+})
+</script>
+
+<style lang="scss" scoped>
+.hero-slider {
+  position: relative;
+  height: 100vh;
+  min-height: 900px;
+  overflow: visible; // Changed from hidden to visible to prevent text clipping
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: 768px) {
+    height: 100vh;
+    min-height: 600px;
+  }
+  
+  @media (max-width: 576px) {
+    min-height: 500px;
+  }
+}
+
+// Construction Particles
+.construction-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: floatParticle linear infinite;
+  will-change: transform;
+  
+  @keyframes floatParticle {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    90% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+}
+
+.hero-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &.active {
+    opacity: 1;
+  }
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(2, 26, 71, 0.85) 0%, rgba(0, 35, 91, 0.75) 50%, rgba(37, 99, 235, 0.3) 100%);
+}
+
+.hero-content-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: visible; // Ensure content is not clipped
+  padding: 0 20px; // Add horizontal padding to prevent edge clipping
+  
+  @media (max-width: 768px) {
+    top: 45%; // Move content higher up
+    min-height: 100vh;
+    padding: 60px 15px 0 15px; // Reduced padding to prevent cutoff
+  }
+  
+  @media (max-width: 576px) {
+    top: 47%; // Move content higher up for smaller screens
+    padding: 70px 10px 0 10px; // Reduced padding to prevent cutoff
+  }
+  
+  @media (max-width: 480px) {
+    top: 48%; // Move content higher up for very small screens
+    padding: 80px 10px 0 10px; // Reduced padding to prevent cutoff
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  color: var(--white);
+  max-width: 100%;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  overflow: visible; // Ensure content is not clipped
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+  
+  @media (max-width: 768px) {
+    text-align: center;
+    padding: 0 15px 40px 15px; // Add bottom padding to prevent cutoff
+    // Ensure animations work properly on mobile
+    will-change: opacity, transform;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 0 10px 50px 10px; // Add more bottom padding for smaller screens
+    // Ensure animations work properly on smaller mobile
+    will-change: opacity, transform;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 10px 60px 10px; // Add even more bottom padding for very small screens
+    // Ensure animations work properly on very small screens
+    will-change: opacity, transform;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(132, 204, 22, 0.9);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(-20px);
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+  }
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(132, 204, 22, 0.3);
+  }
+  
+  i {
+    font-size: 16px;
+  }
+}
+
+.hero-title {
+  margin-bottom: 30px;
+  overflow: visible; // Ensure title content is not clipped
+  opacity: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  @media (max-width: 768px) {
+    align-items: center; // Center on mobile for better layout
+  }
+  
+  &.animate-in {
+    opacity: 1;
+  }
+  
+  .title-main {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: 140px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    line-height: 1;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1.2s ease-out;
+    
+    &.animate-in {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 0.3s;
+    }
+    
+    @media (max-width: 768px) {
+      font-size: 70px; // Slightly smaller to ensure full visibility
+      margin-bottom: 15px;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 50px; // Smaller on mobile to prevent cutoff
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animated-text-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 70px;
+  height: 140px; // Set explicit height to match text size
+  width: 900px; // Increased width to fully accommodate "DEVELOPERS" text
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1.2s ease-out;
+  overflow: visible; // Ensure text is not clipped
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.6s;
+  }
+  
+  @media (max-width: 768px) {
+    margin-left: 0; // Remove left margin on mobile for better centering
+    height: 70px; // Match mobile text size
+    width: 450px; // Increased width for mobile to accommodate full text
+    display: block; // Change to block for better mobile layout
+  }
+  
+  @media (max-width: 576px) {
+    margin-left: 0; // Remove left margin on smaller screens
+    height: 50px; // Match smaller mobile text size
+    width: 350px; // Increased width for smaller screens
+    display: block; // Change to block for better mobile layout
+  }
+  
+  @media (max-width: 480px) {
+    width: 320px; // Increased width for very small screens
+  }
+  
+  @media (max-width: 400px) {
+    width: 300px; // Increased width for very small screens
+  }
+  
+  @media (max-width: 360px) {
+    width: 280px; // Additional adjustment for very small screens
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animated-text-stroke,
+.animated-text-fill {
+  font-family: var(--font-secondary);
+  font-size: 140px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: visible;
+  letter-spacing: 0.1em;
+  min-width: max-content; // Ensure text doesn't get compressed
+  will-change: clip-path, transform, opacity; // Optimize for animations
+  backface-visibility: hidden; // Prevent flickering
+  transform: translateZ(0); // Force hardware acceleration
+  
+  @media (max-width: 768px) {
+    font-size: 70px; // Match the SKS size for consistency
+    letter-spacing: 0.05em; // Reduce letter spacing on mobile for better fit
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 50px; // Match the SKS size for consistency
+    letter-spacing: 0.03em; // Further reduce letter spacing on smaller screens
+  }
+  
+  @media (max-width: 480px) {
+    letter-spacing: 0.02em; // Minimal letter spacing for very small screens
+  }
+}
+
+.animated-text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--white);
+  animation: clipPathAnimation 4s infinite;
+  z-index: 1;
+}
+
+.animated-text-fill {
+  color: var(--secondary-color);
+  animation: clipPathAnimation 4s infinite reverse;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+@keyframes clipPathAnimation {
+  0%, 100% {
+    clip-path: inset(0 0 0 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--white);
+  margin: 0 auto 40px;  
+  max-width: 600px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 1s ease-out;
+  text-align: center; /* centers the text */
+  
+  &.animate-in {
+    opacity: 1;
+    transition-delay: 0.9s;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+    will-change: opacity;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 15px; // Further reduced margin to bring buttons closer
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.2s;
+  }
+  
+  @media (max-width: 768px) {
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 12px; // Further reduced margin on mobile
+    will-change: opacity, transform;
+  }
+  
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 10px; // Further reduced margin on smaller screens
+    will-change: opacity, transform;
+  }
+}
+
+.stat-item {
+  text-align: center;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  .stat-number {
+    font-family: var(--font-secondary);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    line-height: 1;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 5px; // Minimal margin to bring buttons closer to stats
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.5s;
+  }
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+    margin-top: 8px; // Minimal margin on mobile
+    gap: 15px; // Reduce gap for mobile
+    will-change: opacity, transform;
+  }
+  
+  @media (max-width: 576px) {
+    flex-direction: row; // Keep buttons side by side on mobile
+    gap: 12px; // Smaller gap for smaller screens
+    justify-content: center;
+    margin-top: 10px; // Minimal margin on smaller screens
+    will-change: opacity, transform;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 10px; // Even smaller gap for very small screens
+    margin-top: 12px; // Minimal margin for very small screens
+    will-change: opacity, transform;
+  }
+}
+
+.construction-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  min-height: 50px; // Ensure minimum height for touch targets
+  padding: 15px 30px; // Ensure adequate padding
+  
+  @media (max-width: 768px) {
+    min-height: 55px; // Increase touch target on mobile
+    padding: 18px 35px; // Increase padding for better mobile experience
+    font-size: 15px; // Slightly larger text on mobile
+  }
+  
+  @media (max-width: 576px) {
+    min-height: 50px; // Adjusted height for side-by-side layout
+    padding: 15px 20px; // Reduced padding to fit side by side
+    font-size: 14px; // Slightly smaller text to fit better
+    flex: 1; // Equal width buttons
+    justify-content: center; // Center content
+    max-width: 48%; // Ensure buttons don't get too wide
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    
+    @media (max-width: 768px) {
+      font-size: 18px; // Larger icons on mobile
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 16px; // Adjusted icon size for side-by-side layout
+    }
+  }
+  
+  &:hover i {
+    transform: scale(1.1);
+  }
+}
+
+// Construction Elements
+.construction-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.element {
+  position: absolute;
+  color: var(--primary-color);
+  font-size: 24px;
+  opacity: 0.1;
+  animation: float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    opacity: 0.2;
+    transform: scale(1.1);
+  }
+  
+  &.crane {
+    top: 20%;
+    right: 10%;
+    animation-delay: 0s;
+  }
+  
+  &.blueprint {
+    bottom: 30%;
+    left: 5%;
+    animation-delay: 1s;
+  }
+  
+  &.hammer {
+    top: 60%;
+    right: 20%;
+    animation-delay: 2s;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+// Bottom Controls Container
+.bottom-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  z-index: 1001; // Higher than header to prevent overlap
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    height: 120px;
+    padding-bottom: 15px;
+    // Ensure bottom controls don't overlap with header on mobile
+    bottom: 0;
+  }
+  
+  @media (max-width: 576px) {
+    height: 100px;
+    padding-bottom: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 90px;
+    padding-bottom: 8px;
+  }
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 3;
+  pointer-events: none;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(132, 204, 22, 0.9);
+  border: none;
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    background: var(--secondary-color);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 10px 30px rgba(132, 204, 22, 0.3);
+  }
+  
+  &.prev-btn {
+    left: 30px;
+  }
+  
+  &.next-btn {
+    right: 30px;
+  }
+  
+  i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover i {
+    transform: scale(1.2);
+  }
+}
+
+.slider-dots {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  z-index: 1002; // Higher z-index to ensure visibility
+  justify-content: center;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+    display: none; // Hide slider dots on mobile
+  }
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    background-color: var(--white);
+    transform: scale(1.3);
+    border-color: var(--white);
+  }
+  
+  &.active {
+    background-color: var(--secondary-color);
+    transform: scale(1.3);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 25px rgba(132, 204, 22, 0.6);
+  }
+}
+
+// Scroll Indicator
+.scroll-indicator {
+  position: relative;
+  text-align: center;
+  color: var(--white);
+  z-index: 1003; // Highest z-index to ensure it's always visible
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    display: none; // Hide scroll indicator on mobile
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  .scroll-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    text-align: center;
+    white-space: nowrap;
+    
+    @media (max-width: 576px) {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 9px;
+      letter-spacing: 0.5px;
+    }
+  }
+  
+  .scroll-arrow {
+    animation: bounce 2s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    i {
+      font-size: 20px;
+      color: var(--secondary-color);
+      
+      @media (max-width: 576px) {
+        font-size: 16px;
+      }
+      
+      @media (max-width: 480px) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+</style>
