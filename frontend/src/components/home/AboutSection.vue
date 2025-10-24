@@ -9,7 +9,7 @@
               <i class="fas fa-info-circle"></i>
               <span>About Our Company</span>
             </div>
-            <h2 class="about-title">Building Excellence Since 2007</h2>
+            <h2 class="about-title">Building Excellence Since {{ foundingYear }}</h2>
             <div class="about-description">
               <p class="description-main">
                 SKS DEVELOPERS (PVT) LTD stands apart from competitors through our unique combination of advanced
@@ -74,7 +74,7 @@
                   <i class="fas fa-check-circle"></i>
                 </div>
                 <div class="feature-text">
-                  <h5>30+ Years of Experience</h5>
+                  <h5>{{ yearsOfExperience }}+ Years of Experience</h5>
                   <p>Decades of construction expertise</p>
                 </div>
               </div>
@@ -83,7 +83,7 @@
                   <i class="fas fa-shield-alt"></i>
                 </div>
                 <div class="feature-text">
-                  <h5>100% Customer Satisfaction</h5>
+                  <h5>Committed to total client delight</h5>
                   <p>Exceeding expectations every time</p>
                 </div>
               </div>
@@ -130,7 +130,7 @@
               <div class="image-overlay">
                 <div class="since-badge">
                   <div class="badge-content">
-                    <span class="badge-year">2007</span>
+                    <span class="badge-year">{{ foundingYear }}</span>
                     <span class="badge-text">Since</span>
                   </div>
                 </div>
@@ -156,8 +156,8 @@
                   <i class="fas fa-star"></i>
                 </div>
                 <div class="counter-content">
-                  <div class="counter-number" data-count="17">0</div>
-                  <div class="counter-label">Years of Excellence</div>
+                  <div class="counter-number" :data-count="yearsOfExperience">0</div>
+                  <div class="counter-label">A legacy of excellence through the years</div>
                 </div>
               </div>
             </div>
@@ -180,7 +180,16 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
+
+// Company founding year
+const foundingYear = 2015
+
+// Calculate years of experience dynamically
+const yearsOfExperience = computed(() => {
+  const currentYear = new Date().getFullYear()
+  return currentYear - foundingYear
+})
 
 onMounted(() => {
   // Initialize counter animation

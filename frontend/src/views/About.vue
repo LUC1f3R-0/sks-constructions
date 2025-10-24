@@ -30,14 +30,14 @@
                 <span class="company-name">SKS DEVELOPERS</span>
                 <span class="company-type">(PVT) LTD</span>
               </h1>
-              <p class="hero-subtitle">Building Excellence Since 2007</p>
+              <p class="hero-subtitle">Building Excellence Since {{ foundingYear }}</p>
               <div class="hero-description">
-                <p>SKS Developers (Pvt) Ltd was established in 2007 and was incorporated as a Limited Liability Company. Our corporate office is located at 210/15, 'Green Terrace', Makola Road, Kiribathgoda, Sri Lanka and we are strengthening with an Experienced and Qualified set of Resource Personnel, Machinery and Equipment to in line with the Industry Standards.</p>
+                <p>SKS Developers (Pvt) Ltd was established in {{ foundingYear }} and was incorporated as a Limited Liability Company. Our corporate office is located at 210/15, 'Green Terrace', Makola Road, Kiribathgoda, Sri Lanka and we are strengthening with an Experienced and Qualified set of Resource Personnel, Machinery and Equipment to in line with the Industry Standards.</p>
               </div>
               <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
                 <div class="stat-item">
                   <div class="stat-content">
-                    <div class="stat-number" data-count="17">0</div>
+                    <div class="stat-number" :data-count="yearsOfExperience">0</div>
                     <div class="stat-label">Years of Excellence</div>
                   </div>
                 </div>
@@ -62,7 +62,7 @@
               <div class="image-overlay">
                 <div class="since-badge">
                   <div class="badge-content">
-                    <span class="badge-year">2007</span>
+                    <span class="badge-year">{{ foundingYear }}</span>
                     <span class="badge-text">Since</span>
                   </div>
                 </div>
@@ -100,7 +100,7 @@
                       <i class="fas fa-calendar-alt"></i>
                       <span>Established</span>
                     </div>
-                    <div class="info-value">2007</div>
+                    <div class="info-value">{{ foundingYear }}</div>
                   </div>
                   <div class="info-item">
                     <div class="info-label">
@@ -159,7 +159,7 @@
                   </div>
                 </div>
                 <div class="timeline-content">
-                  <div class="timeline-year">2007</div>
+                  <div class="timeline-year">{{ foundingYear }}</div>
                   <h4>Company Establishment</h4>
                   <p>SKS Developers (Pvt) Ltd was established and incorporated as a Limited Liability Company, marking the beginning of our construction excellence journey.</p>
                 </div>
@@ -287,9 +287,18 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 import Header from '@/components/layout/Header.vue'
 import Footer from '@/components/layout/Footer.vue'
+
+// Company founding year
+const foundingYear = 2015
+
+// Calculate years of experience dynamically
+const yearsOfExperience = computed(() => {
+  const currentYear = new Date().getFullYear()
+  return currentYear - foundingYear
+})
 
 onMounted(() => {
   // Initialize counter animation
